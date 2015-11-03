@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>ARF Ontario</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/bootstrap.min.css" />
+</head>
+<body ng-app="app">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="navbar-header">
+                    <a class="navbar-brand">ARF Ontario</a>
+                </div>
+                <div class="col-md-8">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a href="news">News</a>
+                        </li>
+                        <li class="nav-divider"></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Adoptions <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="adoptions/info">Before You Adopt</a></li>
+                                <li><a href="adoptions/dogs">Dogs</a></li>
+                                <li><a href="adoptions/cats">Cats</a></li>
+                                <li><a href="adoptions/showings">Showings</a></li>
+                                <li><a href="adoptions/training">Training Tips</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Join <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li class="disabled">Fostering</li>
+                                <li><a href="fostering/info">Before You Foster</a></li>
+                                <li><a href="fostering/apply">Apply</a></li>
+                                <li class="divider"></li>
+                                <li class="disabled">Volunteer</li>
+                                <li><a href="volunterring/apply">Apply</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-divider"></li>
+                        <li>
+                            <a href="contact">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div ng-view class="container">
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7//angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7//angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+    <script src="App/app.js"></script>
+</body>
+</html>
