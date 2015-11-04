@@ -2,10 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>ARF Ontario</title>
+    <base href="/">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles/bootstrap.min.css" />
+    <link href="styles/main.css" rel="stylesheet" />
 </head>
 <body ng-app="app">
     <nav class="navbar navbar-default navbar-fixed-top">
@@ -39,7 +41,7 @@
                                 <li><a href="fostering/apply">Apply</a></li>
                                 <li class="divider"></li>
                                 <li class="disabled">Volunteer</li>
-                                <li><a href="volunterring/apply">Apply</a></li>
+                                <li><a href="volunteering/apply">Apply</a></li>
                             </ul>
                         </li>
                         <li class="nav-divider"></li>
@@ -54,11 +56,15 @@
     <div ng-view class="container">
     </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7//angular-animate.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7//angular-route.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
-    <script src="App/app.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>    
+    
+    <script src="App/adoptions/adoptions.module.js"></script>
+    <script src="App/adoptions/adoptions.controller.js"></script>
+    <script src="App/adoptions/adoptions.route.js"></script>    
+    <script src="App/app.js"></script>    
 </body>
 </html>

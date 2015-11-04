@@ -74,13 +74,15 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App\adoptions\adoptions.html" />
+    <Content Include="App\adoptions\adoptions.route.js" />
+    <Content Include="App\adoptions\dogs.html" />
     <Content Include="App\app.js" />
-    <Content Include="images\arflogo-large.gif" />
-    <Content Include="images\arflogo-medium.png" />
     <Content Include="index.html" />
     <Content Include="Scripts\routerHelperProvider.js" />
     <Content Include="styles\bootstrap.css" />
     <Content Include="styles\bootstrap.min.css" />
+    <Content Include="styles\main.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -88,6 +90,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+    <Content Include="App\adoptions\adoptions.controller.js" />
+    <Content Include="App\adoptions\adoptions.module.js" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -96,7 +100,12 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App\contact\" />
+    <Folder Include="App\fostering\" />
+    <Folder Include="App\news\" />
+    <Folder Include="App\volunteering\" />
     <Folder Include="Controllers\" />
+    <Folder Include="images\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>

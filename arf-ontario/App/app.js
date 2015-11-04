@@ -2,12 +2,13 @@
     'use strict';
 
     angular.module('app', [
-        // Angular modules
+        // Angular modules        
         'ngAnimate',
-        'ngRoute'
+        'ngRoute',
+        
 
         // Custom modules
-
+        'app.adoptions'
         // 3rd Party Modules
         
     ]);
