@@ -8,6 +8,7 @@
         
 
         // Custom modules
+        'app.core',
         'app.adoptions'
         // 3rd Party Modules
         

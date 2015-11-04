@@ -74,10 +74,18 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App\adoptions\adoptions.html" />
     <Content Include="App\adoptions\adoptions.route.js" />
+    <Content Include="App\adoptions\cats.html" />
     <Content Include="App\adoptions\dogs.html" />
+    <Content Include="App\adoptions\info.html" />
+    <Content Include="App\adoptions\showings.html" />
+    <Content Include="App\adoptions\training.html" />
     <Content Include="App\app.js" />
+    <Content Include="App\core\core.controller.js" />
+    <Content Include="App\core\core.module.js" />
+    <Content Include="App\core\core.route.js" />
+    <Content Include="App\core\main.html" />
+    <Content Include="App\news\news.module.js" />
     <Content Include="index.html" />
     <Content Include="Scripts\routerHelperProvider.js" />
     <Content Include="styles\bootstrap.css" />
@@ -102,7 +110,6 @@
   <ItemGroup>
     <Folder Include="App\contact\" />
     <Folder Include="App\fostering\" />
-    <Folder Include="App\news\" />
     <Folder Include="App\volunteering\" />
     <Folder Include="Controllers\" />
     <Folder Include="images\" />
