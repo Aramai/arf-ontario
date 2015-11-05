@@ -3,14 +3,22 @@
 
     angular
         .module('app.core')
-        .config(function ($routeProvider, $locationProvider) {
-            $routeProvider.when('/', {
-                url: '/',
-                templateUrl: 'app/core/main.html',
+        .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
+            $urlRouterProvider.otherwise("/", {
+                url: '',
+                templateUrl: 'app/core/core.html',
                 controller: 'Core',
                 controllerAs: 'vm',
                 title: 'Home'
-            })               
+            });
+
+            $stateProvider.state('core', {
+                url: '/',
+                templateUrl: 'app/core/core.html',
+                controller: 'Core',
+                controllerAs: 'vm',
+                title: 'Home'
+            });
 
             $locationProvider.html5Mode(true);
         }

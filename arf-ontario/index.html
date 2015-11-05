@@ -1,8 +1,8 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>ARF Ontario</title>
-    <base href="/">
+    <title>ARF Ontario</title>    
+    <base href="/"/>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,58 +15,70 @@
             <div class="row">
                 <div class="col-md-2"></div>
                 <div class="navbar-header">
-                    <a href="/" class="navbar-brand">ARF Ontario</a>
+                    <a ui-sref="core" class="navbar-brand">ARF Ontario</a>
                 </div>
                 <div class="col-md-8">
                     <ul class="nav navbar-nav">
                         <li>
-                            <a href="news">News</a>
+                            <a ui-sref="news">News</a>
                         </li>
                         <li class="nav-divider"></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Adoptions <b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li><a href="adoptions/info">Before You Adopt</a></li>
-                                <li><a href="adoptions/dogs">Dogs</a></li>
-                                <li><a href="adoptions/cats">Cats</a></li>
-                                <li><a href="adoptions/showings">Showings</a></li>
-                                <li><a href="adoptions/training">Training Tips</a></li>
+                                <li><a ui-sref="adoptions.info">Before You Adopt</a></li>
+                                <li><a ui-sref="adoptions.dogs">Dogs</a></li>
+                                <li><a ui-sref="adoptions.cats">Cats</a></li>
+                                <li><a ui-sref="adoptions.showings">Showings</a></li>
+                                <li><a ui-sref="adoptions.training">Training Tips</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Join <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li class="disabled">Fostering</li>
-                                <li><a href="fostering/info">Before You Foster</a></li>
-                                <li><a href="fostering/apply">Apply</a></li>
+                                <li><a ui-sref="fostering.info">Before You Foster</a></li>
+                                <li><a ui-sref="fostering.apply">Apply</a></li>
                                 <li class="divider"></li>
                                 <li class="disabled">Volunteer</li>
-                                <li><a href="volunteering/apply">Apply</a></li>
+                                <li><a ui-sref="volunteering.apply">Apply</a></li>
                             </ul>
                         </li>
                         <li class="nav-divider"></li>
                         <li>
-                            <a href="contact">Contact</a>
+                            <a ui-sref="contact">Contact</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
     </nav>
-    <div ng-view class="container">
+    <div ui-view class="container">
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7//angular-animate.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7//angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7//angular-animate.min.js"></script>    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
     <script src="App/core/core.module.js"></script>
     <script src="App/core/core.controller.js"></script>
     <script src="App/core/core.route.js"></script>
+    <script src="App/news/news.module.js"></script>
+    <script src="App/news/news.controller.js"></script>    
+    <script src="App/news/news.route.js"></script>
     <script src="App/adoptions/adoptions.module.js"></script>
     <script src="App/adoptions/adoptions.controller.js"></script>
-    <script src="App/adoptions/adoptions.route.js"></script>    
-    <script src="App/app.js"></script>    
+    <script src="App/adoptions/adoptions.route.js"></script>
+    <script src="App/fostering/fostering.module.js"></script>
+    <script src="App/fostering/fostering.controller.js"></script>
+    <script src="App/fostering/fostering.route.js"></script>
+    <script src="App/volunteering/volunteering.module.js"></script>
+    <script src="App/volunteering/volunteering.controller.js"></script>
+    <script src="App/volunteering/volunteering.route.js"></script>
+    <script src="App/contact/contact.module.js"></script>
+    <script src="App/contact/contact.controller.js"></script>    
+    <script src="App/contact/contact.route.js"></script>
+    <script src="App/app.js"></script>
 </body>
 </html>

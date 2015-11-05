@@ -74,6 +74,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App\adoptions\adoptions.html" />
     <Content Include="App\adoptions\adoptions.route.js" />
     <Content Include="App\adoptions\cats.html" />
     <Content Include="App\adoptions\dogs.html" />
@@ -81,11 +82,29 @@
     <Content Include="App\adoptions\showings.html" />
     <Content Include="App\adoptions\training.html" />
     <Content Include="App\app.js" />
+    <Content Include="App\contact\contact.controller.js" />
+    <Content Include="App\contact\contact.html" />
+    <Content Include="App\contact\contact.module.js" />
+    <Content Include="App\contact\contact.route.js" />
     <Content Include="App\core\core.controller.js" />
     <Content Include="App\core\core.module.js" />
     <Content Include="App\core\core.route.js" />
-    <Content Include="App\core\main.html" />
+    <Content Include="App\core\core.html" />
+    <Content Include="App\fostering\apply.html" />
+    <Content Include="App\fostering\fostering.controller.js" />
+    <Content Include="App\fostering\fostering.html" />
+    <Content Include="App\fostering\fostering.module.js" />
+    <Content Include="App\fostering\fostering.route.js" />
+    <Content Include="App\fostering\info.html" />
+    <Content Include="App\news\news.controller.js" />
+    <Content Include="App\news\news.html" />
     <Content Include="App\news\news.module.js" />
+    <Content Include="App\news\news.route.js" />
+    <Content Include="App\volunteering\apply.html" />
+    <Content Include="App\volunteering\volunteering.controller.js" />
+    <Content Include="App\volunteering\volunteering.html" />
+    <Content Include="App\volunteering\volunteering.module.js" />
+    <Content Include="App\volunteering\volunteering.route.js" />
     <Content Include="index.html" />
     <Content Include="Scripts\routerHelperProvider.js" />
     <Content Include="styles\bootstrap.css" />
@@ -108,9 +127,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App\contact\" />
-    <Folder Include="App\fostering\" />
-    <Folder Include="App\volunteering\" />
     <Folder Include="Controllers\" />
     <Folder Include="images\" />
     <Folder Include="Models\" />
