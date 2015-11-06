@@ -45,15 +45,22 @@
                             </ul>
                         </li>
                         <li class="nav-divider"></li>
-                        <li>
-                            <a ui-sref="contact">Contact</a>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Contact <b class="caret"></b></a>
+                            <ul class="dropdown-menu">                                
+                                <li><a ui-sref="contact.donate">Donate</a></li>
+                                <li><a ui-sref="contact.email">Email</a></li>                               
+                            </ul>                            
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
     </nav>
-    <div ui-view class="container">
+    <div class="container">        
+        <div class="row">
+            <div ui-view class="col-md-9"></div>
+        </div>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.js"></script>
