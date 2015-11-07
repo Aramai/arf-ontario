@@ -14,14 +14,14 @@
                 title: 'Contact'
             })
             .state('contact.donate', {
-                url: '/contact/donate',
+                url: '/donate',
                 templateUrl: 'app/contact/donate.html',
                 controller: 'Contact',
                 controllerAs: 'vm',
                 title: 'Contact - Donate'
             })
             .state('contact.email', {
-                url: '/contact/email',
+                url: '/email',
                 templateUrl: 'app/contact/email.html',
                 controller: 'Contact',
                 controllerAs: 'vm',

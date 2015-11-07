@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles/bootstrap.min.css" />
     <link href="styles/main.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 </head>
 <body ng-app="app">
     <nav class="navbar navbar-default navbar-fixed-top">
@@ -52,22 +53,40 @@
                                 <li><a ui-sref="contact.email">Email</a></li>                               
                             </ul>                            
                         </li>
+                        <li class="nav-divider"></li>
+                        <li>
+                            <a href="https://www.facebook.com/ARF.Ontario"><i class="fa fa-facebook fa-lg"></i></a>
+                        </li>
+                        <li>
+                            <a href="https://twitter.com/ARFAnimalRescue"><i class="fa fa-twitter fa-lg"></i></a>
+                        </li>
+                        <li>
+                            <a href="http://instagram.com/arfontario"><i class="fa fa-instagram fa-lg"></i></a>
+                        </li>
                     </ul>
                 </div>
             </div>
         </div>
-    </nav>
-    <div class="container">        
-        <div class="row">
-            <div ui-view class="col-md-9"></div>
-        </div>
-    </div>
+    </nav>        
+    <div class="container">                 
+        <div class="row">                     
+            <div class="col-md-1"></div>
+            <div class="col-md-8 content">
+                <img src="../../images/arflogo-large.gif" alt="ARF Ontario" class="img-responsive img-rounded center-block" />
+                <div ui-view></div>
+            </div>            
+        </div>        
+    </div>    
+    <footer class="text-center">       
+        <br />
+        <i class="text-muted fa fa-copyright"> Sean Clark 2015</i>
+    </footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7//angular-animate.min.js"></script>    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>    
     <script src="App/core/core.module.js"></script>
     <script src="App/core/core.controller.js"></script>
     <script src="App/core/core.route.js"></script>

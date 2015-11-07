@@ -14,35 +14,35 @@
                 title: 'Adoptions'
             })
             .state('adoptions.info', {
-                url: '/adoptions/info',
+                url: '/info',
                 templateUrl: 'app/adoptions/info.html',
                 controller: 'Adoptions',
                 controllerAs: 'vm',
                 title: 'Adoptions - Info'
             })
             .state('adoptions.dogs', {
-                url: '/adoptions/dogs',
+                url: '/dogs',
                 templateUrl: 'app/adoptions/dogs.html',
                 controller: 'Adoptions',
                 controllerAs: 'vm',
                 title: 'Adoptions - Dogs'
             })
             .state('adoptions.cats', {
-                url: '/adoptions/cats',
+                url: '/cats',
                 templateUrl: 'app/adoptions/cats.html',
                 controller: 'Adoptions',
                 controllerAs: 'vm',
                 title: 'Adoptions - Cats'
             })
             .state('adoptions.showings', {
-                url: '/adoptions/showings',
+                url: '/showings',
                 templateUrl: 'app/adoptions/showings.html',
                 controller: 'Adoptions',
                 controllerAs: 'vm',
                 title: 'Adoptions - Showings'
             })
             .state('adoptions.training', {
-                url: '/adoptions/training',
+                url: '/training',
                 templateUrl: 'app/adoptions/training.html',
                 controller: 'Adoptions',
                 controllerAs: 'vm',

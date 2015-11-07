@@ -14,11 +14,11 @@
                 title: 'Volunteering'
             })
             .state('volunteering.apply', {
-                url: '/Volunteering/apply',
+                url: '/apply',
                 templateUrl: 'app/Volunteering/apply.html',
                 controller: 'Volunteering',
                 controllerAs: 'vm',
                 title: 'Volunteering - Apply'
             })            
         });
-})();
+})(;)

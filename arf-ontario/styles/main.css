@@ -1,8 +1,10 @@
 ﻿body{
     position:relative;
-    margin-top:70px;
+    margin-top:63px;
+    background-color: beige;
 }
 
-.outline{
-    outline:1px solid black;
+.content {
+    background-color: white;
 }
+

@@ -14,14 +14,14 @@
                 title: 'Fostering'
             })
             .state('fostering.info', {
-                url: '/fostering/info',
+                url: '/info',
                 templateUrl: 'app/fostering/info.html',
                 controller: 'Fostering',
                 controllerAs: 'vm',
                 title: 'Fostering - Info'
             })
             .state('fostering.apply', {
-                url: '/fostering/apply',
+                url: '/apply',
                 templateUrl: 'app/fostering/apply.html',
                 controller: 'Fostering',
                 controllerAs: 'vm',
