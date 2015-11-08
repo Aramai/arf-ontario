@@ -19,6 +19,6 @@
                 controller: 'Volunteering',
                 controllerAs: 'vm',
                 title: 'Volunteering - Apply'
-            })            
+            })
         });
-})(;)
+})();
