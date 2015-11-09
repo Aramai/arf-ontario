@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>ARF Ontario</title>    
-    <base href="arf">    
+    <base href="/">    
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,7 +12,7 @@
 </head>
 <body ng-app="app">
     <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container-fluid">
+        <div class="container-fluid hidden-xs">
             <div class="row">
                 <div class="col-md-2"></div>
                 <div class="navbar-header">
@@ -69,18 +69,19 @@
         </div>
     </nav>        
     <div class="container">                 
-        <div class="row">                     
-            <div class="col-md-1"></div>
-            <div class="col-md-8 content">
+        <div class="row">                                 
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
                 <img src="images/arflogo-large.gif" alt="ARF Ontario" class="img-responsive img-rounded center-block" />
                 <div ui-view></div>
-            </div>            
+                <footer class="text-center">                    
+                    <i class="text-muted fa fa-copyright"> Sean Clark 2015</i>
+                </footer>
+            </div>                
+            <div class="col-md-2"></div>
         </div>        
     </div>    
-    <footer class="text-center">       
-        <br />
-        <i class="text-muted fa fa-copyright"> Sean Clark 2015</i>
-    </footer>
+    
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7//angular-animate.min.js"></script>    
