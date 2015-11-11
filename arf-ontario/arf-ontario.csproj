@@ -78,6 +78,7 @@
     <Content Include="App\adoptions\adoptions.route.js" />
     <Content Include="App\adoptions\cats.html" />
     <Content Include="App\adoptions\dogs.html" />
+    <Content Include="App\adoptions\images\Aella.jpg" />
     <Content Include="App\adoptions\info.html" />
     <Content Include="App\adoptions\showings.html" />
     <Content Include="App\adoptions\training.html" />
@@ -122,6 +123,7 @@
     <Content Include="packages.config" />
     <Content Include="App\adoptions\adoptions.controller.js" />
     <Content Include="App\adoptions\adoptions.module.js" />
+    <Content Include="App\adoptions\adoptableDogs.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

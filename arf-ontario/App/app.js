@@ -3,7 +3,7 @@
 
     angular.module('app', [
         // Angular modules        
-        'ngAnimate',        
+        'ngAnimate',
         'ui.router',
 
         // Custom modules

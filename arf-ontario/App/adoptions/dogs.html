@@ -1,5 +1,18 @@
 ﻿<div class="row">        
     <div class="col-md-8">
+        <p class="alert alert-success">
+            Be sure to read our <u><a ui-sref="adoptions.info">Before You Adopt</a></u> page!
+        </p>
+        <hr />                
+        <div ng-repeat="dog in vm.dogs">            
+            <img ng-src="{{dog.image}}" class="img-responsive" alt="{{dog.name}}" />
+            <h3>{{dog.name}}</h3>
+            <p>
+                <small>{{dog.brief}}</small>
+            </p>
+            {{dog.description}}
+            <hr />            
+        </div>
         <div class="embed-responsive embed-responsive-16by9">
             <iframe class="embed-responsive-item" width="280" height="158" src="https://www.youtube.com/embed/xXn-4FbQOTY" allowfullscreen></iframe>
         </div>
