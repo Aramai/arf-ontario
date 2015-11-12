@@ -47,6 +47,13 @@
                 controller: 'Adoptions',
                 controllerAs: 'vm',
                 title: 'Adoptions - Training'
+            })
+            .state('adoptions.adopt', {
+                url: '/adopt/{name}',
+                templateUrl: 'app/adoptions/adopt.html',
+                controller: 'Adoptions',
+                controllerAs: 'vm',
+                title: 'Adoptions - Adopt'
             });
         });    
 })();

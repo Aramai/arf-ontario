@@ -74,6 +74,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App\adoptions\adopt.html" />
     <Content Include="App\adoptions\adoptions.html" />
     <Content Include="App\adoptions\adoptions.route.js" />
     <Content Include="App\adoptions\cats.html" />
@@ -124,6 +125,7 @@
     <Content Include="App\adoptions\adoptions.controller.js" />
     <Content Include="App\adoptions\adoptions.module.js" />
     <Content Include="App\adoptions\adoptableDogs.json" />
+    <Content Include="App\adoptions\adoptableCats.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

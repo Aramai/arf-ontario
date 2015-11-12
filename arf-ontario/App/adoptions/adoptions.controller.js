@@ -5,25 +5,40 @@
         .module('app.adoptions')
         .controller('Adoptions', Adoptions);
 
-    function Adoptions($http) {
+    function Adoptions($http, $state) {
         var vm = this;
         vm.title = 'Adoptions';
+        vm.dogs = undefined;
+        vm.cats = undefined;
         
-        $http.get('./App/adoptions/adoptableDogs.json').success(GetAdoptableDogs);
+        if ($state.is('adoptions.dogs') && vm.dogs == undefined) {
+            $http.get('./App/adoptions/adoptableDogs.json').success(GetAdoptableDogs);
+        }
+        else if ($state.is('adoptions.cats') && vm.cats == undefined) {
+            $http.get('./App/adoptions/adoptableCats.json').success(GetAdoptableCats);
+        }
         
         function GetAdoptableDogs(response) {
             vm.dogs = response.dogs;
-            
-            for(var i = 0; i < vm.dogs.length; i++)
-            {
-                console.log(vm.dogs[i].description);
-                vm.dogs[i].description = vm.dogs[i].description.replace(/\n/g, "<br />")
-            }
-            
+
+            ReplaceNewLines(vm.dogs);            
+        }
+
+        function GetAdoptableCats(response) {
+            vm.cats = response.cats;
+
+            ReplaceNewLines(vm.cats);
         }
 
         function ReportError(response) {
             console.log(response);
+        }
+
+        function ReplaceNewLines(arr)
+        {
+            for (var i = 0; i < arr.length; i++) {
+                arr[i].description = arr[i].description.replace(/\n/g, "<br />")
+            }
         }
     }
 })();

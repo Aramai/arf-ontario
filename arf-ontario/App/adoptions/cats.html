@@ -1,3 +1,25 @@
-﻿<div class="embed-responsive embed-responsive-16by9">
+﻿<p class="alert alert-success">
+    Be sure to read our <u><a ui-sref="adoptions.info">Before You Adopt</a></u> page!
+</p>
+<hr />
+<div ng-repeat="cat in vm.cats">
+    <div class="row">
+        <div class="col-md-3">
+            <img ng-src="{{cat.image}}" class="img-responsive" ng-alt="{{cat.name}}" />
+            <p class="text-center">
+                <a ui-sref="adoptions.adopt({name:'{{cat.name}}'})">Adopt Me!</a>
+            </p>
+            <h3>{{cat.name}}</h3>
+            <p>
+                <small>{{cat.brief}}</small>
+            </p>
+        </div>
+        <div class="col-md-9">
+            <span ng-bind-html="cat.description"></span>
+        </div>
+    </div>
+    <hr />
+</div>
+<div class="embed-responsive embed-responsive-16by9">
     <iframe class="embed-responsive-item" width="280" height="158" src="https://www.youtube.com/embed/xXn-4FbQOTY" allowfullscreen></iframe>
 </div>

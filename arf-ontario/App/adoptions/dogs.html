@@ -6,10 +6,13 @@
     <div class="row">
         <div class="col-md-3">
             <img ng-src="{{dog.image}}" class="img-responsive" ng-alt="{{dog.name}}" />
+            <p class="text-center">
+                <a ui-sref="adoptions.adopt({name:'{{dog.name}}'})">Adopt Me!</a>
+            </p>
             <h3>{{dog.name}}</h3>
             <p>
                 <small>{{dog.brief}}</small>
-            </p>            
+            </p>
         </div>
         <div class="col-md-9">
             <span ng-bind-html="dog.description"></span>
