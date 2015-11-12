@@ -12,7 +12,13 @@
         $http.get('./App/adoptions/adoptableDogs.json').success(GetAdoptableDogs);
         
         function GetAdoptableDogs(response) {
-            vm.dogs = response.dogs;            
+            vm.dogs = response.dogs;
+            
+            for(var i = 0; i < vm.dogs.length; i++)
+            {
+                console.log(vm.dogs[i].description);
+                vm.dogs[i].description = vm.dogs[i].description.replace(/\n/g, "<br />")
+            }
             
         }
 
