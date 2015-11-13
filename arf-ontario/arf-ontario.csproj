@@ -79,7 +79,7 @@
     <Content Include="App\adoptions\adoptions.route.js" />
     <Content Include="App\adoptions\cats.html" />
     <Content Include="App\adoptions\dogs.html" />
-    <Content Include="App\adoptions\images\Aella.jpg" />
+    <Content Include="images\adoptions\Aella.jpg" />
     <Content Include="App\adoptions\info.html" />
     <Content Include="App\adoptions\showings.html" />
     <Content Include="App\adoptions\training.html" />
@@ -110,6 +110,7 @@
     <Content Include="App\volunteering\volunteering.module.js" />
     <Content Include="App\volunteering\volunteering.route.js" />
     <Content Include="images\arflogo-large.gif" />
+    <Content Include="images\Awesome-Dogs-logo.gif" />
     <Content Include="index.html" />
     <Content Include="Scripts\routerHelperProvider.js" />
     <Content Include="styles\bootstrap.css" />

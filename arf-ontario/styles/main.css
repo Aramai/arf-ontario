@@ -8,7 +8,7 @@ hr{
     border-top: 1px solid #CAC5C5;
 }
 
-.content {
-    background-color: white;
+hr.invisible{
+    color:#D8D6BC;
 }
 
