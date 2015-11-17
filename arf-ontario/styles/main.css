@@ -12,3 +12,16 @@ hr.invisible{
     color:#D8D6BC;
 }
 
+table.strong-border{
+   border: 1px solid #000000;
+}
+
+.strong-border > thead > tr > th,
+.strong-border > tbody > tr > th,
+.strong-border > tfoot > tr > th,
+.strong-border > thead > tr > td,
+.strong-border > tbody > tr > td,
+.strong-border > tfoot > tr > td {
+   border: 1px solid #000000;
+}
+
