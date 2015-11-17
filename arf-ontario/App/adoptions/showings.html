@@ -1,1 +1,35 @@
-﻿<h3>TODO: Implement Your Features with showings</h3>
+﻿<div class="text-center">
+    <h3>How Does It Work?</h3>
+    <p>
+        Come and fall in love! Pet, snuggle, giggle and admire the beeeautiful (not to mention vet checked, microchipped, vaccinated, de-fleaed, and socialized!) dogs and cats. Then:
+    </p>
+    <ul class="center-block">
+        <li>Complete an adoption application</li>
+        <li>Chat with an ARF volunteer during a telephone interview</li>
+    </ul>
+    <p>
+        For every person that chooses the adoption option instead of petshop purchase, you have SAVED A LIFE and another abandoned or abused animal can be saved by ARF. Join the thousands of happy homes that have opted to adopt.... tail wags and whisker twitches will be sent your way!
+    </p>
+</div>
+<hr />
+<div ng-repeat="showing in vm.showings" class="text-center">
+
+    <a ng-href="{{showing.url}}"><img ng-src="{{showing.logo}}" class="img-responsive center-block" ng-alt="{{showing.name}}" title="{{showing.name}}" /></a>
+    <h4>{{showing.description}}</h4>
+    <h5>{{showing.attendees}}</h5>
+    <h5><strong>{{showing.date}}</strong> from <strong>{{showing.startTime}}</strong> to <strong>{{showing.endTime}}</strong></h5>
+    <h5>{{showing.notes}}</h5>
+    <hr />
+</div>
+<div class="text-center">
+    <h3>Kittie Showings</h3>
+    <p>
+        Global Pet Foods and Strathroy Pet Valu will be showing off some of our adoptable cats and kittens.
+    </p>
+    <p>
+        We’d love for you to bring the family out to meet one of our feline friends and decide which kitty is purrrfect for your environment.
+    </p>
+    <p>
+        Adoption applications are available by clicking any “ADOPT ME” link in the cat's profile on the <a ui-sref="adoptions.cats">Cat Adoption</a> page.
+    </p>
+</div>

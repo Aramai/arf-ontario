@@ -79,7 +79,6 @@
     <Content Include="App\adoptions\adoptions.route.js" />
     <Content Include="App\adoptions\cats.html" />
     <Content Include="App\adoptions\dogs.html" />
-    <Content Include="images\adoptions\Aella.jpg" />
     <Content Include="App\adoptions\info.html" />
     <Content Include="App\adoptions\showings.html" />
     <Content Include="App\adoptions\training.html" />
@@ -111,6 +110,7 @@
     <Content Include="App\volunteering\volunteering.route.js" />
     <Content Include="images\arflogo-large.gif" />
     <Content Include="images\Awesome-Dogs-logo.gif" />
+    <Content Include="images\showings\Museum.jpg" />
     <Content Include="index.html" />
     <Content Include="Scripts\routerHelperProvider.js" />
     <Content Include="styles\bootstrap.css" />
@@ -127,6 +127,7 @@
     <Content Include="App\adoptions\adoptions.module.js" />
     <Content Include="App\adoptions\adoptableDogs.json" />
     <Content Include="App\adoptions\adoptableCats.json" />
+    <Content Include="App\adoptions\showings.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -136,6 +137,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
+    <Folder Include="images\adoptions\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>

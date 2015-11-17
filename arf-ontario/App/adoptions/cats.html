@@ -5,7 +5,7 @@
 <div ng-repeat="cat in vm.cats">
     <div class="row">
         <div class="col-md-3">
-            <img ng-src="{{cat.image}}" class="img-responsive" ng-alt="{{cat.name}}" />
+            <img ng-src="{{cat.image}}" class="img-responsive" ng-alt="{{cat.name}}" title="{{cat.name}}" />
             <p class="text-center">
                 <a ui-sref="adoptions.adopt({name:'{{cat.name}}'})">Adopt Me!</a>
             </p>
