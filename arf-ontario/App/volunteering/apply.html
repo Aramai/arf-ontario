@@ -1,16 +1,103 @@
 ﻿<h4 class="text-center"><strong>Volunteer Application</strong></h4>
 <hr />
-<form class="form-horizontal">    
+<form class="form-horizontal" ng-f>
     <div class="form-group form-group-sm">
         <label for="name" class="col-md-2">Name</label>
         <div class="col-md-10">
-            <input type="text" class="form-control" id="name" placeholder="Name" ng-model="name"/>
+            <input type="text" class="form-control" id="name" placeholder="Name" ng-model="vm.form.name" />
         </div>
     </div>
     <div class="form-group form-group-sm">
         <label for="address" class="col-md-2">Address</label>
         <div class="col-md-10">
-            <input type="text" class="form-control" id="address" placeholder="Address" ng-model="address" />
+            <input type="text" class="form-control" id="address" placeholder="Address" ng-model="vm.form.address" />
+        </div>
+    </div>
+    <div class="form-group form-group-sm">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-10">
+                <label for="over18"><input type="checkbox" id="over18" placeholder="Over18" ng-model="vm.form.over18" /> Are you 18 or older?</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-10">
+                <label for="under18Emails"><input type="checkbox" id="under18Emails" placeholder="Under18Emails" ng-model="vm.form.under18Emails"/> Do you have adult permission to receiver volunteer opportunity e-mails from ARF?</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-10">
+                <div class="row">
+                    <div class="col-md-5">
+                        <label for="under18PermissionName">Name of Adult Granting Permission</label>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" id="under18PermissionName" placeholder="Name" ng-model="vm.form.under18PermissionName" />
+                    </div>
+                </div>                
+            </div>
+        </div>
+    </div>
+    <div class="form-group form-group-sm">
+        <div class="col-md-2">
+            <label for="homePhone">Home Phone</label>
+        </div>
+        <div class="col-md-10">
+            <input type="text" class="form-control" id="homePhone" placeholder="Home Phone" ng-model="vm.form.homePhone" />
+        </div>
+    </div>
+    <div class="form-group form-group-sm">
+        <div class="col-md-2">
+            <label for="workPhone">Work Phone</label>
+        </div>
+        <div class="col-md-10">
+            <input type="text" class="form-control" id="workPhone" placeholder="Work Phone" ng-model="vm.form.workPhone" />
+        </div>
+    </div>
+    <div class="form-group form-group-sm">
+        <div class="col-md-2">
+            <label for="email">Email</label>
+        </div>
+        <div class="col-md-10">
+            <input type="email" class="form-control" id="email" placeholder="Email" ng-model="vm.form.email" data-toggle="tooltip" title="Approx 1 request per month"/>
+        </div>
+    </div>
+    <div class="form-group form-group-sm">
+        <div class="col-md-2">
+            <label for="callPreference">I prefer to receive calls at</label>
+        </div>
+        <div class="col-md-10">
+            <label class="radio-inline">
+                <input type="radio" name="callPreference" id="callPreferenceHome" value="Home" ng-model="vm.form.callPreference"/>Home
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="callPreference" id="callPreferenceWork" value="Work" ng-model="vm.form.callPreference" />Work
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="callPreference" id="callPreferenceEither" value="Either" ng-model="vm.form.callPreference" />Either
+            </label>
+        </div>
+    </div>
+    <div class="form-group form-group-sm">
+        <div class="col-md-2"></div>
+        <div class="col-md-10">
+            <label for="petDescription">Do you have any pets? If so, tell us a little about these furry family members, including spay/neuter status:</label>
+            <textarea class="form-control" rows="10" id="petDescription" placeholder="Describe your furry family" ng-model="vm.form.petDescription"></textarea>            
+        </div>
+    </div>
+    <div class="form-group form-group-sm">
+        <div class="col-md-2"></div>
+        <div class="col-md-10">
+            <label for="volunteerExperience">Do you have any other volunteer experience? If so, please explain:</label>
+            <textarea class="form-control" rows="10" id="volunteerExperience" placeholder="Describe your volunteering experience" ng-model="vm.form.volunteerExperience"></textarea>
+        </div>
+    </div>
+    <div class="form-group form-group-sm">
+        <div class="col-md-2"><label for="drives">Do you drive?</label></div>
+        <div class="col-md-10">            
+            <input type="checkbox" id="drives" placeholder="Drives" ng-model="vm.form.drives" />
         </div>
     </div>
 </form>

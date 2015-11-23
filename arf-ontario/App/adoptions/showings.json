@@ -1,0 +1,26 @@
+﻿{
+    "showings": [
+        {
+            "name": "Children's Museum",
+            "url": "http://www.londonchildrensmuseum.ca/",
+            "logo": "images/showings/Museum.jpg",
+            "date": "Saturday, November 14th",
+            "startTime": "10:00am",
+            "endTime": "12:30pm",
+            "description": "Adoptable ARF dogs will be visiting the Children's Museum",
+            "attendees": "Meet Aella, Ashkii, Stellah, and Tootsie!",
+            "notes":  ""
+        },
+        {
+            "name": "Roger's TV",
+            "url": "",
+            "logo": "images/showings/RogersLogo2014.jpg",
+            "date": "Daily",
+            "startTime": "11:00am",
+            "endTime": "12:00pm",
+            "description": "See ARF foster dogs every Monday on Rogers Daytime London! (Channel 13)",
+            "attendees": "Meet Kohna!",
+            "notes": "The show airs live at 11:00am. Replays are ate 1:00pm, 5:00pm, and 11:00pm!"
+        }        
+    ]
+}

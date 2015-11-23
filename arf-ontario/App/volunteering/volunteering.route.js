@@ -8,12 +8,10 @@
 
             $stateProvider.state('volunteering', {
                 url: '/volunteering',
-                templateUrl: 'app/volunteering/volunteering.html',
-                controller: 'Volunteering',
-                controllerAs: 'vm',
+                templateUrl: 'app/volunteering/volunteering.html',               
                 title: 'Volunteering'
             })
-            .state('volunteering.apply', {
+            .state('volunteering.apply', {                
                 url: '/apply',
                 templateUrl: 'app/Volunteering/apply.html',
                 controller: 'Volunteering',

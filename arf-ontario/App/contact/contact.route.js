@@ -8,9 +8,7 @@
 
             $stateProvider.state('contact', {
                 url: '/contact',
-                templateUrl: 'app/contact/contact.html',
-                controller: 'Contact',
-                controllerAs: 'vm',
+                templateUrl: 'app/contact/contact.html',                
                 title: 'Contact'
             })
             .state('contact.donate', {

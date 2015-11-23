@@ -8,9 +8,7 @@
 
             $stateProvider.state('adoptions', {
                 url: '/adoptions',
-                templateUrl: 'app/adoptions/adoptions.html',
-                controller: 'Adoptions',
-                controllerAs: 'vm',
+                templateUrl: 'app/adoptions/adoptions.html',                
                 title: 'Adoptions'
             })
             .state('adoptions.info', {
