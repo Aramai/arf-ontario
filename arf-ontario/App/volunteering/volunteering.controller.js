@@ -11,20 +11,48 @@
         vm.form = new VolunteerFormData();        
     }
 
+    function ShowMinorPermission() {
+
+    }
+
     function VolunteerFormData() {
         return {
             name: '',
             address: '',
-            over18: true,
-            under18Emails: true,
-            under18PermissionName: '',
+            over18: true,            
+            minorEmails: false,
+            minorPermissionAdultName: '',
             homePhone: '',
             workPhone: '',
             email: '',
             callPreference: '',
             petDescription: '',
             volunteerExperience: '',
-            drives: false
+            drives: false,
+            representingARF: false,
+            fundraisingProjects: false,
+            adoptionInterviews: false,
+            projectDevelopment: false,
+            walkingDogs: false,
+            shortTermCare: false,
+            felineFosterSupport: false,
+            runningGeneralErrands: false,
+            kibbleCollection: false,
+            rehabParkMaintenance: false,
+            computerSkills: false,
+            marketing: false,
+            publicRelations: false,
+            fundraising: false,
+            photography: false,
+            leadership: false,
+            volunteerCoordination: false,
+            accounting: false,
+            webDesign: false,
+            research: false,
+            availableWeekdays: false,
+            availableWeekends: false,
+            availableDays: false,
+            availableEvenings: false
         };
     }
 })();

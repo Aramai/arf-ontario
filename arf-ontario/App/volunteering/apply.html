@@ -17,26 +17,28 @@
         <div class="row">
             <div class="col-md-2"></div>
             <div class="col-md-10">
-                <label for="over18"><input type="checkbox" id="over18" placeholder="Over18" ng-model="vm.form.over18" /> Are you 18 or older?</label>
+                <label for="over18"><input type="checkbox" id="over18" placeholder="Over18" ng-model="vm.form.over18" ng-change="ShowMinorPermissions()" /> Are you 18 or older?</label>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-10">
-                <label for="under18Emails"><input type="checkbox" id="under18Emails" placeholder="Under18Emails" ng-model="vm.form.under18Emails"/> Do you have adult permission to receiver volunteer opportunity e-mails from ARF?</label>
+        <div ng-class="(vm.form.over18) ? 'hidden' : ''">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-10">
+                    <label for="minorEmails"><input type="checkbox" id="minorEmails" placeholder="Minor Email Permission" ng-model="vm.form.minorEmails" /> Do you have adult permission to receiver volunteer opportunity e-mails from ARF?</label>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-10">
-                <div class="row">
-                    <div class="col-md-5">
-                        <label for="under18PermissionName">Name of Adult Granting Permission</label>
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-10">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <label for="minorPermissionAdultName">Name of Adult Granting Permission</label>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" id="minorPermissionAdultName" placeholder="Name" ng-model="vm.form.minorPermissionAdultName" />
+                        </div>
                     </div>
-                    <div class="col-md-6">
-                        <input type="text" class="form-control" id="under18PermissionName" placeholder="Name" ng-model="vm.form.under18PermissionName" />
-                    </div>
-                </div>                
+                </div>
             </div>
         </div>
     </div>
@@ -100,10 +102,77 @@
             <input type="checkbox" id="drives" placeholder="Drives" ng-model="vm.form.drives" />
         </div>
     </div>
+    <div class="form-group form-group-sm">
+        <div class="col-md-2">
+            <br />
+            <label>What volunteer opportunities are you interested in (check all applicable)</label></div>
+        <div class="col-md-10 checkbox">
+            <label for="representingARF"><input type="checkbox" id="representingARF" placeholder="Representing ARF" ng-model="vm.form.representingARF" /> Representing ARF at promotional booths (eg adoption days, BBQs, fundraising events)</label>
+            <label for="fundraisingProjects"><input type="checkbox" id="fundraisingProjects" placeholder="Fundraising Projects" ng-model="vm.form.fundraisingProjects" /> Fundraising projects (eg calendar sales, baking, annual yard sale)</label>
+            <label for="adoptionInterviews"><input type="checkbox" id="adoptionInterviews" placeholder="Adoption Interviews" ng-model="vm.form.adoptionInterviews" /> Adoption telephone interviews (eg contacting potential adopters, administering screening questionnaire)</label>
+            <label for="projectDevelopment"><input type="checkbox" id="projectDevelopment" placeholder="Project Development" ng-model="vm.form.projectDevelopment" /> Project Development (eg being a team leader for a fundraiser)</label>
+            <label for="walkingDogs"><input type="checkbox" id="walkingDogs" placeholder="Walking Foster Dogs" ng-model="vm.form.walkingDogs" /> Walking Foster Dogs during weekdays (eg over lunch hour)</label>
+            <label for="shortTermCare"><input type="checkbox" id="shortTermCare" placeholder="Short Term Care" ng-model="vm.form.shortTermCare" /> Short Term Care (eg having a foster animal spend several days at your home while foster family is away)</label>
+            <label for="felineFosterSupport"><input type="checkbox" id="felineFosterSupport" placeholder="Feline Foster Support" ng-model="vm.form.felineFosterSupport" /> Feline Foster Support (a weekly request for kitty litter and cat food for you to drop off at London area foster families who have no access to a vehicle)</label>
+            <label for="runningGeneralErrands"><input type="checkbox" id="runningGeneralErrands" placeholder="Running General Errands" ng-model="vm.form.runningGeneralErrands" /> Running General Errands (eg driving animals to vets, picking up items for fundraisers)</label>
+            <label for="kibbleCollection"><input type="checkbox" id="kibbleCollection" placeholder="Kibble Collection" ng-model="vm.form.kibbleCollection" /> Kibble Collection (picking up dog and cat food donations from pet supply stores, deliviering it to storage locations in London)</label>
+            <label for="rehabParkMaintenance"><input type="checkbox" id="rehabParkMaintenance" placeholder="Rehabilitation Park Maintenance" ng-model="vm.form.rehabParkMaintenance" /> Rehabilitation Park Maintenance (a private outdoor area for ARF foster dog rehabilitation 15 minutes west of London - requires raking, weeding, etc)</label>
+        </div>
+    </div>
+    <div class="form-group form-group-sm">
+        <div class="col-md-2">
+            <br />
+            <label>Please note any special skills you can offer as a volunteer</label>
+        </div>
+        <div class="col-md-10 checkbox">
+            <div class="row">
+                <div class="col-md-5">
+                    <label for="computerSkills"><input type="checkbox" id="computerSkills" placeholder="Clerical/Computer Skills" ng-model="vm.form.computerSkills" /> Clerical/Computer Skills </label><br />
+                    <label for="marketing"><input type="checkbox" id="marketing" placeholder="Marketing" ng-model="vm.form.marketing" /> Marketing </label><br />
+                    <label for="publicRelations"><input type="checkbox" id="publicRelations" placeholder="Public Relations" ng-model="vm.form.publicRelations" /> Public Relations </label><br />
+                    <label for="fundraising"><input type="checkbox" id="fundraising" placeholder="Fundraising" ng-model="vm.form.fundraising" /> Fundraising </label><br />
+                    <label for="photography"><input type="checkbox" id="photography" placeholder="Photography" ng-model="vm.form.photography" /> Photography </label>
+                </div>
+                <div class="col-md-5">                    
+                    <label for="leadership"><input type="checkbox" id="leadership" placeholder="Leadership" ng-model="vm.form.leadership" /> Leadership </label><br />
+                    <label for="volunteerCoordination"><input type="checkbox" id="volunteerCoordination" placeholder="Volunteer Coordination" ng-model="vm.form.volunteerCoordination" /> Volunteer Coordination </label><br />
+                    <label for="accounting"><input type="checkbox" id="accounting" placeholder="Accounting" ng-model="vm.form.accounting" /> Accounting </label><br />
+                    <label for="webDesign"><input type="checkbox" id="webDesign" placeholder="Web Design/Maintenance" ng-model="vm.form.webDesign" /> Web Design </label><br />
+                    <label for="research"><input type="checkbox" id="research" placeholder="Research/Data Analysis" ng-model="vm.form.research" /> Research/Data Analysis </label>
+                </div>                
+            </div>
+        </div>
+    </div>
+    <div class="form-group form-group-sm">
+        <div class="col-md-2">
+            <br />
+            <label>Please indicate the times you are usually available to volunteer</label>
+        </div>
+        <div class="col-md-10">
+            <div class="row">
+                <div class="col-md-5">
+                    <label for="availableWeekdays" class="checkbox-inline">
+                        <input type="checkbox" name="availableWeekdays" id="availableWeekdays" ng-model="vm.form.availableWeekdays" /> Weekdays
+                    </label>
+                    <br />
+                    <label class="checkbox-inline">
+                        <input type="checkbox" name="availableWeekends" id="availableWeekends" ng-model="vm.form.availableWeekends" /> Weekends
+                    </label>
+                </div>
+                <div class="col-md-5">
+                    <label class="checkbox-inline">
+                        <input type="checkbox" name="availableDays" id="availableDays" ng-model="vm.form.availableDays" /> Days
+                    </label>
+                    <br />
+                    <label class="checkbox-inline">
+                        <input type="checkbox" name="availableEvenings" id="availableEvenings" ng-model="vm.form.availableEvenings" /> Evenings
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-center">
+        <button class="btn btn-default" type="submit">Submit</button>
+        <button class="btn btn-default" type="reset">Clear Form</button>
+    </div>
 </form>
-<div class="center-block">
-    <ul class="pager">
-        <li class="disabled"><a href="#">&larr; Previous</a></li>
-        <li><a href="#">Next &rarr;</a></li>
-    </ul>
-</div>
