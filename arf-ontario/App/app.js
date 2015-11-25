@@ -4,6 +4,7 @@
     angular.module('app', [
         // Angular modules        
         'ngAnimate',
+        'ngMessages',
         'ngSanitize',
         'ui.router',
 

@@ -8,12 +8,17 @@
     function Volunteering() {        
         var vm = this;
         vm.title = 'Volunteering';
-        vm.form = new VolunteerFormData();        
+        vm.form = new VolunteerFormData();
+        vm.submitForm = submit;
     }
 
-    function ShowMinorPermission() {
-
+    function submit(valid) {
+        alert(valid);
     }
+
+
+    
+
 
     function VolunteerFormData() {
         return {
