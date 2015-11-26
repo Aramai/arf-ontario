@@ -1,22 +1,22 @@
 ﻿<h4 class="text-center"><strong>Volunteer Application</strong></h4>
 <hr />
 <form name="applicationForm" class="form-horizontal" ng-submit="vm.submitForm(applicationForm.$valid)" novalidate>
-    <div class="form-group form-group-sm" ng-class="{'has-error': applicationForm.name.$touched && applicationForm.name.$invalid }">
+    <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorTouched(applicationForm.name) }">
         <label for="name" class="col-md-2">Name</label>
         <div class="col-md-10">
             <input type="text" class="form-control" id="name" name="name" placeholder="Name" ng-model="vm.form.name" required />
-            <div class="help-block" ng-messages="applicationForm.name.$error" ng-if="applicationForm.name.$touched">
-                <p ng-message="required">Name is required.</p>
-            </div>
+            <ng-messages for="applicationForm.name.$error" ng-if="applicationForm.name.$touched" class="help-block">
+                <span ng-message="required">Name is required.</span>
+            </ng-messages>           
         </div>
     </div>
-    <div class="form-group form-group-sm" ng-class="{'has-error': applicationForm.address.$touched && applicationForm.address.$invalid }">
+    <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorTouched(applicationForm.address) }">
         <label for="address" class="col-md-2">Address</label>
         <div class="col-md-10">
-            <input type="text" class="form-control" id="address" name="address" placeholder="Address" ng-model="vm.form.address" required /> 
-            <div class="help-block" ng-messages="applicationForm.address.$error" ng-if="applicationForm.address.$touched">
-                <p ng-message="required">Address is required</p>
-            </div>
+            <input type="text" class="form-control" id="address" name="address" placeholder="Address" ng-model="vm.form.address" required />
+            <ng-messages for="applicationForm.address.$error" ng-if="applicationForm.address.$touched" class="help-block">
+                <span ng-message="required">Address is required</span>
+            </ng-messages>
         </div>
     </div>
     <div class="form-group form-group-sm">
@@ -29,11 +29,11 @@
         <div ng-class="(vm.form.over18) ? 'hidden' : ''">
             <div class="row">
                 <div class="col-md-2"></div>
-                <div class="col-md-10" ng-class="{'has-error': applicationForm.minorEmails.$dirty && applicationForm.minorEmails.$invalid }">
+                <div class="col-md-10" ng-class="{'has-error': vm.hasErrorDirty(applicationForm.minorEmails) }">
                     <label for="minorEmails"><input type="checkbox" id="minorEmails" name="minorEmails" placeholder="Minor Email Permission" ng-model="vm.form.minorEmails" ng-required="!vm.form.over18" /> Do you have adult permission to receiver volunteer opportunity e-mails from ARF?</label>
-                    <div class="help-block" ng-messages="applicationForm.minorEmails.$error" ng-if="applicationForm.minorEmails.$dirty">
-                        <p ng-message="required">Adult Permission to Receive E-mails is required if under 18.</p>
-                    </div>
+                    <ng-messages for="applicationForm.minorEmails.$error" ng-if="applicationForm.minorEmails.$dirty" class="help-block">
+                        <span ng-message="required">Permission is required if under 18.</span>
+                    </ng-messages>
                 </div>
             </div>
             <div class="row">
@@ -43,11 +43,11 @@
                         <div class="col-md-5">
                             <label for="minorPermissionAdultName">Name of Adult Granting Permission</label>
                         </div>
-                        <div class="col-md-6" ng-class="{'has-error': applicationForm.minorPermissionAdultName.$touched && applicationForm.minorPermissionAdultName.$invalid}">
+                        <div class="col-md-6" ng-class="{'has-error': vm.hasErrorTouched(applicationForm.minorPermissionAdultName) }">
                             <input type="text" class="form-control" id="minorPermissionAdultName" name="minorPermissionAdultName" placeholder="Name" ng-model="vm.form.minorPermissionAdultName" ng-required="!vm.form.over18" />
-                            <div class="help-block" ng-messages="applicationForm.minorPermissionAdultName.$error" ng-if="applicationForm.minorPermissionAdultName.$touched">
-                                <p ng-message="required">Name of Adult is required if under 18.</p>
-                            </div>
+                            <ng-messages for="applicationForm.minorPermissionAdultName.$error" ng-if="applicationForm.minorPermissionAdultName.$touched" class="help-block">
+                                <span ng-message="required">Name of Adult is required if under 18.</span>
+                            </ng-messages>
                         </div>
                     </div>   
                 </div>
@@ -70,13 +70,16 @@
             <input type="text" class="form-control" id="workPhone" name="workPhone" placeholder="(xxx) xxx-xxxx" ng-model="vm.form.workPhone" />
         </div>
     </div>
-    <div class="form-group form-group-sm" ng-class="{'has-error': applicationForm.email.$invalid && !applicationForm.email.$pristine }">
+    <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorDirty(applicationForm.email) }">
         <div class="col-md-2">
             <label for="email">Email</label>
         </div>
         <div class="col-md-10">
-            <input type="email" class="form-control" id="email" name="email" placeholder="your@email.com" ng-model="vm.form.email" data-toggle="tooltip" title="Approx 1 request per month" required />
-            <p ng-show="applicationForm.email.$invalid && !applicationForm.email.$pristine" class="help-block">Email is required.</p>
+            <input type="email" class="form-control" id="email" name="email" placeholder="your@email.com" ng-model="vm.form.email" data-toggle="tooltip" title="Approx 1 e-mail request per month" required />
+            <ng-messages for="applicationForm.email.$error" ng-if="applicationForm.email.$dirty" class="help-block">
+                <span ng-message="required">E-mail is required.</span>
+                <span ng-message="email">Valid e-mail is required.</span>
+            </ng-messages>
         </div>
     </div>
     <div class="form-group form-group-sm">

@@ -10,15 +10,21 @@
         vm.title = 'Volunteering';
         vm.form = new VolunteerFormData();
         vm.submitForm = submit;
+        vm.hasErrorTouched = hasErrorTouched;
+        vm.hasErrorDirty = hasErrorDirty;
     }
 
     function submit(valid) {
         alert(valid);
     }
 
+    function hasErrorTouched(field) {
+        return (field.$invalid && field.$touched);
+    }
 
-    
-
+    function hasErrorDirty(field) {
+        return (field.$invalid && field.$dirty);
+    }
 
     function VolunteerFormData() {
         return {
