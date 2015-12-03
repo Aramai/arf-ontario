@@ -1,4 +1,77 @@
-﻿<h4 class="text-center"><strong>Volunteer Application</strong></h4>
+﻿<h4 class="text-center"><strong>Foster Home Application</strong></h4>
 <hr />
 <form name="applicationForm" class="form-horizontal" ng-submit="vm.submitForm(applicationForm.$valid)" novalidate>
+    <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorTouched(applicationForm.firstName) }">
+        <label for="firstName" class="col-md-2">First Name(s)</label>
+        <div class="col-md-10">
+            <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name(s)" ng-model="vm.form.firstName" required />
+            <ng-messages for="applicationForm.firstName.$error" ng-if="applicationForm.firstName.$touched" class="help-block">
+                <span ng-message="required">First Name is required.</span>
+            </ng-messages>
+        </div>
+    </div>
+    <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorTouched(applicationForm.lastName) }">
+        <label for="lastName" class="col-md-2">Last Name(s)</label>
+        <div class="col-md-10">
+            <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name(s)" ng-model="vm.form.lastName" required />
+            <ng-messages for="applicationForm.lastName.$error" ng-if="applicationForm.lastName.$touched" class="help-block">
+                <span ng-message="required">Last Name is required.</span>
+            </ng-messages>
+        </div>
+    </div>
+    <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorDirty(applicationForm.email) }">
+        <div class="col-md-2">
+            <label for="email">Email</label>
+        </div>
+        <div class="col-md-10">
+            <input type="email" class="form-control" id="email" name="email" placeholder="your@email.com" ng-model="vm.form.email" data-toggle="tooltip" required />
+            <ng-messages for="applicationForm.email.$error" ng-if="applicationForm.email.$dirty" class="help-block">
+                <span ng-message="required">E-mail is required.</span>
+                <span ng-message="email">Valid e-mail is required.</span>
+            </ng-messages>
+        </div>
+    </div>
+    <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorTouched(applicationForm.address) }">
+        <label for="address" class="col-md-2">Street Address</label>
+        <div class="col-md-10">
+            <input type="text" class="form-control" id="address" name="address" placeholder="Street Address" ng-model="vm.form.address" required />
+            <ng-messages for="applicationForm.address.$error" ng-if="applicationForm.address.$touched" class="help-block">
+                <span ng-message="required">Street Address is required</span>
+            </ng-messages>
+        </div>
+    </div>
+    <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorTouched(applicationForm.city) }">
+        <label for="city" class="col-md-2">City</label>
+        <div class="col-md-10">
+            <input type="text" class="form-control" id="city" name="city" placeholder="City" ng-model="vm.form.city" required />
+            <ng-messages for="applicationForm.city.$error" ng-if="applicationForm.city.$touched" class="help-block">
+                <span ng-message="required">City is required</span>
+            </ng-messages>
+        </div>
+    </div>
+    <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorTouched(applicationForm.homePhone) }">
+        <label for="homePhone" class="col-md-2">Primary Phone (Home)</label>
+        <div class="col-md-10">
+            <input type="text" class="form-control" id="homePhone" name="homePhone" placeholder="(xxx)-xxx-xxxx" ng-model="vm.form.homePhone" required />
+            <ng-messages for="applicationForm.homePhone.$error" ng-if="applicationForm.homePhone.$touched" class="help-block">
+                <span ng-message="required">Primary Phone (Home) is required</span>
+            </ng-messages>
+        </div>
+    </div>
+    <div class="form-group form-group-sm">
+        <div class="col-md-2">
+            <label for="cellPhone">Alternate Phone (Cell)</label>
+        </div>
+        <div class="col-md-10">
+            <input type="text" class="form-control" id="cellPhone" name="cellPhone" placeholder="(xxx) xxx-xxxx" ng-model="vm.form.cellPhone" />
+        </div>
+    </div>
+    <div class="form-group form-group-sm">
+        <div class="col-md-2">
+            <label for="workPhone">Work/Business Phone</label>
+        </div>
+        <div class="col-md-10">
+            <input type="text" class="form-control" id="workPhone" name="workPhone" placeholder="(xxx) xxx-xxxx" ng-model="vm.form.workPhone" />
+        </div>
+    </div>
 </form>

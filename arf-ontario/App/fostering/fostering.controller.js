@@ -9,6 +9,16 @@
         var vm = this;
         vm.title = 'Fostering';
         vm.form = new FosterFormData();
+        vm.hasErrorTouched = hasErrorTouched;
+        vm.hasErrorDirty = hasErrorDirty;
+    }
+
+    function hasErrorTouched(field) {
+        return (field.$invalid && field.$touched);
+    }
+
+    function hasErrorDirty(field) {
+        return (field.$invalid && field.$dirty);
     }
 
     function FosterFormData() {
