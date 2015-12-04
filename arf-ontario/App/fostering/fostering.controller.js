@@ -11,6 +11,24 @@
         vm.form = new FosterFormData();
         vm.hasErrorTouched = hasErrorTouched;
         vm.hasErrorDirty = hasErrorDirty;
+        vm.resetEmploymentDetails = resetEmploymentDetails;
+        vm.resetEducationDetails = resetEducationDetails;
+    }
+
+    function resetEmploymentDetails(vm) {
+        var vm = this;
+        if (!vm.form.employment.employed) {
+            vm.form.employment.type = 'N/A';
+            vm.form.employment.schedule = '';
+        }
+    }
+
+    function resetEducationDetails(vm) {
+        var vm = this;
+        if (!vm.form.education.student) {
+            vm.form.education.type = 'N/A';
+            vm.form.education.schedule = '';
+        }
     }
 
     function hasErrorTouched(field) {
@@ -36,14 +54,12 @@
             over18: true,
             employment: {
                 employed: true,
-                partTime: false,
-                fullTime: false,
+                type: 'N/A',
                 schedule: ''
             },
             education: {
                 student: false,
-                partTime: false,
-                fullTime: false,
+                type: 'N/A',
                 schedule: ''
             },
             ownCar: true,

@@ -74,4 +74,101 @@
             <input type="text" class="form-control" id="workPhone" name="workPhone" placeholder="(xxx) xxx-xxxx" ng-model="vm.form.workPhone" />
         </div>
     </div>
+    <div class="form-group form-group-sm">
+        <div class="col-md-2"></div>
+        <div class="col-md-10">
+            <label for="hearAbout">How did you hear about ARF?</label>
+            <textarea class="form-control" rows="5" id="hearAbout" name="hearAbout" ng-model="vm.form.hearAbout"></textarea>
+        </div>
+    </div>
+    <div class="form-group form-group-sm">
+        <div class="col-md-2"></div>
+        <div class="col-md-10">
+            <label for="reasonToFoster">Why do you want to foster a rescue dog?</label>
+            <textarea class="form-control" rows="5" id="reasonToFoster" name="reasonToFoster" ng-model="vm.form.reasonToFoster"></textarea>
+        </div>
+    </div>
+    <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorDirty(applicationForm.over18) }">
+        <div class="col-md-2">
+            <label for="over18">Are you age 18 or older?</label>
+        </div>
+        <div class="col-md-10">
+            <input type="checkbox" id="over18" name="over18" placeholder="(xxx) xxx-xxxx" ng-model="vm.form.over18" required />
+            <ng-messages for="applicationForm.over18.$error" ng-if="applicationForm.over18.$dirty" class="help-block">
+                <span ng-message="required">All applicants must be 18 years of age or older</span>
+            </ng-messages>
+        </div>
+    </div>
+    <hr />
+    <h5 class="text-center"><strong>Employment Details</strong></h5>
+    <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorDirty(applicationForm.employed) }">
+        <div class="col-md-2">
+            <label for="employed">Are you employed?</label>
+        </div>
+        <div class="col-md-10">
+            <input type="checkbox" id="employed" name="employed" ng-model="vm.form.employment.employed" ng-change="vm.resetEmploymentDetails()"/> 
+            <br /> 
+            <div ng-class="(!vm.form.employment.employed) ? 'hidden' : ''">
+                <label class="radio-inline">
+                    <input type="radio" name="employedPartTime" id="employedPartTime" value="Part Time" ng-model="vm.form.employment.type" ng-required="vm.form.employment.employed"/>Part Time
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="employedFullTime" id="employedFullTime" value="Full Time" ng-model="vm.form.employment.type" ng-required="vm.form.employment.employed" />Full Time
+                </label>                
+            </div>
+        </div>
+    </div>
+    <div class="form-group form-group-sm" ng-class="(!vm.form.employment.employed) ? 'hidden' : ''">
+        <div class="col-md-2"></div>
+        <div class="col-md-10">
+            <label for="employmentSchedule">Please describe your hours of work</label>
+            <textarea class="form-control" rows="5" id="employmentSchedule" name="employmentSchedule" ng-model="vm.form.employment.schedule"></textarea>
+        </div>
+    </div>
+    <hr />
+    <h5 class="text-center"><strong>Student Details</strong></h5>
+    <div class="form-group form-group-sm">
+        <div class="col-md-2">
+            <label for="student">Are you a student?</label>
+        </div>
+        <div class="col-md-10">
+            <input type="checkbox" id="student" name="student" ng-model="vm.form.education.student" ng-change="vm.resetEducationDetails()" /> 
+            <br />
+            <div ng-class="(!vm.form.education.student) ? 'hidden' : ''">
+                <label class="radio-inline">
+                    <input type="radio" name="studentPartTime" id="studentPartTime" value="Part Time" ng-model="vm.form.education.type" ng-required="vm.form.education.student" />Part Time
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="studentFullTime" id="studentFullTime" value="Full Time" ng-model="vm.form.education.type" ng-required="vm.form.education.student" />Full Time
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="form-group form-group-sm" ng-class="(!vm.form.education.student) ? 'hidden' : ''">
+        <div class="col-md-2"></div>
+        <div class="col-md-10">
+            <label for="studentSchedule">Please describe your schedule</label>
+            <textarea class="form-control" rows="5" id="studentSchedule" name="studentSchedule" ng-model="vm.form.education.schedule"></textarea>
+        </div>
+    </div>
+    <hr />
+    <div class="form-group form-group-sm">
+        <div class="col-md-2">
+            <label for="ownCar">Do you own and drive a car?</label>
+        </div>
+        <div class="col-md-10">
+            <input type="checkbox" id="ownCar" name="ownCar" ng-model="vm.form.ownCar" /> 
+            <br />           
+        </div>
+    </div>
+    <div class="form-group form-group-sm" ng-class="(vm.form.ownCar) ? 'hidden' : ''">
+        <div class="col-md-2"></div>
+        <div class="col-md-10" ng-class="{'has-error': vm.hasErrorTouched(applicationForm.transportPlan) }">
+            <label for=" transportPlan">If no, how will you transport a foster dog to vet appointments in Strathroy and adoption events in London? </label>
+            <textarea class="form-control" rows="5" id="transportPlan" name="transportPlan" ng-model="vm.form.transportPlan" ng-required="!vm.form.ownCar"></textarea>
+            <ng-messages for="applicationForm.transportPlan.$error" ng-if="applicationForm.transportPlan.$touched" class="help-block">
+                <span ng-message="required">Transportation plan required</span>
+            </ng-messages>
+        </div>
+    </div>
 </form>
