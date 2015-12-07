@@ -13,9 +13,12 @@
         vm.hasErrorDirty = hasErrorDirty;
         vm.resetEmploymentDetails = resetEmploymentDetails;
         vm.resetEducationDetails = resetEducationDetails;
+        vm.resetLandlordDetails = resetLandlordDetails;
+        vm.resetYardDetails = resetYardDetails;
+        vm.resetFenceDetails = resetFenceDetails;
     }
 
-    function resetEmploymentDetails(vm) {
+    function resetEmploymentDetails() {
         var vm = this;
         if (!vm.form.employment.employed) {
             vm.form.employment.type = 'N/A';
@@ -23,11 +26,43 @@
         }
     }
 
-    function resetEducationDetails(vm) {
+    function resetEducationDetails() {
         var vm = this;
         if (!vm.form.education.student) {
             vm.form.education.type = 'N/A';
             vm.form.education.schedule = '';
+        }
+    }
+
+    function resetLandlordDetails() {
+        var vm = this;
+        if (vm.form.livingSituation.livingSituation != 'Rent') {
+            vm.form.livingSituation.landlord.permission = false;
+            vm.form.livingSituation.landlord.name = '';
+            vm.form.livingSituation.landlord.contact = '';
+        }
+    }
+
+    function resetCarDetails() {
+        var vm = this;
+        if (!vm.form.ownCar) {
+            vm.form.transportPlan = '';
+        }
+    }
+
+    function resetYardDetails() {
+        var vm = this;
+        if (!vm.form.livingSituation.yard.exists) {
+            vm.form.livingSituation.yard.fenced = false;
+            vm.resetFenceDetails();
+        }        
+    }
+
+    function resetFenceDetails() {
+        var vm = this;
+        if (!vm.form.livingSituation.yard.fenced) {
+            vm.form.livingSituation.yard.fenceDescription = '';
+            vm.form.livingSituation.yard.nonFencedPlan = '';
         }
     }
 
@@ -67,7 +102,7 @@
             livingSituation: {
                 dwellingType: '',
                 status: '',
-                landLord: {
+                landlord: {
                     permission: false,
                     name: '',
                     contact: ''
@@ -77,6 +112,7 @@
                 yard: {
                     exists: false,
                     fenced: false,
+                    fenceDescription: '',
                     nonFencedPlan: '',
                     swimmingPool: false,
                     swimmingPoolFence: false
