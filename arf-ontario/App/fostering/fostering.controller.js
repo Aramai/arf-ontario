@@ -16,6 +16,8 @@
         vm.resetLandlordDetails = resetLandlordDetails;
         vm.resetYardDetails = resetYardDetails;
         vm.resetFenceDetails = resetFenceDetails;
+        vm.resetSwimmingPoolDetails = resetSwimmingPoolDetails;
+        vm.resetVisitingDogsDetails = resetVisitingDogDetails;
     }
 
     function resetEmploymentDetails() {
@@ -36,10 +38,10 @@
 
     function resetLandlordDetails() {
         var vm = this;
-        if (vm.form.livingSituation.livingSituation != 'Rent') {
-            vm.form.livingSituation.landlord.permission = false;
-            vm.form.livingSituation.landlord.name = '';
-            vm.form.livingSituation.landlord.contact = '';
+        if (vm.form.dwelling.dwelling != 'Rent') {
+            vm.form.dwelling.landlord.permission = false;
+            vm.form.dwelling.landlord.name = '';
+            vm.form.dwelling.landlord.contact = '';
         }
     }
 
@@ -52,17 +54,31 @@
 
     function resetYardDetails() {
         var vm = this;
-        if (!vm.form.livingSituation.yard.exists) {
-            vm.form.livingSituation.yard.fenced = false;
+        if (!vm.form.dwelling.yard.exists) {
+            vm.form.dwelling.yard.fenced = false;
             vm.resetFenceDetails();
         }        
     }
 
     function resetFenceDetails() {
         var vm = this;
-        if (!vm.form.livingSituation.yard.fenced) {
-            vm.form.livingSituation.yard.fenceDescription = '';
-            vm.form.livingSituation.yard.nonFencedPlan = '';
+        if (!vm.form.dwelling.yard.fenced) {
+            vm.form.dwelling.yard.fenceDescription = '';
+            vm.form.dwelling.yard.nonFencedPlan = '';
+        }
+    }
+
+    function resetSwimmingPoolDetails() {
+        var vm = this;
+        if (!vm.form.dwelling.yard.swimmingPool) {
+            vm.form.dwelling.yard.swimmingPoolFence = false;
+        }
+    }
+
+    function resetVisitingDogDetails() {
+        var vm = this;
+        if (!vm.form.occupants.visitingDogs) {
+            vm.form.occupants.visitingDogsDescription = '';
         }
     }
 
@@ -99,8 +115,8 @@
             },
             ownCar: true,
             transportPlan: '',
-            livingSituation: {
-                dwellingType: '',
+            dwelling: {
+                type: '',
                 status: '',
                 landlord: {
                     permission: false,
@@ -116,91 +132,91 @@
                     nonFencedPlan: '',
                     swimmingPool: false,
                     swimmingPoolFence: false
-                },
-                occupants: {
-                    count: 0,
-                    description: '',
-                    involvement: '',
-                    allergies: '',
-                    visitingDogs: false,
-                    visitingDogsDescription: ''
-                },
-                dogs: {
-                    count: 0,
-                    description: '',
-                    vaccinated: false,
-                    fleaTickMedication: false,
-                    fleaTickMedicationName: '',
-                    fixed: false,
-                    notFixedReason: ''                     
-                },
-                cats: {
-                    count: 0,
-                    description: '',
-                    vaccinated: false,
-                    fleaTickMedication: false,
-                    fleaTickMedicationName: '',
-                    fixed: false,
-                    notFixedReason:''
-                },
-                otherPets: '',
-                previousPets: '',
-                currentPetInteraction: '',
-                hoursLeftAlone: 0,
-                letOutPlans: '',
-                vacationPlans: false,
-                vavactionPlansForFosters: '',
-                dailyTimeCommitment: '',
-                walkTimeDaily: '',
-                socializePlans: '',
-                previousCrateTraining: false,
-                previousCrateTrainingProcess: '',
-                fosterWhiningPlans: '',
-                previousHouseTraining: false,
-                previousHouseTrainingProcess: '',
-                houseAccidentResponse: '',
-                preventChewingPlans: '',
-                dogPullingPlans: '',
-                positiveReinforcementDescription: '',
-                previousTrainingClass: false,
-                previousTrainingClassDescription: '',
-                fosterPreferences: {
-                    puppy: false,
-                    adolescent: false,
-                    adult: false,
-                    mature: false,
-                    senior: false,
-                    male: false,
-                    female: false,
-                    small: false,
-                    medium: false,
-                    large: false,
-                    reasoning: '',
-                },
-                healthIssueAvoidance: {
-                    worms: false,
-                    fleasTicks: false,
-                    diarrhea: false,
-                    vomiting: false,
-                    itching: false,
-                    medication: false,
-                    minorInjuries: false,
-                    mange: false,
-                    heartworm: false,
-                    neurological: false,
-                    majorInjuries: false,
-                    other: false,
-                    otherDescription: ''                        
-                },
-                termLength: '',
-                returnFosterCircumstances: '',
-                previousFostering: false,
-                previousFosteringDescription: '',
-                fosterIntentions: '',
-                expectedSupport: '',
-                futureLearning: '',
-                trainingAttendance: false
-            }            
+                }               
+            },
+            occupants: {
+                count: 1,
+                description: '',
+                involvement: '',
+                allergies: '',
+                visitingDogs: false,
+                visitingDogsDescription: ''
+            },
+            dogs: {
+                count: 0,
+                description: '',
+                vaccinated: false,
+                fleaTickMedication: false,
+                fleaTickMedicationName: '',
+                fixed: false,
+                notFixedReason: ''
+            },
+            cats: {
+                count: 0,
+                description: '',
+                vaccinated: false,
+                fleaTickMedication: false,
+                fleaTickMedicationName: '',
+                fixed: false,
+                notFixedReason: ''
+            },
+            otherPets: '',
+            previousPets: '',
+            currentPetInteraction: '',
+            hoursLeftAlone: 0,
+            letOutPlans: '',
+            vacationPlans: false,
+            vavactionPlansForFosters: '',
+            dailyTimeCommitment: '',
+            walkTimeDaily: '',
+            socializePlans: '',
+            previousCrateTraining: false,
+            previousCrateTrainingProcess: '',
+            fosterWhiningPlans: '',
+            previousHouseTraining: false,
+            previousHouseTrainingProcess: '',
+            houseAccidentResponse: '',
+            preventChewingPlans: '',
+            dogPullingPlans: '',
+            positiveReinforcementDescription: '',
+            previousTrainingClass: false,
+            previousTrainingClassDescription: '',
+            fosterPreferences: {
+                puppy: false,
+                adolescent: false,
+                adult: false,
+                mature: false,
+                senior: false,
+                male: false,
+                female: false,
+                small: false,
+                medium: false,
+                large: false,
+                reasoning: '',
+            },
+            healthIssueAvoidance: {
+                worms: false,
+                fleasTicks: false,
+                diarrhea: false,
+                vomiting: false,
+                itching: false,
+                medication: false,
+                minorInjuries: false,
+                mange: false,
+                heartworm: false,
+                neurological: false,
+                majorInjuries: false,
+                other: false,
+                otherDescription: ''
+            },
+            termLength: '',
+            returnFosterCircumstances: '',
+            previousFostering: false,
+            previousFosteringDescription: '',
+            fosterIntentions: '',
+            expectedSupport: '',
+            futureLearning: '',
+            trainingAttendance: false
         };
     }
 
