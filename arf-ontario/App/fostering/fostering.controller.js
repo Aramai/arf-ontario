@@ -8,7 +8,13 @@
     function Fostering() {
         var vm = this;
         vm.title = 'Fostering';
+        vm.tabs = new FosterTabs();
         vm.form = new FosterFormData();
+
+        vm.switchTab = switchTab;
+        vm.selectedTab = vm.tabs.details[0].id;
+        vm.isTabSelected = isTabSelected;
+
         vm.hasErrorTouched = hasErrorTouched;
         vm.hasErrorDirty = hasErrorDirty;
         vm.resetEmploymentDetails = resetEmploymentDetails;
@@ -18,6 +24,16 @@
         vm.resetFenceDetails = resetFenceDetails;
         vm.resetSwimmingPoolDetails = resetSwimmingPoolDetails;
         vm.resetVisitingDogsDetails = resetVisitingDogDetails;
+    }
+
+    function isTabSelected(tab) {
+        var vm = this;
+        return vm.selectedTab == tab;
+    }
+
+    function switchTab(tab, event) {
+        var vm = this;
+        vm.selectedTab = tab.id;        
     }
 
     function resetEmploymentDetails() {
@@ -88,6 +104,17 @@
 
     function hasErrorDirty(field) {
         return (field.$invalid && field.$dirty);
+    }
+
+    function FosterTabs() {
+        return {
+            details: [
+            {id:'personDetails', display:'Personal Details'},
+            { id: 'employment', display: 'Emplyoment/Education'},
+            { id: 'livingSituation', display: 'Living Situation'},
+            { id: 'occupants', display: 'Occupants'}
+            ]
+        };
     }
 
     function FosterFormData() {

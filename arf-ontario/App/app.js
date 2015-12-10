@@ -5,7 +5,7 @@
         // Angular modules        
         'ngAnimate',
         'ngMessages',
-        'ngSanitize',
+        'ngSanitize',        
         'ui.router',
 
         // Custom modules
