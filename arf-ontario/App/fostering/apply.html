@@ -1,13 +1,19 @@
 ﻿<h4 class="text-center"><strong>Foster Home Application</strong></h4>
 <hr />
 <form name="applicationForm" class="form-horizontal" ng-submit="vm.submitForm(applicationForm.$valid)" novalidate>
-    <ul class="nav nav-tabs">        
-        <li ng-repeat="tab in vm.tabs.details" ng-class="{'active' : vm.isTabSelected(tab.id)}">
-            <a href="" ng-click="vm.switchTab(tab, $event)">{{tab.display}}</a>
+    <ul class="nav nav-tabs">
+        <li ng-repeat="tab in vm.tabs" ng-class="{'active' : vm.isTabSelected(tab)}">
+            <a href="" ng-click="vm.switchTab(tab)">
+                <span class="fa-stack">
+                    <i class="fa fa-circle-o fa-stack-2x"></i>
+                    <strong class="fa-stack-1x">{{$index + 1}}</strong>
+                </span>
+                {{tab}}
+            </a>
         </li>
-    </ul>    
+    </ul>
     <br />
-    <div ng-show="vm.isTabSelected('personDetails')">
+    <div ng-show="vm.isTabSelected('Personal Details')">
         <h5 class="text-center"><strong>Personal Details</strong></h5>
         <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorTouched(applicationForm.firstName) }">
             <label for="firstName" class="col-md-2">First Name(s)</label>
@@ -108,8 +114,11 @@
             </div>
         </div>
         <hr />
-    </div>    
-    <div ng-show="vm.isTabSelected('employment')">
+        <div class="text-center">
+            <button type="button" class="btn btn-default" ng-click="vm.switchTab('employment')">Next</button>
+        </div>
+    </div>
+    <div ng-show="vm.isTabSelected('Employment/Education')">
         <h5 class="text-center"><strong>Employment Details</strong></h5>
         <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorDirty(applicationForm.employed) }">
             <div class="col-md-2">
@@ -162,8 +171,12 @@
             </div>
         </div>
         <hr />
+        <div class="text-center">
+            <button type="button" class="btn btn-default" ng-click="vm.switchTab('personalDetails')">Previous</button>
+            <button type="button" class="btn btn-default" ng-click="vm.switchTab('livingSituation')">Next</button>
+        </div>
     </div>
-    <div ng-show="vm.isTabSelected('livingSituation')">
+    <div ng-show="vm.isTabSelected('Living Situation')">
         <h5 class="text-center"><strong>Living Situation</strong></h5>
         <div class="form-group form-group-sm">
             <div class="col-md-2">
@@ -292,8 +305,12 @@
             </div>
         </div>
         <hr />
+        <div class="text-center">
+            <button type="button" class="btn btn-default" ng-click="vm.switchTab('employment')">Previous</button>
+            <button type="button" class="btn btn-default" ng-click="vm.switchTab('occupants')">Next</button>
+        </div>
     </div>
-    <div ng-show="vm.isTabSelected('occupants')">
+    <div ng-show="vm.isTabSelected('Occupants')">
         <h5 class="text-center"><strong>Occupants</strong></h5>
         <div class="form-group form-group-sm">
             <div class="col-md-2">
@@ -359,5 +376,8 @@
             </div>
         </div>
         <hr />
-    </div>
+        <div class="text-center">
+            <button type="button" class="btn btn-default" ng-click="vm.switchTab('livingSituation')">Previous</button>
+        </div>
+    </div>    
 </form>

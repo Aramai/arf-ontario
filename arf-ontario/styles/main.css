@@ -1,6 +1,10 @@
 ﻿body{
     position:relative;
     margin-top:63px;
+    
+}
+
+accent{
     background-color: #D8D6BC;
 }
 

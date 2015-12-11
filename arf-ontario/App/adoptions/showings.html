@@ -1,9 +1,9 @@
-﻿<div class="text-center">
-    <h3>How Does It Work?</h3>
+﻿<div>
+    <h3 class="text-center">How Does It Work?</h3>
     <p>
         Come and fall in love! Pet, snuggle, giggle and admire the beeeautiful (not to mention vet checked, microchipped, vaccinated, de-fleaed, and socialized!) dogs and cats. Then:
     </p>
-    <ul class="center-block">
+    <ul>
         <li>Complete an adoption application</li>
         <li>Chat with an ARF volunteer during a telephone interview</li>
     </ul>
@@ -12,8 +12,7 @@
     </p>
 </div>
 <hr />
-<div ng-repeat="showing in vm.showings" class="text-center">
-
+<div ng-repeat="showing in vm.showings">
     <a ng-href="{{showing.url}}"><img ng-src="{{showing.logo}}" class="img-responsive center-block" ng-alt="{{showing.name}}" title="{{showing.name}}" /></a>
     <h4>{{showing.description}}</h4>
     <h5>{{showing.attendees}}</h5>
@@ -21,8 +20,8 @@
     <h5>{{showing.notes}}</h5>
     <hr />
 </div>
-<div class="text-center">
-    <h3>Kittie Showings</h3>
+<div>
+    <h3 class="text-center">Kittie Showings</h3>
     <p>
         Global Pet Foods and Strathroy Pet Valu will be showing off some of our adoptable cats and kittens.
     </p>

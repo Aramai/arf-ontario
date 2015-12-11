@@ -12,13 +12,12 @@
 </head>
 <body ng-app="app">
     <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container-fluid hidden-xs">
-            <div class="row">
-                <div class="col-md-2"></div>
+        <div class="container hidden-xs">
+            <div class="row">                
                 <div class="navbar-header">
                     <a ui-sref="core" class="navbar-brand">ARF Ontario</a>
                 </div>
-                <div class="col-md-8">
+                <div class="col-md-9">
                     <ul class="nav navbar-nav">
                         <li>
                             <a ui-sref="news">News</a>
@@ -69,9 +68,8 @@
         </div>
     </nav>        
     <div class="container">                 
-        <div class="row">                                 
-            <div class="col-md-2"></div>
-            <div class="col-md-8">
+        <div class="row">                                             
+            <div class="col-md-12">
                 <img src="images/arflogo-large.gif" alt="ARF Ontario" class="img-responsive img-rounded center-block" />
                 <div ui-view></div>
                 <br />
@@ -81,7 +79,6 @@
                     </p>
                 </footer>
             </div>                
-            <div class="col-md-2"></div>
         </div>        
     </div>        
 

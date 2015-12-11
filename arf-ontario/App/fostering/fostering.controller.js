@@ -8,12 +8,15 @@
     function Fostering() {
         var vm = this;
         vm.title = 'Fostering';
-        vm.tabs = new FosterTabs();
+        vm.tabs = FosterTabs();
         vm.form = new FosterFormData();
+        
 
         vm.switchTab = switchTab;
-        vm.selectedTab = vm.tabs.details[0].id;
+        vm.selectedTab = vm.tabs[0];
         vm.isTabSelected = isTabSelected;
+
+        vm.progressStyle = progressStyle;
 
         vm.hasErrorTouched = hasErrorTouched;
         vm.hasErrorDirty = hasErrorDirty;
@@ -31,9 +34,14 @@
         return vm.selectedTab == tab;
     }
 
-    function switchTab(tab, event) {
+    function switchTab(tab) {
         var vm = this;
-        vm.selectedTab = tab.id;        
+        vm.selectedTab = tab;
+    }
+
+    function progressStyle() {
+        var vm = this;
+        return vm.form.progress + "%";
     }
 
     function resetEmploymentDetails() {
@@ -73,7 +81,7 @@
         if (!vm.form.dwelling.yard.exists) {
             vm.form.dwelling.yard.fenced = false;
             vm.resetFenceDetails();
-        }        
+        }
     }
 
     function resetFenceDetails() {
@@ -107,14 +115,7 @@
     }
 
     function FosterTabs() {
-        return {
-            details: [
-            {id:'personDetails', display:'Personal Details'},
-            { id: 'employment', display: 'Emplyoment/Education'},
-            { id: 'livingSituation', display: 'Living Situation'},
-            { id: 'occupants', display: 'Occupants'}
-            ]
-        };
+        return [ 'Personal Details', 'Emplyoment/Education', 'Living Situation', 'Occupants', 'Current Pets', 'Questionnaire', 'Preferences'];
     }
 
     function FosterFormData() {
@@ -159,7 +160,7 @@
                     nonFencedPlan: '',
                     swimmingPool: false,
                     swimmingPoolFence: false
-                }               
+                }
             },
             occupants: {
                 count: 1,
