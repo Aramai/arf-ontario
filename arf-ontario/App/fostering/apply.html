@@ -317,18 +317,7 @@
                 <label for="occupants">How many people live in your home?</label>
             </div>
             <div class="col-md-10">
-                <select class="form-control" ng-model="vm.form.occupants.count">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                    <option>6</option>
-                    <option>7</option>
-                    <option>8</option>
-                    <option>9</option>
-                    <option>10</option>
-                </select>
+                <input type="number" class="form-control" id="occupants" name="occupants" ng-model="vm.form.occupants.count" min="0" max="10"/>                
             </div>
         </div>
         <div class="form-group form-group-sm">
@@ -524,12 +513,212 @@
                 <textarea class="form-control" rows="5" id="otherPets" name="otherPets" ng-model="vm.form.otherPets"></textarea>
             </div>
         </div>
+        <div class="form-group form-group-sm">
+            <div class="col-md-2">
+                <label for="previousPets">Please describe type, breed, age, indoor/outdoor, spay/neuter status of any previous pets</label>
+            </div>
+            <div class="col-md-10">
+                <textarea class="form-control" rows="5" id="previousPets" name="previousPets" ng-model="vm.form.previousPets"></textarea>
+            </div>
+        </div>
+        <div class="form-group form-group-sm">
+            <div class="col-md-2">
+                <label for="currentPetInteraction">Describe how your current pets get along with other animals</label>
+            </div>
+            <div class="col-md-10">
+                <textarea class="form-control" rows="5" id="currentPetInteraction" name="currentPetInteraction" ng-model="vm.form.currentPetInteraction"></textarea>
+            </div>
+        </div>
+        <hr />
         <div class="text-center">
             <button type="button" class="btn btn-default" ng-click="vm.switchTab('Occupants')">Previous</button>
             <button type="button" class="btn btn-default" ng-click="vm.switchTab('Questionnaire')">Next</button>
         </div>
     </div>
-    <div ng-show="vm.isTabSelected('Questionnaire')">
+    <div ng-show="vm.isTabSelected('Questionnaire')">        
+        <div class="form-group form-group-sm">
+            <div class="col-md-2">
+                <label for="hoursLeftAlone">How many hours would a foster dog be regularly left alone in a 24 hour period?</label>
+            </div>
+            <div class="col-md-10">
+                <input type="number" class="form-control" id="hoursLeftAlone" name="hoursLeftAlone" ng-model="vm.form.hoursLeftAlone" min="0" max="24" />
+            </div>
+        </div>
+        <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorTouched(applicationForm.letOutPlans) }">
+            <div class="col-md-2">
+                <label for="letOutPlans">Describe your plan for let-outs when you are not at home</label>
+            </div>
+            <div class="col-md-10">
+                <textarea class="form-control" rows="5" id="letOutPlans" name="letOutPlans" ng-model="vm.form.letOutPlans" required></textarea>
+                <ng-messages for="applicationForm.letOutPlans.$error" ng-if="applicationForm.letOutPlans.$touched" class="help-block">
+                    <span ng-message="required">Required</span>
+                </ng-messages>
+            </div>
+        </div>
+        <div class="form-group form-group-sm">
+            <div class="col-md-2">
+                <label for="vacationPlans">Do you have any vacation(s) planned within the next 3 months?</label>
+            </div>
+            <div class="col-md-10">
+                <input type="checkbox" id="vacationPlans" name="vacationPlans" ng-model="vm.form.vacationPlans" />
+            </div>
+        </div>
+        <div class="form-group form-group-sm" ng-class="{'hidden': !vm.form.vacationPlans, 'has-error': vm.form.vacationPlans && vm.hasErrorTouched(applicationForm.vacationPlansForFosters)}">
+            <div class="col-md-2">
+                <label for="vacationPlansForFosters">What would you do with your foster dog during your vacation(s)?</label>
+            </div>
+            <div class="col-md-10">
+                <textarea class="form-control" rows="5" id="vacationPlansForFosters" name="vacationPlansForFosters" ng-model="vm.form.vacationPlansForFosters" ng-required="vm.form.vacationPlans"></textarea>
+                <ng-messages for="applicationForm.vacationPlansForFosters.$error" ng-if="applicationForm.vacationPlansForFosters.$touched && vm.form.vacationPlans" class="help-block">
+                    <span ng-message="required">Vacation Plans Required</span>
+                </ng-messages>
+            </div>
+        </div>
+        <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorTouched(applicationForm.dailyTimeCommitment) }">
+            <div class="col-md-2">
+                <label for="dailyTimeCommitment">How much time are you willing to commit to a foster dog daily?</label>
+            </div>
+            <div class="col-md-10">
+                <input type="text" class="form-control" id="dailyTimeCommitment" name="dailyTimeCommitment" ng-model="vm.form.dailyTimeCommitment" required />
+                <ng-messages for="applicationForm.dailyTimeCommitment.$error" ng-if="applicationForm.dailyTimeCommitment.$touched" class="help-block">
+                    <span ng-message="required">Required</span>
+                </ng-messages>
+            </div>
+        </div>
+        <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorTouched(applicationForm.walkTimeDaily) }">
+            <div class="col-md-2">
+                <label for="walkTimeDaily">How much time will a foster dog spend out on a leash walk with your or another family member daily?</label>
+            </div>
+            <div class="col-md-10">
+                <input type="text" class="form-control" id="walkTimeDaily" name="walkTimeDaily" ng-model="vm.form.walkTimeDaily" required />
+                <ng-messages for="applicationForm.walkTimeDaily.$error" ng-if="applicationForm.walkTimeDaily.$touched" class="help-block">
+                    <span ng-message="required">Required</span>
+                </ng-messages>
+            </div>
+        </div>
+        <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorTouched(applicationForm.socializePlans)}">
+            <div class="col-md-2">
+                <label for="socializePlans">What is your plan to socialize your foster dog with other dogs and people?</label>
+            </div>
+            <div class="col-md-10">
+                <textarea class="form-control" rows="5" id="socializePlans" name="socializePlans" ng-model="vm.form.socializePlans" required></textarea>
+                <ng-messages for="applicationForm.socializePlans.$error" ng-if="applicationForm.socializePlans.$touched" class="help-block">
+                    <span ng-message="required">Socialization Plans Required</span>
+                </ng-messages>
+            </div>
+        </div>
+        <div class="form-group form-group-sm">
+            <div class="col-md-2">
+                <label for="previousCrateTraining">Have you ever crate trained a dog?</label>
+            </div>
+            <div class="col-md-10">
+                <input type="checkbox" id="previousCrateTraining" name="previousCrateTraining" ng-model="vm.form.previousCrateTraining" />
+            </div>
+        </div>
+        <div class="form-group form-group-sm" ng-class="{'hidden': !vm.form.previousCrateTraining, 'has-error': vm.hasErrorTouched(applicationForm.previousCrateTrainingProcess)}">
+            <div class="col-md-2">
+                <label for="previousCrateTrainingProcess">Please describe your crate training methods and process</label>
+            </div>
+            <div class="col-md-10">
+                <textarea class="form-control" rows="5" id="previousCrateTrainingProcess" name="previousCrateTrainingProcess" ng-model="vm.form.previousCrateTrainingProcess" ng-required="vm.form.previousCrateTraining"></textarea>
+                <ng-messages for="applicationForm.previousCrateTrainingProcess.$error" ng-if="vm.form.previousCrateTraining && applicationForm.previousCrateTrainingProcess.$touched" class="help-block">
+                    <span ng-message="required">Crate Training Process Required</span>
+                </ng-messages>
+            </div>
+        </div>
+        <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorTouched(applicationForm.fosterWhiningPlans)}">
+            <div class="col-md-2">
+                <label for="fosterWhiningPlans">Describe what you would do if you put your foster dog in their crate for the night and it barked/whined/cried loudly</label>
+            </div>
+            <div class="col-md-10">
+                <textarea class="form-control" rows="5" id="fosterWhiningPlans" name="fosterWhiningPlans" ng-model="vm.form.fosterWhiningPlans" required></textarea>
+                <ng-messages for="applicationForm.fosterWhiningPlans.$error" ng-if="applicationForm.fosterWhiningPlans.$touched" class="help-block">
+                    <span ng-message="required">Required</span>
+                </ng-messages>
+            </div>
+        </div>
+        <div class="form-group form-group-sm">
+            <div class="col-md-2">
+                <label for="previousHouseTraining">Have you ever house trained a dog?</label>
+            </div>
+            <div class="col-md-10">
+                <input type="checkbox" id="previousHouseTraining" name="previousHouseTraining" ng-model="vm.form.previousHouseTraining" />
+            </div>
+        </div>
+        <div class="form-group form-group-sm" ng-class="{'hidden': !vm.form.previousHouseTraining, 'has-error': vm.hasErrorTouched(applicationForm.previousHouseTrainingProcess)}">
+            <div class="col-md-2">
+                <label for="previousHouseTrainingProcess">Please describe your house training methods and process</label>
+            </div>
+            <div class="col-md-10">
+                <textarea class="form-control" rows="5" id="previousHouseTrainingProcess" name="previousHouseTrainingProcess" ng-model="vm.form.previousHouseTrainingProcess" ng-required="vm.form.previousHouseTraining"></textarea>
+                <ng-messages for="applicationForm.previousHouseTrainingProcess.$error" ng-if="vm.form.previousHouseTraining && applicationForm.previousHouseTrainingProcess.$touched" class="help-block">
+                    <span ng-message="required">House Training Process Required</span>
+                </ng-messages>
+            </div>
+        </div>
+        <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorTouched(applicationForm.houseAccidentResponse)}">
+            <div class="col-md-2">
+                <label for="houseAccidentResponse">Describe what you would do if your foster dog went to the bathroom in an inappropriate place</label>
+            </div>
+            <div class="col-md-10">
+                <textarea class="form-control" rows="5" id="houseAccidentResponse" name="houseAccidentResponse" ng-model="vm.form.houseAccidentResponse" required></textarea>
+                <ng-messages for="applicationForm.houseAccidentResponse.$error" ng-if="applicationForm.houseAccidentResponse.$touched" class="help-block">
+                    <span ng-message="required">Required</span>
+                </ng-messages>
+            </div>
+        </div>
+        <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorTouched(applicationForm.preventChewingPlans)}">
+            <div class="col-md-2">
+                <label for="preventChewingPlans">How would you prevent your foster dog from chewing on things they should not have?</label>
+            </div>
+            <div class="col-md-10">
+                <textarea class="form-control" rows="5" id="preventChewingPlans" name="preventChewingPlans" ng-model="vm.form.preventChewingPlans" required></textarea>
+                <ng-messages for="applicationForm.preventChewingPlans.$error" ng-if="applicationForm.preventChewingPlans.$touched" class="help-block">
+                    <span ng-message="required">Required</span>
+                </ng-messages>
+            </div>
+        </div>
+        <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorTouched(applicationForm.dogPullingPlans)}">
+            <div class="col-md-2">
+                <label for="dogPullingPlans">If your foster dog was a puller during walks, what might you suggest to help correct this behavior?</label>
+            </div>
+            <div class="col-md-10">
+                <textarea class="form-control" rows="5" id="dogPullingPlans" name="dogPullingPlans" ng-model="vm.form.dogPullingPlans" required></textarea>
+                <ng-messages for="applicationForm.dogPullingPlans.$error" ng-if="applicationForm.dogPullingPlans.$touched" class="help-block">
+                    <span ng-message="required">Required</span>
+                </ng-messages>
+            </div>
+        </div>
+        <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorTouched(applicationForm.positiveReinforcementDescription)}">
+            <div class="col-md-2">
+                <label for="positiveReinforcementDescription">Please describe what you know about positive reinforcement training techniques</label>
+            </div>
+            <div class="col-md-10">
+                <textarea class="form-control" rows="5" id="positiveReinforcementDescription" name="positiveReinforcementDescription" ng-model="vm.form.positiveReinforcementDescription" required></textarea>
+                <ng-messages for="applicationForm.positiveReinforcementDescription.$error" ng-if="applicationForm.positiveReinforcementDescription.$touched" class="help-block">
+                    <span ng-message="required">Required</span>
+                </ng-messages>
+            </div>
+        </div>
+        <div class="form-group form-group-sm">
+            <div class="col-md-2">
+                <label for="previousTrainingClass">Have you ever taken any formal dog training classes?</label>
+            </div>
+            <div class="col-md-10">
+                <input type="checkbox" id="previousTrainingClass" name="previousTrainingClass" ng-model="vm.form.previousTrainingClass" />
+            </div>
+        </div>
+        <div class="form-group form-group-sm" ng-class="{'hidden': !vm.form.previousTrainingClass, 'has-error': vm.hasErrorTouched(applicationForm.previousTrainingClassDescription)}">
+            <div class="col-md-2">
+                <label for="previousTrainingClassDescription">Please describe your previous dog training class experiences</label>
+            </div>
+            <div class="col-md-10">
+                <textarea class="form-control" rows="5" id="previousTrainingClassDescription" name="previousTrainingClassDescription" ng-model="vm.form.previousTrainingClassDescription" ng-required="vm.form.previousTrainingClass"></textarea>
+                <ng-messages for="applicationForm.previousTrainingClassDescription.$error" ng-if="vm.form.previousTrainingClass && applicationForm.previousTrainingClassDescription.$touched" class="help-block">
+                    <span ng-message="required">Required</span>
+                </ng-messages>
+            </div>
+        </div>
         <hr />
         <div class="text-center">
             <button type="button" class="btn btn-default" ng-click="vm.switchTab('Current Pets')">Previous</button>

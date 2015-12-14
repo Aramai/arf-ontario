@@ -219,7 +219,7 @@
             hoursLeftAlone: 0,
             letOutPlans: '',
             vacationPlans: false,
-            vavactionPlansForFosters: '',
+            vacationPlansForFosters: '',
             dailyTimeCommitment: '',
             walkTimeDaily: '',
             socializePlans: '',
