@@ -27,6 +27,7 @@
         vm.resetFenceDetails = resetFenceDetails;
         vm.resetSwimmingPoolDetails = resetSwimmingPoolDetails;
         vm.resetVisitingDogsDetails = resetVisitingDogDetails;
+        vm.resetCurrentDogDetails = resetCurrentDogDetails;
     }
 
     function isTabSelected(tab) {
@@ -106,6 +107,30 @@
         }
     }
 
+    function resetCurrentDogDetails() {
+        var vm = this;
+        if (vm.form.dogs.count <= 0) {
+            vm.form.dogs.description = '';
+            vm.form.dogs.vaccinated = false;
+            vm.form.dogs.vacationPlans = false;
+            vm.form.dogs.fleaTickMedicationName = '';
+            vm.form.dogs.fixed = false;
+            vm.form.dogs.notFixedReason = '';
+        }
+    }
+
+    function resetCurrentCatDetails() {
+        var vm = this;
+        if (vm.form.cats.count <= 0) {
+            vm.form.cats.description = '';
+            vm.form.cats.vaccinated = false;
+            vm.form.cats.vacationPlans = false;
+            vm.form.cats.fleaTickMedicationName = '';
+            vm.form.cats.fixed = false;
+            vm.form.cats.notFixedReason = '';
+        }
+    }
+
     function hasErrorTouched(field) {
         return (field.$invalid && field.$touched);
     }
@@ -115,7 +140,7 @@
     }
 
     function FosterTabs() {
-        return [ 'Personal Details', 'Emplyoment/Education', 'Living Situation', 'Occupants', 'Current Pets', 'Questionnaire', 'Preferences'];
+        return [ 'Personal Details', 'Employment/Education', 'Living Situation', 'Occupants', 'Current Pets', 'Questionnaire', 'Preferences'];
     }
 
     function FosterFormData() {
