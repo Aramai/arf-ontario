@@ -20,7 +20,7 @@
             <div class="col-md-10">
                 <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name(s)" ng-model="vm.form.firstName" required />
                 <ng-messages for="applicationForm.firstName.$error" ng-if="applicationForm.firstName.$touched" class="help-block">
-                    <span ng-message="required">First Name is required.</span>
+                    <span ng-message="required">First Name Required</span>
                 </ng-messages>
             </div>
         </div>
@@ -29,7 +29,7 @@
             <div class="col-md-10">
                 <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name(s)" ng-model="vm.form.lastName" required />
                 <ng-messages for="applicationForm.lastName.$error" ng-if="applicationForm.lastName.$touched" class="help-block">
-                    <span ng-message="required">Last Name is required.</span>
+                    <span ng-message="required">Last Name Required</span>
                 </ng-messages>
             </div>
         </div>
@@ -40,8 +40,8 @@
             <div class="col-md-10">
                 <input type="email" class="form-control" id="email" name="email" placeholder="your@email.com" ng-model="vm.form.email" data-toggle="tooltip" required />
                 <ng-messages for="applicationForm.email.$error" ng-if="applicationForm.email.$dirty" class="help-block">
-                    <span ng-message="required">E-mail is required.</span>
-                    <span ng-message="email">Valid e-mail is required.</span>
+                    <span ng-message="required">E-mail Required</span>
+                    <span ng-message="email">Valid e-mail Required</span>
                 </ng-messages>
             </div>
         </div>
@@ -317,7 +317,7 @@
                 <label for="occupants">How many people live in your home?</label>
             </div>
             <div class="col-md-10">
-                <input type="number" class="form-control" id="occupants" name="occupants" ng-model="vm.form.occupants.count" min="0" max="10"/>                
+                <input type="number" class="form-control" id="occupants" name="occupants" ng-model="vm.form.occupants.count" min="0" max="10" />
             </div>
         </div>
         <div class="form-group form-group-sm">
@@ -359,7 +359,7 @@
                 <label for="visitingDogsDescription">Please describe type, age, sex, disposition, and spay/neuter status</label>
                 <textarea class="form-control" rows="5" id="visitingDogsDescription" name="visitingDogsDescription" ng-model="vm.form.occupants.visitingDogsDescription" ng-required="vm.form.occupants.visitingDogs"></textarea>
                 <ng-messages for="applicationForm.visitingDogsDescription.$error" ng-if="applicationForm.visitingDogsDescription.$touched && vm.form.occupants.visitingDogs" class="help-block">
-                    <span ng-message="required">Visiting Dog Description required.</span>
+                    <span ng-message="required">Visiting Dog Description Required</span>
                 </ng-messages>
             </div>
         </div>
@@ -535,7 +535,7 @@
             <button type="button" class="btn btn-default" ng-click="vm.switchTab('Questionnaire')">Next</button>
         </div>
     </div>
-    <div ng-show="vm.isTabSelected('Questionnaire')">        
+    <div ng-show="vm.isTabSelected('Questionnaire')">
         <div class="form-group form-group-sm">
             <div class="col-md-2">
                 <label for="hoursLeftAlone">How many hours would a foster dog be regularly left alone in a 24 hour period?</label>
@@ -726,6 +726,172 @@
         </div>
     </div>
     <div ng-show="vm.isTabSelected('Preferences')">
+        <div class="form-group form-group-sm">
+            <div class="col-md-2">
+                <label>Please select your preference(s) for fostering</label>
+            </div>
+            <div class="col-md-10">
+                <div class="row">
+                    <div class="col-md-2 checkbox">
+                        <label for="fosterPreferencePuppy"><input type="checkbox" id="fosterPreferencePuppy" name="fosterPreferencePuppy" ng-model="vm.form.fosterPreferences.puppy" /> Puppy</label>
+                    </div>
+                    <div class="col-md-2 checkbox">
+                        <label for="fosterPreferenceAdolescent"><input type="checkbox" id="fosterPreferenceAdolescent" name="fosterPreferenceAdolescent" ng-model="vm.form.fosterPreferences.adolescent" /> Adolescent</label>
+                    </div>
+                    <div class="col-md-2 checkbox">
+                        <label for="fosterPreferenceAdult"><input type="checkbox" id="fosterPreferenceAdult" name="fosterPreferenceAdult" ng-model="vm.form.fosterPreferences.adult" /> Adult</label>
+                    </div>
+                    <div class="col-md-2 checkbox">
+                        <label for="fosterPreferenceMature"><input type="checkbox" id="fosterPreferenceMature" name="fosterPreferenceMature" ng-model="vm.form.fosterPreferences.mature" /> Mature</label>
+                    </div>
+                    <div class="col-md-2 checkbox">
+                        <label for="fosterPreferenceSenior"><input type="checkbox" id="fosterPreferenceSenior" name="fosterPreferenceSenior" ng-model="vm.form.fosterPreferences.senior" /> Senior</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2 checkbox">
+                        <label for="fosterPreferenceMale"><input type="checkbox" id="fosterPreferenceMale" name="fosterPreferenceMale" ng-model="vm.form.fosterPreferences.male" /> Male</label>
+                    </div>
+                    <div class="col-md-2 checkbox">
+                        <label for="fosterPreferenceFemale"><input type="checkbox" id="fosterPreferenceFemale" name="fosterPreferenceFemale" ng-model="vm.form.fosterPreferences.female" /> Female</label>
+                    </div>
+                    <div class="col-md-2 checkbox">
+                        <label for="fosterPreferenceSmall"><input type="checkbox" id="fosterPreferenceSmall" name="fosterPreferenceSmall" ng-model="vm.form.fosterPreferences.small" /> Small</label>
+                    </div>
+                    <div class="col-md-2 checkbox">
+                        <label for="fosterPreferenceMedium"><input type="checkbox" id="fosterPreferenceMedium" name="fosterPreferenceMedium" ng-model="vm.form.fosterPreferences.medium" /> Medium</label>
+                    </div>
+                    <div class="col-md-2 checkbox">
+                        <label for="fosterPreferenceLarge"><input type="checkbox" id="fosterPreferenceLarge" name="fosterPreferenceLarge" ng-model="vm.form.fosterPreferences.large" /> Large</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorTouched(applicationForm.fosterPreferenceReason)}">
+            <div class="col-md-2">
+                <label for="fosterPreferenceReason">What are your reasons for the above choices?</label>
+            </div>
+            <div class="col-md-10">
+                <textarea class="form-control" rows="5" id="fosterPreferenceReason" name="fosterPreferenceReason" ng-model="vm.form.fosterPreferences.reason" required></textarea>
+                <ng-messages for="applicationForm.fosterPreferenceReason.$error" ng-if="applicationForm.fosterPreferenceReason.$touched" class="help-block">
+                    <span ng-message="required">Reason Required</span>
+                </ng-messages>
+            </div>
+        </div>
+        <div class="form-group form-group-sm">
+            <div class="col-md-2">
+                <label>Assuming you were given help from ARF volunteers and/or our veterinary clinic, please select any health issues you would <strong>NOT</strong> be willing to work with</label>
+            </div>
+            <div class="col-md-10">
+                <div class="row">
+                    <div class="col-md-2 checkbox">
+                        <label for="healthIssuesWorms"><input type="checkbox" id="healthIssuesWorms" name="healthIssuesWorms" ng-model="vm.form.healthIssues.worms" /> Worms</label>
+                    </div>
+                    <div class="col-md-2 checkbox">
+                        <label for="healthIssuesFleasTicks"><input type="checkbox" id="healthIssuesFleasTicks" name="healthIssuesFleasTicks" ng-model="vm.form.healthIssues.fleasTicks" /> Fleas / Ticks</label>
+                    </div>
+                    <div class="col-md-2 checkbox">
+                        <label for="healthIssuesDiarrhea"><input type="checkbox" id="healthIssuesDiarrhea" name="healthIssuesDiarrhea" ng-model="vm.form.healthIssues.diarrhea" /> Diarrhea</label>
+                    </div>
+                    <div class="col-md-2 checkbox">
+                        <label for="healthIssuesVomiting"><input type="checkbox" id="healthIssuesVomiting" name="healthIssuesVomiting" ng-model="vm.form.healthIssues.vomiting" /> Vomiting</label>
+                    </div>
+                    <div class="col-md-2 checkbox">
+                        <label for="healthIssuesItching"><input type="checkbox" id="healthIssuesItching" name="healthIssuesItching" ng-model="vm.form.healthIssues.itching" /> Exessive Itching of Skin</label>
+                    </div>
+                    <div class="col-md-2 checkbox">
+                        <label for="healthIssuesMedication"><input type="checkbox" id="healthIssuesMedication" name="healthIssuesMedication" ng-model="vm.form.healthIssues.medication" /> Administering Medication (pills, drops, etc)</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2 checkbox">
+                        <label for="healthIssuesMinorInjuries"><input type="checkbox" id="healthIssuesMinorInjuries" name="healthIssuesMinorInjuries" ng-model="vm.form.healthIssues.minorInjuries" /> Minor Injuries (cuts, abrasions)</label>
+                    </div>
+                    <div class="col-md-2 checkbox">
+                        <label for="healthIssuesMange"><input type="checkbox" id="healthIssuesMange" name="healthIssuesMange" ng-model="vm.form.healthIssues.mange" /> Demodex Mange</label>
+                    </div>
+                    <div class="col-md-2 checkbox">
+                        <label for="healthIssuesHeartworm"><input type="checkbox" id="healthIssuesHeartworm" name="healthIssuesHeartworm" ng-model="vm.form.healthIssues.heartworm" /> Heartworm Positive</label>
+                    </div>
+                    <div class="col-md-2 checkbox">
+                        <label for="healthIssuesNeurological"><input type="checkbox" id="healthIssuesNeurological" name="healthIssuesNeurological" ng-model="vm.form.healthIssues.neurological" /> Neurological Injury / Deficit</label>
+                    </div>
+                    <div class="col-md-2 checkbox">
+                        <label for="healthIssuesMajorInjuries"><input type="checkbox" id="healthIssuesMajorInjuries" name="healthIssuesMajorInjuries" ng-model="vm.form.healthIssues.majorInjuries" /> Fractures / Amputations/ Large Wounds</label>
+                    </div>
+                    <div class="col-md-2 checkbox">
+                        <label for="healthIssuesOther"><input type="checkbox" id="healthIssuesOther" name="healthIssuesOther" ng-model="vm.form.healthIssues.other" /> Other</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorTouched(applicationForm.lastName) }">
+            <label for="termLength" class="col-md-2">How long a term would you be willing to keep a dog in your foster care?</label>
+            <div class="col-md-10">
+                <input type="text" class="form-control" id="termLength" name="termLength" ng-model="vm.form.termLength" required />
+                <ng-messages for="applicationForm.termLength.$error" ng-if="applicationForm.termLength.$touched" class="help-block">
+                    <span ng-message="required">Term Length Required</span>
+                </ng-messages>
+            </div>
+        </div>
+        <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorTouched(applicationForm.returnFosterCircumstances)}">
+            <div class="col-md-2">
+                <label for="returnFosterCircumstances">What circumstances would make you ask ARF to take back a foster dog?</label>
+            </div>
+            <div class="col-md-10">
+                <textarea class="form-control" rows="5" id="returnFosterCircumstances" name="returnFosterCircumstances" ng-model="vm.form.returnFosterCircumstances" required></textarea>
+                <ng-messages for="applicationForm.returnFosterCircumstances.$error" ng-if="applicationForm.returnFosterCircumstances.$touched" class="help-block">
+                    <span ng-message="required">Return Reason Required</span>
+                </ng-messages>
+            </div>
+        </div>
+        <div class="form-group form-group-sm">
+            <div class="col-md-2">
+                <label for="previousFostering">Please provide details on any previous foster experiences with other organizations. Include name(s), date(s), and reasons for leaving</label>
+            </div>
+            <div class="col-md-10">
+                <textarea class="form-control" rows="5" id="previousFostering" name="previousFostering" ng-model="vm.form.previousFostering"></textarea>                
+            </div>
+        </div>
+        <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorTouched(applicationForm.fosterIntentions)}">
+            <label for="fosterIntentions" class="col-md-2">Do you intend to foster only once or are you hoping to foster several times?</label>
+            <div class="col-md-10">
+                <input type="text" class="form-control" id="fosterIntentions" name="fosterIntentions" ng-model="vm.form.fosterIntentions" required />
+                <ng-messages for="applicationForm.fosterIntentions.$error" ng-if="applicationForm.fosterIntentions.$touched" class="help-block">
+                    <span ng-message="required">Required</span>
+                </ng-messages>
+            </div>
+        </div>
+        <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorTouched(applicationForm.expectedSupport)}">
+            <div class="col-md-2">
+                <label for="expectedSupport">What kind of support are you expecting to receive from ARF members during your fostering experience?</label>
+            </div>
+            <div class="col-md-10">
+                <textarea class="form-control" rows="5" id="expectedSupport" name="expectedSupport" ng-model="vm.form.expectedSupport" required></textarea>
+                <ng-messages for="applicationForm.expectedSupport.$error" ng-if="applicationForm.expectedSupport.$touched" class="help-block">
+                    <span ng-message="required">Return Reason Required</span>
+                </ng-messages>
+            </div>
+        </div>
+        <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorTouched(applicationForm.futureLearning)}">
+            <div class="col-md-2">
+                <label for="futureLearning">What topics or areas of canine foster care/training are you interested in learning more about?</label>
+            </div>
+            <div class="col-md-10">
+                <textarea class="form-control" rows="5" id="futureLearning" name="futureLearning" ng-model="vm.form.futureLearning" required></textarea>
+                <ng-messages for="applicationForm.futureLearning.$error" ng-if="applicationForm.futureLearning.$touched" class="help-block">
+                    <span ng-message="required">Required</span>
+                </ng-messages>
+            </div>
+        </div>
+        <div class="form-group form-group-sm">
+            <div class="col-md-2">
+                <label for="trainingAttendance">Are you willing to attend ARF's orientation/training sessions for new foster homes?</label>
+            </div>
+            <div class="col-md-10">
+                <input type="checkbox" id="trainingAttendance" name="trainingAttendance" ng-model="vm.form.trainingAttendance" />
+            </div>
+        </div>
         <hr />
         <div class="text-center">
             <button type="button" class="btn btn-default" ng-click="vm.switchTab('Questionnaire')">Previous</button>

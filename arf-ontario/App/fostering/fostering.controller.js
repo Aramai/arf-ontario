@@ -245,9 +245,9 @@
                 small: false,
                 medium: false,
                 large: false,
-                reasoning: '',
+                reason: '',
             },
-            healthIssueAvoidance: {
+            healthIssues: {
                 worms: false,
                 fleasTicks: false,
                 diarrhea: false,
@@ -259,13 +259,11 @@
                 heartworm: false,
                 neurological: false,
                 majorInjuries: false,
-                other: false,
-                otherDescription: ''
+                other: false
             },
             termLength: '',
             returnFosterCircumstances: '',
-            previousFostering: false,
-            previousFosteringDescription: '',
+            previousFostering: '',
             fosterIntentions: '',
             expectedSupport: '',
             futureLearning: '',

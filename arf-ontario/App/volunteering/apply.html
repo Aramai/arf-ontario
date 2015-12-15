@@ -6,7 +6,7 @@
         <div class="col-md-10">
             <input type="text" class="form-control" id="name" name="name" placeholder="Name" ng-model="vm.form.name" required />
             <ng-messages for="applicationForm.name.$error" ng-if="applicationForm.name.$touched" class="help-block">
-                <span ng-message="required">Name is required.</span>
+                <span ng-message="required">Name Required</span>
             </ng-messages>           
         </div>
     </div>
@@ -15,7 +15,7 @@
         <div class="col-md-10">
             <input type="text" class="form-control" id="address" name="address" placeholder="Address" ng-model="vm.form.address" required />
             <ng-messages for="applicationForm.address.$error" ng-if="applicationForm.address.$touched" class="help-block">
-                <span ng-message="required">Address is required</span>
+                <span ng-message="required">Address Required</span>
             </ng-messages>
         </div>
     </div>
@@ -77,8 +77,8 @@
         <div class="col-md-10">
             <input type="email" class="form-control" id="email" name="email" placeholder="your@email.com" ng-model="vm.form.email" data-toggle="tooltip" title="Approx 1 e-mail request per month" required />
             <ng-messages for="applicationForm.email.$error" ng-if="applicationForm.email.$dirty" class="help-block">
-                <span ng-message="required">E-mail is required.</span>
-                <span ng-message="email">Valid e-mail is required.</span>
+                <span ng-message="required">E-mail Required</span>
+                <span ng-message="email">Valid e-mail Required</span>
             </ng-messages>
         </div>
     </div>
