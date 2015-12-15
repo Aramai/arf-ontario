@@ -11,7 +11,10 @@
         vm.dogs = undefined;
         vm.cats = undefined;
         vm.showings = undefined;
-        
+        vm.dogAdoptionDetails = undefined;
+        vm.catAdoptionDetails = undefined;
+        vm.tabs = undefined;
+
         if ($state.is('adoptions.dogs') && vm.dogs == undefined) {
             $http.get('App/adoptions/adoptableDogs.json').success(GetAdoptableDogs).error(ReportError);
         }
@@ -21,11 +24,19 @@
         else if ($state.is('adoptions.showings') && vm.showings == undefined) {
             $http.get('App/adoptions/showings.json').success(GetAdoptionShowings).error(ReportError);
         }
-        
+        else if ($state.is('adoptions.dog')) {
+            vm.tabs = DogAdoptionTabs();
+            vm.dogAdoptionDetails = new DogAdoptionDetails($state.params.name);
+        }
+        else if ($state.is('adoptions.dog')) {
+            vm.tabs = CatAdoptionTabs();
+            vm.catAdoptionDetails = new CatAdoptionDetails($state.params.name);
+        }
+
         function GetAdoptableDogs(response) {
             vm.dogs = response.dogs;
 
-            ReplaceNewLines(vm.dogs);            
+            ReplaceNewLines(vm.dogs);
         }
 
         function GetAdoptableCats(response) {
@@ -43,11 +54,30 @@
             console.log(response);
         }
 
-        function ReplaceNewLines(arr)
-        {
+        function ReplaceNewLines(arr) {
             for (var i = 0; i < arr.length; i++) {
                 arr[i].description = arr[i].description.replace(/\n/g, "<br />")
             }
+        }
+
+        function DogAdoptionDetails(name) {
+            return {
+                animalName: name
+            };
+        }
+
+        function CatAdoptionDetails(name) {
+            return {
+                animalName: name
+            };
+        }
+
+        function DogAdoptionTabs() {
+            return ['Personal Details', 'Family & Training', 'Children', 'Current Pets'];
+        }
+
+        function CatAdoptionTabs() {
+            return [];
         }
     }
 })();

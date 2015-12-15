@@ -1,0 +1,18 @@
+﻿<h4 class="text-center"><strong>Adoption Application - {{vm.dogAdoptionDetails.animalName}}</strong></h4>
+<hr />
+<form name="applicationForm" class="form-horizontal" ng-submit="vm.submitForm(applicationForm.$valid)" novalidate>
+    <ul class="nav nav-tabs">
+        <li ng-repeat="tab in vm.tabs" ng-class="{'active' : vm.isTabSelected(tab)}">
+            <a href="" ng-click="vm.switchTab(tab)">
+                <span class="fa-stack">
+                    <i class="fa fa-circle-o fa-stack-2x"></i>
+                    <strong class="fa-stack-1x">{{$index + 1}}</strong>
+                </span>
+                {{tab}}
+            </a>
+        </li>
+    </ul>
+    <br />
+    <div ng-show="">
+    </div>
+</form>

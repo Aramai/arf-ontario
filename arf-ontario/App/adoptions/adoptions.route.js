@@ -46,12 +46,19 @@
                 controllerAs: 'vm',
                 title: 'Adoptions - Training'
             })
-            .state('adoptions.adopt', {
-                url: '/adopt/{name}',
-                templateUrl: 'app/adoptions/adopt.html',
+            .state('adoptions.dog', {
+                url: '/dogs/{name}',
+                templateUrl: 'app/adoptions/dogAdoption.html',
                 controller: 'Adoptions',
                 controllerAs: 'vm',
-                title: 'Adoptions - Adopt'
+                title: 'Adoptions - Dogs'
+            })
+            .state('adoptions.cat', {
+                url: '/cats/{name}',
+                templateUrl: 'app/adoptions/catAdoption.html',
+                controller: 'Adoptions',
+                controllerAs: 'vm',
+                title: 'Adoptions - Cats'
             });
         });    
 })();
