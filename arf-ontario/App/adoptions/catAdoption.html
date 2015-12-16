@@ -1,9 +1,210 @@
-﻿<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title></title>
-</head>
-<body>
-
-</body>
-</html>
+﻿<h4 class="text-center"><strong>Adoption Application - {{vm.catAdoptionDetails.animalName}}</strong></h4>
+<hr />
+<form name="vm.applicationForm" class="form-horizontal" ng-submit="vm.submitForm(vm.applicationForm.$valid)" novalidate>
+    <ul class="nav nav-tabs">
+        <li ng-repeat="tab in vm.tabs" ng-class="{true: 'active', false: ''}[vm.isTabSelected(tab.tabName)]">
+            <a href="" ng-click="vm.switchTab(tab.tabName)" ng-class="{true: '', false: 'error'}[vm.isFormValid(tab.tabName, tab.formName)]">
+                <span class="fa-stack">
+                    <i class="fa fa-circle-o fa-stack-2x"></i>
+                    <strong class="fa-stack-1x">{{$index + 1}}</strong>
+                </span>
+                {{tab.tabName}}
+            </a>
+        </li>
+    </ul>
+    <br />
+    <div ng-show="vm.isTabSelected('Personal Details')">
+        <ng-form name="personalDetailsForm">
+            <h5 class="text-center"><strong>Personal Details</strong></h5>
+            <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorTouched(personalDetailsForm.applicantName) }">
+                <div class="col-md-2">
+                    <label for="applicantName">Applicant Name</label>
+                </div>
+                <div class="col-md-10">
+                    <input type="text" class="form-control" id="applicantName" name="applicantName" ng-model="vm.catAdoptionDetails.applicantName" required />
+                    <ng-messages for="personalDetailsForm.applicantName.$error" ng-if="personalDetailsForm.applicantName.$touched" class="help-block">
+                        <span ng-message="required">Name Required</span>
+                    </ng-messages>
+                </div>
+            </div>
+            <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorDirty(personalDetailsForm.email) }">
+                <div class="col-md-2">
+                    <label for="email">E-mail</label>
+                </div>
+                <div class="col-md-10">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="your@email.com" ng-model="vm.catAdoptionDetails.email" required />
+                    <ng-messages for="personalDetailsForm.email.$error" ng-if="personalDetailsForm.email.$dirty" class="help-block">
+                        <span ng-message="required">E-mail Required</span>
+                        <span ng-message="email">Valid e-mail Required</span>
+                    </ng-messages>
+                </div>
+            </div>
+            <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorTouched(personalDetailsForm.phoneNumber) }">
+                <div class="col-md-2">
+                    <label for="phoneNumber">Phone Number</label>
+                </div>
+                <div class="col-md-10">
+                    <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="(xxx)-xxx-xxxx" ng-model="vm.catAdoptionDetails.phoneNumber" required />
+                    <ng-messages for="personalDetailsForm.phoneNumber.$error" ng-if="personalDetailsForm.phoneNumber.$touched" class="help-block">
+                        <span ng-message="required">Phone Number Required</span>
+                    </ng-messages>
+                </div>
+            </div>
+            <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorTouched(personalDetailsForm.city) }">
+                <div class="col-md-2">
+                    <label for="city">City</label>
+                </div>
+                <div class="col-md-10">
+                    <input type="text" class="form-control" id="city" name="city" ng-model="vm.catAdoptionDetails.city" required />
+                    <ng-messages for="personalDetailsForm.city.$error" ng-if="personalDetailsForm.city.$touched" class="help-block">
+                        <span ng-message="required">City Required</span>
+                    </ng-messages>
+                </div>
+            </div>
+            <div class="form-group form-group-sm">
+                <div class="col-md-2">
+                    <label for="numberOfAdults">Number of Adults in the home</label>
+                </div>
+                <div class="col-md-10">
+                    <input type="number" class="form-control" id="numberOfAdults" name="numberOfAdults" ng-model="vm.catAdoptionDetails.numberOfAdults" min="1" max="10" />
+                </div>
+            </div>
+            <div class="form-group form-group-sm">
+                <div class="col-md-2">
+                    <label for="children">Describe the number and age(s) of children in the home (if any)</label>
+                </div>
+                <div class="col-md-10">
+                    <textarea class="form-control" rows="5" id="children" name="children" ng-model="vm.catAdoptionDetails.children"></textarea>
+                </div>
+            </div>
+            <div class="form-group form-group-sm">
+                <div class="col-md-2">
+                    <label for="currentPets">Describe any pets currently living in the home</label>
+                </div>
+                <div class="col-md-10">
+                    <textarea class="form-control" rows="5" id="currentPets" name="currentPets" placeholder="Type, number, age, etc" ng-model="vm.catAdoptionDetails.currentPets"></textarea>
+                </div>
+            </div>
+            <hr />
+            <div class="text-center">
+                <button type="button" class="btn btn-default" ng-click="vm.switchTab('Preferences')">Next</button>
+            </div>
+        </ng-form>
+    </div>
+    <div ng-show="vm.isTabSelected('Preferences')">
+        <ng-form name="preferencesForm">
+            <h5 class="text-center"><strong>Preferences</strong></h5>
+            <div class="form-group form-group-sm">
+                <div class="col-md-2">
+                    <label>Hair Length</label>
+                </div>
+                <div class="col-md-10">
+                    <label class="radio-inline">
+                        <input type="radio" name="hairPreferenceLong" id="hairPreferenceLong" value="Long" ng-model="vm.catAdoptionDetails.hairPreference" />Long
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="hairPreferenceMedium" id="hairPreferenceMedium" value="Medium" ng-model="vm.catAdoptionDetails.hairPreference" />Medium
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="hairPreferenceShort" id="hairPreferenceShort" value="Short" ng-model="vm.catAdoptionDetails.hairPreference" />Short
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="hairPreferenceNone" id="hairPreferenceNone" value="No Preference" ng-model="vm.catAdoptionDetails.hairPreference" />No Preference
+                    </label>
+                </div>
+            </div>
+            <div class="form-group form-group-sm">
+                <div class="col-md-2">
+                    <label>Sex</label>
+                </div>
+                <div class="col-md-10">
+                    <label class="radio-inline">
+                        <input type="radio" name="catSexMale" id="catSexMale" value="Male" ng-model="vm.catAdoptionDetails.sexPreference" />Male
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="catSexFemale" id="catSexFemale" value="Female" ng-model="vm.catAdoptionDetails.sexPreference" />Female
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="catSexNoPreference" id="catSexNoPreference" value="No Preference" ng-model="vm.catAdoptionDetails.sexPreference" />No Preference
+                    </label>
+                </div>
+            </div>
+            <div class="form-group form-group-sm" ng-class="{'hidden' : vm.catAdoptionDetails.sexPreference.length == 0 || vm.catAdoptionDetails.sexPreference == 'No Preference'}">
+                <div class="col-md-2">
+                    <label for="sexPreferenceReasoning">Why do you have a preference for {{vm.catAdoptionDetails.sexPreference.toLowerCase()}} cats?</label>
+                </div>
+                <div class="col-md-10">
+                    <textarea class="form-control" rows="5" id="sexPreferenceReasoning" name="sexPreferenceReasoning" ng-model="vm.catAdoptionDetails.sexPreferenceReasoning"></textarea>
+                </div>
+            </div>
+            <div class="form-group form-group-sm">
+                <div class="col-md-2">
+                    <label for="spayNeuterThoughts">What are your thoughts on spay/neuter?</label>
+                </div>
+                <div class="col-md-10">
+                    <textarea class="form-control" rows="5" id="spayNeuterThoughts" name="spayNeuterThoughts" ng-model="vm.catAdoptionDetails.spayNeuterThoughts"></textarea>
+                </div>
+            </div>
+            <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorTouched(preferencesForm.scratchReaction) }">
+                <div class="col-md-2">
+                    <label for="scratchReaction">If you came home and found your sofa scratched by kitty claws, how would you react?</label>
+                </div>
+                <div class="col-md-10">
+                    <textarea class="form-control" rows="5" id="scratchReaction" name="scratchReaction" ng-model="vm.catAdoptionDetails.scratchReaction" required></textarea>
+                    <ng-messages for="preferencesForm.scratchReaction.$error" ng-if="preferencesForm.scratchReaction.$touched" class="help-block">
+                        <span ng-message="required">Required</span>
+                    </ng-messages>
+                </div>
+            </div>
+            <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorTouched(preferencesForm.scratchDeterence) }">
+                <div class="col-md-2">
+                    <label for="scratchDeterence">How will you deter the cat from scratching further?</label>
+                </div>
+                <div class="col-md-10">
+                    <textarea class="form-control" rows="5" id="scratchDeterence" name="scratchDeterence" ng-model="vm.catAdoptionDetails.scratchDeterence" required></textarea>
+                    <ng-messages for="preferencesForm.scratchDeterence.$error" ng-if="preferencesForm.scratchDeterence.$touched" class="help-block">
+                        <span ng-message="required">Required</span>
+                    </ng-messages>
+                </div>
+            </div>
+            <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorTouched(preferencesForm.allowedOutdoors) }">
+                <div class="col-md-2">
+                    <label for="allowedOutdoors">Please explain if the cat will be allowed outdoors and your reasoning</label>
+                </div>
+                <div class="col-md-10">
+                    <textarea class="form-control" rows="5" id="allowedOutdoors" name="allowedOutdoors" ng-model="vm.catAdoptionDetails.allowedOutdoors" required></textarea>
+                    <ng-messages for="preferencesForm.allowedOutdoors.$error" ng-if="preferencesForm.allowedOutdoors.$touched" class="help-block">
+                        <span ng-message="required">Required</span>
+                    </ng-messages>
+                </div>
+            </div>
+            <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorTouched(preferencesForm.hearAboutArf) }">
+                <div class="col-md-2">
+                    <label for="hearAboutArf">How did you hear about ARF?</label>
+                </div>
+                <div class="col-md-10">
+                    <textarea class="form-control" rows="5" id="hearAboutArf" name="hearAboutArf" ng-model="vm.catAdoptionDetails.hearAboutArf" required></textarea>
+                    <ng-messages for="preferencesForm.hearAboutArf.$error" ng-if="preferencesForm.hearAboutArf.$touched" class="help-block">
+                        <span ng-message="required">Required</span>
+                    </ng-messages>
+                </div>
+            </div>
+            <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorTouched(preferencesForm.applicationReasoning) }">
+                <div class="col-md-2">
+                    <label for="applicationReasoning">What made you decide to apply with ARF?</label>
+                </div>
+                <div class="col-md-10">
+                    <textarea class="form-control" rows="5" id="applicationReasoning" name="applicationReasoning" ng-model="vm.catAdoptionDetails.applicationReasoning" required></textarea>
+                    <ng-messages for="preferencesForm.applicationReasoning.$error" ng-if="preferencesForm.applicationReasoning.$touched" class="help-block">
+                        <span ng-message="required">Required</span>
+                    </ng-messages>
+                </div>
+            </div>
+            <hr />
+            <div class="text-center">
+                <button type="button" class="btn btn-default" ng-click="vm.switchTab('Personal Details')">Previous</button>
+                <button type="button" class="btn btn-default" ng-click="">Submit</button>
+            </div>
+        </ng-form>
+    </div>
+</form>

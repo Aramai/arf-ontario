@@ -7,57 +7,89 @@
 
     function Adoptions($http, $state) {
         var vm = this;
+        
+        vm.isTabSelected = isTabSelected;
+        vm.switchTab = switchTab;
+        vm.hasErrorTouched = hasErrorTouched;
+        vm.hasErrorDirty = hasErrorDirty;
+        vm.isFormValid = isFormValid;
+
         vm.title = 'Adoptions';
+        vm.applicationForm = undefined;
         vm.dogs = undefined;
         vm.cats = undefined;
         vm.showings = undefined;
+        vm.selectedTab = undefined;
         vm.dogAdoptionDetails = undefined;
         vm.catAdoptionDetails = undefined;
         vm.tabs = undefined;
 
+
         if ($state.is('adoptions.dogs') && vm.dogs == undefined) {
-            $http.get('App/adoptions/adoptableDogs.json').success(GetAdoptableDogs).error(ReportError);
+            $http.get('App/adoptions/adoptableDogs.json').success(getAdoptableDogs).error(reportError);
         }
         else if ($state.is('adoptions.cats') && vm.cats == undefined) {
-            $http.get('App/adoptions/adoptableCats.json').success(GetAdoptableCats).error(ReportError);
+            $http.get('App/adoptions/adoptableCats.json').success(getAdoptableCats).error(reportError);
         }
         else if ($state.is('adoptions.showings') && vm.showings == undefined) {
-            $http.get('App/adoptions/showings.json').success(GetAdoptionShowings).error(ReportError);
+            $http.get('App/adoptions/showings.json').success(getAdoptionShowings).error(reportError);
         }
         else if ($state.is('adoptions.dog')) {
             vm.tabs = DogAdoptionTabs();
+            vm.selectedTab = vm.tabs[0].tabName;
             vm.dogAdoptionDetails = new DogAdoptionDetails($state.params.name);
         }
-        else if ($state.is('adoptions.dog')) {
+        else if ($state.is('adoptions.cat')) {
             vm.tabs = CatAdoptionTabs();
-            vm.catAdoptionDetails = new CatAdoptionDetails($state.params.name);
-        }
+            vm.selectedTab = vm.tabs[0].tabName;
+            vm.catAdoptionDetails = new CatAdoptionDetails($state.params.name);            
+        }        
 
-        function GetAdoptableDogs(response) {
+        function getAdoptableDogs(response) {
             vm.dogs = response.dogs;
 
-            ReplaceNewLines(vm.dogs);
+            replaceNewLines(vm.dogs);
         }
 
-        function GetAdoptableCats(response) {
+        function getAdoptableCats(response) {
             vm.cats = response.cats;
 
-            ReplaceNewLines(vm.cats);
+            replaceNewLines(vm.cats);
         }
 
-        function GetAdoptionShowings(response) {
+        function getAdoptionShowings(response) {
             vm.showings = response.showings;
         }
 
 
-        function ReportError(response) {
+        function reportError(response) {
             console.log(response);
         }
 
-        function ReplaceNewLines(arr) {
+        function replaceNewLines(arr) {
             for (var i = 0; i < arr.length; i++) {
                 arr[i].description = arr[i].description.replace(/\n/g, "<br />")
             }
+        }
+
+        function isFormValid(tab, form) {
+            return vm.applicationForm[form].$pristine || vm.applicationForm[form].$valid;
+        }      
+
+        function isTabSelected(tab) {
+            return vm.selectedTab == tab;
+        }
+
+        function switchTab(tab) {
+            vm.selectedTab = tab;
+        }
+
+        function hasErrorTouched(field) {
+            return (field.$invalid && field.$touched);
+        }
+
+        function hasErrorDirty(field) {
+            return (field.$invalid && field.$dirty);
         }
 
         function DogAdoptionDetails(name) {
@@ -68,7 +100,23 @@
 
         function CatAdoptionDetails(name) {
             return {
-                animalName: name
+                animalName: name,
+                applicantName: '',
+                email: '',
+                phoneNumber: '',
+                city: '',
+                numberOfAdults: 1,
+                children: '',
+                currentPets: '',
+                hairPreference: '',
+                sexPreference: '',
+                sexPreferenceReasoning: '',
+                spayNeuterThoughts: '',
+                scratchReaction: '',
+                scratchDeterence: '',
+                allowedOutdoors: '',
+                hearAboutArf: '',
+                applicationReasoning: ''
             };
         }
 
@@ -77,7 +125,10 @@
         }
 
         function CatAdoptionTabs() {
-            return [];
+            return [
+                { tabName: 'Personal Details', formName: 'personalDetailsForm' },
+                { tabName: 'Preferences', formName: 'preferencesForm' }
+            ];
         }
     }
 })();

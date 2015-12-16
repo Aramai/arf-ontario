@@ -8,6 +8,10 @@ accent{
     background-color: #D8D6BC;
 }
 
+a.error {
+    color: #F90707 !important;
+}
+
 hr{
     border-top: 1px solid #CAC5C5;
 }

@@ -38,12 +38,7 @@
     function switchTab(tab) {
         var vm = this;
         vm.selectedTab = tab;
-    }
-
-    function progressStyle() {
-        var vm = this;
-        return vm.form.progress + "%";
-    }
+    }   
 
     function resetEmploymentDetails() {
         var vm = this;

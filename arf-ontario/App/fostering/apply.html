@@ -50,7 +50,7 @@
             <div class="col-md-10">
                 <input type="text" class="form-control" id="address" name="address" placeholder="Street Address" ng-model="vm.form.address" required />
                 <ng-messages for="applicationForm.address.$error" ng-if="applicationForm.address.$touched" class="help-block">
-                    <span ng-message="required">Street Address is required</span>
+                    <span ng-message="required">Street Address Required</span>
                 </ng-messages>
             </div>
         </div>
@@ -59,16 +59,16 @@
             <div class="col-md-10">
                 <input type="text" class="form-control" id="city" name="city" placeholder="City" ng-model="vm.form.city" required />
                 <ng-messages for="applicationForm.city.$error" ng-if="applicationForm.city.$touched" class="help-block">
-                    <span ng-message="required">City is required</span>
+                    <span ng-message="required">City Required</span>
                 </ng-messages>
             </div>
         </div>
         <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorTouched(applicationForm.homePhone) }">
             <label for="homePhone" class="col-md-2">Primary Phone (Home)</label>
             <div class="col-md-10">
-                <input type="text" class="form-control" id="homePhone" name="homePhone" placeholder="(xxx)-xxx-xxxx" ng-model="vm.form.homePhone" required />
+                <input type="tel" class="form-control" id="homePhone" name="homePhone" placeholder="(xxx)-xxx-xxxx" ng-model="vm.form.homePhone" required />
                 <ng-messages for="applicationForm.homePhone.$error" ng-if="applicationForm.homePhone.$touched" class="help-block">
-                    <span ng-message="required">Primary Phone (Home) is required</span>
+                    <span ng-message="required">Primary Phone (Home) Required</span>
                 </ng-messages>
             </div>
         </div>
@@ -77,7 +77,7 @@
                 <label for="cellPhone">Alternate Phone (Cell)</label>
             </div>
             <div class="col-md-10">
-                <input type="text" class="form-control" id="cellPhone" name="cellPhone" placeholder="(xxx) xxx-xxxx" ng-model="vm.form.cellPhone" />
+                <input type="tel" class="form-control" id="cellPhone" name="cellPhone" placeholder="(xxx) xxx-xxxx" ng-model="vm.form.cellPhone" />
             </div>
         </div>
         <div class="form-group form-group-sm">
@@ -85,7 +85,7 @@
                 <label for="workPhone">Work/Business Phone</label>
             </div>
             <div class="col-md-10">
-                <input type="text" class="form-control" id="workPhone" name="workPhone" placeholder="(xxx) xxx-xxxx" ng-model="vm.form.workPhone" />
+                <input type="tel" class="form-control" id="workPhone" name="workPhone" placeholder="(xxx) xxx-xxxx" ng-model="vm.form.workPhone" />
             </div>
         </div>
         <div class="form-group form-group-sm">
