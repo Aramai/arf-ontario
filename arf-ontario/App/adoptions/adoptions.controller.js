@@ -6,13 +6,14 @@
         .controller('Adoptions', Adoptions);
 
     function Adoptions($http, $state) {
-        var vm = this;
+        var vm = this;        
         
-        vm.isTabSelected = isTabSelected;
-        vm.switchTab = switchTab;
-        vm.hasErrorTouched = hasErrorTouched;
         vm.hasErrorDirty = hasErrorDirty;
+        vm.hasErrorTouched = hasErrorTouched;
         vm.isFormValid = isFormValid;
+        vm.isChildFormValid = isChildFormValid;
+        vm.isTabSelected = isTabSelected;
+        vm.switchTab = switchTab;        
 
         vm.title = 'Adoptions';
         vm.applicationForm = undefined;
@@ -23,7 +24,6 @@
         vm.dogAdoptionDetails = undefined;
         vm.catAdoptionDetails = undefined;
         vm.tabs = undefined;
-
 
         if ($state.is('adoptions.dogs') && vm.dogs == undefined) {
             $http.get('App/adoptions/adoptableDogs.json').success(getAdoptableDogs).error(reportError);
@@ -72,7 +72,11 @@
             }
         }
 
-        function isFormValid(tab, form) {
+        function isFormValid() {
+            return vm.applicationForm.$dirty && vm.applicationForm.$valid;
+        }
+
+        function isChildFormValid(tab, form) {
             return vm.applicationForm[form].$pristine || vm.applicationForm[form].$valid;
         }      
 
