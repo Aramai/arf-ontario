@@ -3,7 +3,7 @@
 <form name="vm.applicationForm" class="form-horizontal" ng-submit="vm.submitForm(vm.applicationForm.$valid)" novalidate>
     <ul class="nav nav-tabs">
         <li ng-repeat="tab in vm.tabs" ng-class="{true: 'active', false: ''}[vm.isTabSelected(tab.tabName)]">
-            <a href="" ng-click="vm.switchTab(tab.tabName)" ng-class="{true: '', false: 'error'}[vm.isChildFormValid(tab.tabName, tab.formName)]">
+            <a href="" ng-click="vm.switchTab(tab.tabName)" ng-class="{true: '', false: 'error'}[vm.isChildFormValid(tab.formName)]">
                 <span class="fa-stack">
                     <i class="fa fa-circle-o fa-stack-2x"></i>
                     <strong class="fa-stack-1x">{{$index + 1}}</strong>
@@ -16,7 +16,7 @@
     <div ng-show="vm.isTabSelected('Personal Details')">
         <ng-form name="personalDetailsForm">
             <h5 class="text-center"><strong>Personal Details</strong></h5>
-            <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorTouched(personalDetailsForm.applicantName) }">
+            <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorTouched(personalDetailsForm.$name, personalDetailsForm.applicantName) }">
                 <div class="col-md-2">
                     <label for="applicantName">Applicant Name</label>
                 </div>

@@ -6,14 +6,14 @@
         .controller('Adoptions', Adoptions);
 
     function Adoptions($http, $state) {
-        var vm = this;        
-        
+        var vm = this;
+
         vm.hasErrorDirty = hasErrorDirty;
         vm.hasErrorTouched = hasErrorTouched;
         vm.isFormValid = isFormValid;
         vm.isChildFormValid = isChildFormValid;
         vm.isTabSelected = isTabSelected;
-        vm.switchTab = switchTab;        
+        vm.switchTab = switchTab;
 
         vm.title = 'Adoptions';
         vm.applicationForm = undefined;
@@ -42,8 +42,8 @@
         else if ($state.is('adoptions.cat')) {
             vm.tabs = CatAdoptionTabs();
             vm.selectedTab = vm.tabs[0].tabName;
-            vm.catAdoptionDetails = new CatAdoptionDetails($state.params.name);            
-        }        
+            vm.catAdoptionDetails = new CatAdoptionDetails($state.params.name);
+        }
 
         function getAdoptableDogs(response) {
             vm.dogs = response.dogs;
@@ -61,7 +61,6 @@
             vm.showings = response.showings;
         }
 
-
         function reportError(response) {
             console.log(response);
         }
@@ -76,9 +75,9 @@
             return vm.applicationForm.$dirty && vm.applicationForm.$valid;
         }
 
-        function isChildFormValid(tab, form) {
+        function isChildFormValid(form) {
             return vm.applicationForm[form].$pristine || vm.applicationForm[form].$valid;
-        }      
+        }
 
         function isTabSelected(tab) {
             return vm.selectedTab == tab;
@@ -88,17 +87,81 @@
             vm.selectedTab = tab;
         }
 
-        function hasErrorTouched(field) {
+        function hasErrorTouched(field) {            
             return (field.$invalid && field.$touched);
         }
 
+        function hasErrorTouched(form, field) {
+            if (form && field) {
+                if (vm.applicationForm[form] && vm.applicationForm[form].$pristine && field.$touched) {
+                    vm.applicationForm[form].$pristine = false;
+                    vm.applicationForm[form].$dirty = true;
+                }
+
+                return (field.$invalid && field.$touched);
+            }
+
+            return false;
+        }
+
         function hasErrorDirty(field) {
-            return (field.$invalid && field.$dirty);
+            if (field) {
+                return (field.$invalid && field.$dirty);
+            }
+            
+            return false;
         }
 
         function DogAdoptionDetails(name) {
             return {
-                animalName: name
+                animalName: name,
+                applicantName: '',
+                address: '',
+                city: '',
+                email: '',
+                phoneNumber: '',
+                numberOfAdults: 1,
+                childrenDetails: '',
+                currentPetDetails: '',
+                dwellingType: '',
+                outdoorDimensions: '',
+                fence: false,
+                fenceDetails: '',
+                family: {
+                    workSchedule: '',
+                    desiredDogDetails: '',
+                    desiredDogReasoning: '',
+                    activityLevel: '',
+                    matchReasoning: '',
+                    spayNeuterThoughts: '',
+                    crateTrainingThoughts: '',
+                    damageReaction: '',
+                    bitePreventionResearch: false,
+                    familyTrainingAttendance: '',
+                    trainingExample: '',
+                    situationExample: '',
+                    otherInformation: '',
+                    trainingFacility: '',
+                    obedienceTrainingLength: ''
+                },
+                children: {
+                    trainingLength: '',
+                    trainingFitLifestyle: '',
+                    dogNipReaction: '',
+                    dogRoughhouseReaction: '',
+                    unsupervisedLength: '',
+                    pastInteraction: '',
+                    dogToleranceLevel: '',
+                    situationExample: ''
+                },
+                currentPets: {
+                    exposureToDogs: '',
+                    matchResearch: '',
+                    trainingMethods: '',
+                    trainingHistory: '',
+                    motivation: '',
+                    otherInformation: ''
+                }
             };
         }
 
@@ -125,7 +188,11 @@
         }
 
         function DogAdoptionTabs() {
-            return ['Personal Details', 'Family & Training', 'Children', 'Current Pets'];
+            return [{ tabName: 'Personal Details', formName: 'personalDetailsForm' },
+                    { tabName: 'Family & Training', formName: 'familyTrainingForm' },
+                    { tabName: 'Children', formName: 'childrenForm' },
+                    { tabName: 'Current Pets', formName: 'currentPetsForm' }
+            ];
         }
 
         function CatAdoptionTabs() {

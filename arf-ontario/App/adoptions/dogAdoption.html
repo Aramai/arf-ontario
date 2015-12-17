@@ -1,18 +1,69 @@
 ﻿<h4 class="text-center"><strong>Adoption Application - {{vm.dogAdoptionDetails.animalName}}</strong></h4>
 <hr />
-<form name="applicationForm" class="form-horizontal" ng-submit="vm.submitForm(applicationForm.$valid)" novalidate>
+<form name="vm.applicationForm" class="form-horizontal" ng-submit="vm.submitForm(vm.applicationForm.$valid)" novalidate>
     <ul class="nav nav-tabs">
-        <li ng-repeat="tab in vm.tabs" ng-class="{'active' : vm.isTabSelected(tab)}">
-            <a href="" ng-click="vm.switchTab(tab)">
+        <li ng-repeat="tab in vm.tabs" ng-class="{true: 'active', false: ''}[vm.isTabSelected(tab.tabName)]">
+            <a href="" ng-click="vm.switchTab(tab.tabName)" ng-class="{true: '', false: 'error'}[vm.isChildFormValid(tab.formName)]">
                 <span class="fa-stack">
                     <i class="fa fa-circle-o fa-stack-2x"></i>
                     <strong class="fa-stack-1x">{{$index + 1}}</strong>
                 </span>
-                {{tab}}
+                {{tab.tabName}}
             </a>
         </li>
     </ul>
     <br />
-    <div ng-show="">
+    <div ng-show="vm.isTabSelected('Personal Details')">
+        <ng-form name="personalDetailsForm">
+            <h5 class="text-center"><strong>Personal Details</strong></h5>
+            <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorTouched(personalDetailsForm.applicantName) }">
+                <div class="col-md-2">
+                    <label for="applicantName">Applicant Name</label>
+                </div>
+                <div class="col-md-10">
+                    <input type="text" class="form-control" id="applicantName" name="applicantName" ng-model="vm.dogAdoptionDetails.applicantName" required />
+                    <ng-messages for="personalDetailsForm.applicantName.$error" ng-if="personalDetailsForm.applicantName.$touched" class="help-block">
+                        <span ng-message="required">Name Required</span>
+                    </ng-messages>
+                </div>
+            </div>
+            <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorTouched(personalDetailsForm.address) }">
+                <div class="col-md-2">
+                    <label for="address">Address</label>
+                </div>
+                <div class="col-md-10">
+                    <input type="text" class="form-control" id="address" name="address" ng-model="vm.dogAdoptionDetails.address" required />
+                    <ng-messages for="personalDetailsForm.address.$error" ng-if="personalDetailsForm.address.$touched" class="help-block">
+                        <span ng-message="required">Address Required</span>
+                    </ng-messages>
+                </div>
+            </div>
+            <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorTouched(personalDetailsForm.address) }">
+                <div class="col-md-2">
+                    <label for="city">City</label>
+                </div>
+                <div class="col-md-10">
+                    <input type="text" class="form-control" id="city" name="city" ng-model="vm.dogAdoptionDetails.city" required />
+                    <ng-messages for="personalDetailsForm.city.$error" ng-if="personalDetailsForm.city.$touched" class="help-block">
+                        <span ng-message="required">City Required</span>
+                    </ng-messages>
+                </div>
+            </div>
+        </ng-form>
+    </div>
+    <div ng-show="vm.isTabSelected('Family & Training')">
+        <ng-form name="familyTrainingForm">
+
+        </ng-form>
+    </div>
+    <div ng-show="vm.isTabSelected('Children')">
+        <ng-form name="childrenForm">
+
+        </ng-form>
+    </div>
+    <div ng-show="vm.isTabSelected('Current Pets')">
+        <ng-form name="currentPetsForm">
+
+        </ng-form>
     </div>
 </form>
