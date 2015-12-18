@@ -121,12 +121,25 @@
             }
         }
 
-        function hasErrorTouched(field) {
-            return (field.$invalid && field.$touched);
+        function hasErrorTouched(form, field) {
+            if (form && field) {
+                if (vm.applicationForm[form] && vm.applicationForm[form].$pristine && field.$touched) {
+                    vm.applicationForm[form].$pristine = false;
+                    vm.applicationForm[form].$dirty = true;
+                }
+
+                return (field.$invalid && field.$touched);
+            }
+
+            return false;
         }
 
         function hasErrorDirty(field) {
-            return (field.$invalid && field.$dirty);
+            if (field) {
+                return (field.$invalid && field.$dirty);
+            }
+
+            return false;
         }
 
         function FosterTabs() {

@@ -16,8 +16,8 @@
     <div ng-show="vm.isTabSelected('Personal Details')">
         <ng-form name="personalDetailsForm">
             <h5 class="text-center"><strong>Personal Details</strong></h5>
-            <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorTouched(personalDetailsForm.firstName) }">
-                <label for="firstName" class="col-md-2">First Name(s)</label>
+            <div class="form-group form-group-sm required" ng-class="{'has-error': vm.hasErrorTouched(personalDetailsForm.$name, personalDetailsForm.firstName) }">
+                <label for="firstName" class="col-md-2 required-label">First Name(s)</label>
                 <div class="col-md-10">
                     <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name(s)" ng-model="vm.form.firstName" required />
                     <ng-messages for="personalDetailsForm.firstName.$error" ng-if="personalDetailsForm.firstName.$touched" class="help-block">
@@ -25,8 +25,8 @@
                     </ng-messages>
                 </div>
             </div>
-            <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorTouched(personalDetailsForm.lastName) }">
-                <label for="lastName" class="col-md-2">Last Name(s)</label>
+            <div class="form-group form-group-sm required" ng-class="{'has-error': vm.hasErrorTouched(personalDetailsForm.$name, personalDetailsForm.lastName) }">
+                <label for="lastName" class="col-md-2 required-label" ">Last Name(s)</label>
                 <div class="col-md-10">
                     <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name(s)" ng-model="vm.form.lastName" required />
                     <ng-messages for="personalDetailsForm.lastName.$error" ng-if="personalDetailsForm.lastName.$touched" class="help-block">
@@ -34,9 +34,9 @@
                     </ng-messages>
                 </div>
             </div>
-            <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorDirty(personalDetailsForm.email) }">
+            <div class="form-group form-group-sm required" ng-class="{'has-error': vm.hasErrorDirty(personalDetailsForm.email) }">
                 <div class="col-md-2">
-                    <label for="email">Email</label>
+                    <label for="email" class="required-label">Email</label>
                 </div>
                 <div class="col-md-10">
                     <input type="email" class="form-control" id="email" name="email" placeholder="your@email.com" ng-model="vm.form.email" data-toggle="tooltip" required />
@@ -46,8 +46,8 @@
                     </ng-messages>
                 </div>
             </div>
-            <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorTouched(personalDetailsForm.address) }">
-                <label for="address" class="col-md-2">Street Address</label>
+            <div class="form-group form-group-sm required" ng-class="{'has-error': vm.hasErrorTouched(personalDetailsForm.$name, personalDetailsForm.address) }">
+                <label for="address" class="col-md-2 required-label">Street Address</label>
                 <div class="col-md-10">
                     <input type="text" class="form-control" id="address" name="address" placeholder="Street Address" ng-model="vm.form.address" required />
                     <ng-messages for="personalDetailsForm.address.$error" ng-if="personalDetailsForm.address.$touched" class="help-block">
@@ -55,8 +55,8 @@
                     </ng-messages>
                 </div>
             </div>
-            <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorTouched(personalDetailsForm.city) }">
-                <label for="city" class="col-md-2">City</label>
+            <div class="form-group form-group-sm required" ng-class="{'has-error': vm.hasErrorTouched(personalDetailsForm.$name, personalDetailsForm.city) }">
+                <label for="city" class="col-md-2 required-label">City</label>
                 <div class="col-md-10">
                     <input type="text" class="form-control" id="city" name="city" placeholder="City" ng-model="vm.form.city" required />
                     <ng-messages for="personalDetailsForm.city.$error" ng-if="personalDetailsForm.city.$touched" class="help-block">
@@ -64,8 +64,8 @@
                     </ng-messages>
                 </div>
             </div>
-            <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorTouched(personalDetailsForm.homePhone) }">
-                <label for="homePhone" class="col-md-2">Primary Phone (Home)</label>
+            <div class="form-group form-group-sm required" ng-class="{'has-error': vm.hasErrorTouched(personalDetailsForm.$name, personalDetailsForm.homePhone) }">
+                <label for="homePhone" class="col-md-2 required-label">Primary Phone (Home)</label>
                 <div class="col-md-10">
                     <input type="tel" class="form-control" id="homePhone" name="homePhone" placeholder="(xxx)-xxx-xxxx" ng-model="vm.form.homePhone" required />
                     <ng-messages for="personalDetailsForm.homePhone.$error" ng-if="personalDetailsForm.homePhone.$touched" class="help-block">
@@ -103,9 +103,9 @@
                     <textarea class="form-control" rows="5" id="reasonToFoster" name="reasonToFoster" ng-model="vm.form.reasonToFoster"></textarea>
                 </div>
             </div>
-            <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorDirty(personalDetailsForm.over18) }">
+            <div class="form-group form-group-sm required" ng-class="{'has-error': vm.hasErrorDirty(personalDetailsForm.over18) }">
                 <div class="col-md-2">
-                    <label for="over18">Are you age 18 or older?</label>
+                    <label for="over18" class="required-label">Are you age 18 or older?</label>
                 </div>
                 <div class="col-md-10">
                     <input type="checkbox" id="over18" name="over18" placeholder="(xxx) xxx-xxxx" ng-model="vm.form.over18" required />
@@ -123,9 +123,9 @@
     <div ng-show="vm.isTabSelected('Employment/Education')">
         <ng-form name="employmentForm">
             <h5 class="text-center"><strong>Employment Details</strong></h5>
-            <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorDirty(employmentForm.employed) }">
+            <div class="form-group form-group-sm required" ng-class="{'has-error': vm.hasErrorDirty(employmentForm.employed) }">
                 <div class="col-md-2">
-                    <label for="employed">Are you employed?</label>
+                    <label for="employed" ng-class="{'required-label': vm.form.employment.employed}">Are you employed?</label>
                 </div>
                 <div class="col-md-10">
                     <input type="checkbox" id="employed" name="employed" ng-model="vm.form.employment.employed" ng-change="vm.resetEmploymentDetails()" />
@@ -149,7 +149,7 @@
             </div>
             <hr />
             <h5 class="text-center"><strong>Student Details</strong></h5>
-            <div class="form-group form-group-sm">
+            <div class="form-group form-group-sm required">
                 <div class="col-md-2">
                     <label for="student">Are you a student?</label>
                 </div>
@@ -192,10 +192,10 @@
                     <br />
                 </div>
             </div>
-            <div class="form-group form-group-sm" ng-class="{'hidden' : vm.form.ownCar}">
+            <div class="form-group form-group-sm required" ng-class="{'hidden' : vm.form.ownCar}">
                 <div class="col-md-2"></div>
-                <div class="col-md-10" ng-class="{'has-error': vm.hasErrorTouched(livingSituationForm.transportPlan) }">
-                    <label for=" transportPlan">If no, how will you transport a foster dog to vet appointments in Strathroy and adoption events in London? </label>
+                <div class="col-md-10" ng-class="{'has-error': vm.hasErrorTouched(livingSituationForm.$name, livingSituationForm.transportPlan) }">
+                    <label for=" transportPlan" ng-class="{'required-label': !vm.form.ownCar}">If no, how will you transport a foster dog to vet appointments in Strathroy and adoption events in London? </label>
                     <textarea class="form-control" rows="5" id="transportPlan" name="transportPlan" ng-model="vm.form.transportPlan" ng-required="!vm.form.ownCar"></textarea>
                     <ng-messages for="livingSituationForm.transportPlan.$error" ng-if="livingSituationForm.transportPlan.$touched" class="help-block">
                         <span ng-message="required">Transportation plan required</span>
@@ -279,18 +279,18 @@
                     <input type="checkbox" id="yardFenced" name="yardFenced" ng-model="vm.form.dwelling.yard.fenced" />
                 </div>
             </div>
-            <div class="form-group form-group-sm" ng-class="{'hidden': !vm.form.dwelling.yard.exists || !vm.form.dwelling.yard.fenced}">
+            <div class="form-group form-group-sm required" ng-class="{'hidden': !vm.form.dwelling.yard.exists || !vm.form.dwelling.yard.fenced}">
                 <div class="col-md-2"></div>
                 <div class="col-md-10">
-                    <label for=" fenceDescription">Describe your fencing - full/partial, type, height, etc.  </label>
+                    <label for=" fenceDescription" ng-class="{'required-label': vm.form.dwelling.yard.exists && vm.form.dwelling.yard.fenced}">Describe your fencing - full/partial, type, height, etc.  </label>
                     <textarea class="form-control" rows="5" id="fenceDescription" name="fenceDescription" ng-model="vm.form.livingSituation.yard.fenceDescription" ng-required="vm.form.dwelling.yard.exists && vm.form.dwelling.yard.fenced"></textarea>
                 </div>
             </div>
-            <div class="form-group form-group-sm" ng-class="{'hidden': !vm.form.dwelling.yard.exists || vm.form.dwelling.yard.fenced}">
+            <div class="form-group form-group-sm required" ng-class="{'hidden': !vm.form.dwelling.yard.exists || vm.form.dwelling.yard.fenced}">
                 <div class="col-md-2"></div>
                 <div class="col-md-10">
-                    <label for=" nonFencedPlan">Without a fenced yard, describe how you would house train your foster dog or take it out for exercise, during the daytime or in the middle of the night? </label>
-                    <textarea class="form-control" rows="5" id="nonFencedPlan" name="nonFencedPlan" ng-model="vm.form.dwelling.yard.nonFencedPlan" ng-required="!vm.form.dwelling.yard.exists"></textarea>
+                    <label for=" nonFencedPlan" ng-class="{'required-label': vm.form.dwelling.yard.exists && !vm.form.dwelling.yard.fenced}">Without a fenced yard, describe how you would house train your foster dog or take it out for exercise, during the daytime or in the middle of the night? </label>
+                    <textarea class="form-control" rows="5" id="nonFencedPlan" name="nonFencedPlan" ng-model="vm.form.dwelling.yard.nonFencedPlan" ng-required="vm.form.dwelling.yard.exists && !vm.form.dwelling.yard.fenced"></textarea>
                 </div>
             </div>
             <div class="form-group form-group-sm" ng-class="{'hidden': !vm.form.dwelling.yard.exists}">
@@ -359,11 +359,11 @@
                     <input type="checkbox" id="visitingDogs" name="visitingDogs" ng-model="vm.form.occupants.visitingDogs" ng-change="vm.resetVisitingDogDetails()" />
                 </div>
             </div>
-            <div class="form-group form-group-sm" ng-class="{'hidden': !vm.form.occupants.visitingDogs, 'has-error': vm.hasErrorTouched(occupantsForm.visitingDogsDescription)}">
+            <div class="form-group form-group-sm required" ng-class="{'hidden': !vm.form.occupants.visitingDogs, 'has-error': vm.hasErrorTouched(occupantsForm.$name, occupantsForm.visitingDogsDescription)}">
                 <div class="col-md-2">
                 </div>
                 <div class="col-md-10">
-                    <label for="visitingDogsDescription">Please describe type, age, sex, disposition, and spay/neuter status</label>
+                    <label for="visitingDogsDescription" ng-class="{'required-label': vm.form.occupants.visitingDogs}">Please describe type, age, sex, disposition, and spay/neuter status</label>
                     <textarea class="form-control" rows="5" id="visitingDogsDescription" name="visitingDogsDescription" ng-model="vm.form.occupants.visitingDogsDescription" ng-required="vm.form.occupants.visitingDogs"></textarea>
                     <ng-messages for="occupantsForm.visitingDogsDescription.$error" ng-if="occupantsForm.visitingDogsDescription.$touched && vm.form.occupants.visitingDogs" class="help-block">
                         <span ng-message="required">Visiting Dog Description Required</span>
@@ -388,9 +388,9 @@
                     <input type="number" class="form-control" id="dogsOwned" name="dogsOwned" ng-model="vm.form.dogs.count" min="0" ng-change="vm.resetCurrentDogDetails()" />
                 </div>
             </div>
-            <div class="form-group form-group-sm" ng-class="{'hidden': vm.form.dogs.count <= 0, 'has-error': vm.form.dogs.count > 0 && vm.hasErrorTouched(currentPetsForm.dogsOwnedDetails) }">
+            <div class="form-group form-group-sm required" ng-class="{'hidden': vm.form.dogs.count <= 0, 'has-error': vm.form.dogs.count > 0 && vm.hasErrorTouched(currentPets.$name, currentPetsForm.dogsOwnedDetails) }">
                 <div class="col-md-2">
-                    <label for="dogsOwnedDetails">Please provide the following details for each dog: Name, Age, Breed, Gender</label>
+                    <label for="dogsOwnedDetails" ng-class="{'required-label': m.form.dogs.count > 0}">Please provide the following details for each dog: Name, Age, Breed, Gender</label>
                 </div>
                 <div class="col-md-10">
                     <textarea class="form-control" rows="5" id="dogsOwnedDetails" name="dogsOwnedDetails" ng-model="vm.form.dogs.description" ng-required="vm.form.dogs.count > 0"></textarea>
@@ -415,9 +415,9 @@
                     <input type="checkbox" id="dogsOwnedFleaMeds" name="dogsOwnedFleaMeds" ng-model="vm.form.dogs.fleaTickMedication" />
                 </div>
             </div>
-            <div class="form-group form-group-sm" ng-class="{'hidden': vm.form.dogs.count <= 0 || !vm.form.dogs.fleaTickMedication, 'has-error': vm.form.dogs.fleaTickMedication && vm.hasErrorTouched(currentPetsForm.dogsOwnedFleaMedsName)}">
+            <div class="form-group form-group-sm required" ng-class="{'hidden': vm.form.dogs.count <= 0 || !vm.form.dogs.fleaTickMedication, 'has-error': vm.form.dogs.fleaTickMedication && vm.hasErrorTouched(currentPets.$name, currentPetsForm.dogsOwnedFleaMedsName)}">
                 <div class="col-md-2">
-                    <label for="dogsOwnedFleaMedsName">Name of medication/treatment</label>
+                    <label for="dogsOwnedFleaMedsName" ng-class="{'required-label': vm.form.dogs.fleaTickMedication}">Name of medication/treatment</label>
                 </div>
                 <div class="col-md-10">
                     <input type="text" class="form-control" id="dogsOwnedFleaMedsName" name="dogsOwnedFleaMedsName" ng-model="vm.form.dogs.fleaTickMedicationName" ng-required="vm.form.dogs.fleaTickMedication" />
@@ -434,9 +434,9 @@
                     <input type="checkbox" id="dogsOwnedFixed" name="dogsOwnedFixed" ng-model="vm.form.dogs.fixed" />
                 </div>
             </div>
-            <div class="form-group form-group-sm" ng-class="{'hidden': vm.form.dogs.count <= 0 || vm.form.dogs.fixed, 'has-error': !vm.form.dogs.fixed && vm.hasErrorTouched(currentPetsForm.dogsOwnedNotFixedReason)}">
+            <div class="form-group form-group-sm required" ng-class="{'hidden': vm.form.dogs.count <= 0 || vm.form.dogs.fixed, 'has-error': !vm.form.dogs.fixed && vm.hasErrorTouched(currentPets.$name, currentPetsForm.dogsOwnedNotFixedReason)}">
                 <div class="col-md-2">
-                    <label for="dogsOwnedNotFixedReason">If not, please explain why</label>
+                    <label for="dogsOwnedNotFixedReason" ng-class="{'required-label': vm.form.dogs.count > 0 && !vm.form.dogs.fixed}">If not, please explain why</label>
                 </div>
                 <div class="col-md-10">
                     <textarea class="form-control" rows="5" id="dogsOwnedNotFixedReason" name="dogsOwnedNotFixedReason" ng-model="vm.form.dogs.notFixedReason" ng-required="vm.form.dogs.count > 0 && !vm.form.dogs.fixed"></textarea>
@@ -455,9 +455,9 @@
                     <input type="number" class="form-control" id="catsOwned" name="catsOwned" ng-model="vm.form.cats.count" min="0" ng-change="vm.resetCurrentCatDetails()" />
                 </div>
             </div>
-            <div class="form-group form-group-sm" ng-class="{'hidden': vm.form.cats.count <= 0, 'has-error': vm.form.cats.count > 0 && vm.hasErrorTouched(currentPetsForm.catsOwnedDetails) }">
+            <div class="form-group form-group-sm required" ng-class="{'hidden': vm.form.cats.count <= 0, 'has-error': vm.form.cats.count > 0 && vm.hasErrorTouched(currentPets.$name, currentPetsForm.catsOwnedDetails) }">
                 <div class="col-md-2">
-                    <label for="catsOwnedDetails">Please provide the following details for each cat: Name, Age, Breed, Gender</label>
+                    <label for="catsOwnedDetails" ng-class="{'required-label': vm.form.cats.count > 0}">Please provide the following details for each cat: Name, Age, Breed, Gender</label>
                 </div>
                 <div class="col-md-10">
                     <textarea class="form-control" rows="5" id="catsOwnedDetails" name="catsOwnedDetails" ng-model="vm.form.cats.description" ng-required="vm.form.cats.count > 0"></textarea>
@@ -482,9 +482,9 @@
                     <input type="checkbox" id="catsOwnedFleaMeds" name="catsOwnedFleaMeds" ng-model="vm.form.cats.fleaTickMedication" />
                 </div>
             </div>
-            <div class="form-group form-group-sm" ng-class="{'hidden': vm.form.cats.count <= 0 || !vm.form.cats.fleaTickMedication, 'has-error': vm.form.cats.fleaTickMedication && vm.hasErrorTouched(currentPetsForm.catsOwnedFleaMedsName)}">
+            <div class="form-group form-group-sm required" ng-class="{'hidden': vm.form.cats.count <= 0 || !vm.form.cats.fleaTickMedication, 'has-error': vm.form.cats.fleaTickMedication && vm.hasErrorTouched(currentPets.$name, currentPetsForm.catsOwnedFleaMedsName)}">
                 <div class="col-md-2">
-                    <label for="catsOwnedFleaMedsName">Name of medication/treatment</label>
+                    <label for="catsOwnedFleaMedsName" ng-class="{'required-label': vm.form.cats.fleaTickMedication}">Name of medication/treatment</label>
                 </div>
                 <div class="col-md-10">
                     <input type="text" class="form-control" id="catsOwnedFleaMedsName" name="catsOwnedFleaMedsName" ng-model="vm.form.cats.fleaTickMedicationName" ng-required="vm.form.cats.fleaTickMedication" />
@@ -501,9 +501,9 @@
                     <input type="checkbox" id="catsOwnedFixed" name="catsOwnedFixed" ng-model="vm.form.cats.fixed" />
                 </div>
             </div>
-            <div class="form-group form-group-sm" ng-class="{'hidden': vm.form.cats.count <= 0 || vm.form.cats.fixed, 'has-error': !vm.form.cats.fixed && vm.hasErrorTouched(currentPetsForm.catsOwnedNotFixedReason)}">
+            <div class="form-group form-group-sm required" ng-class="{'hidden': vm.form.cats.count <= 0 || vm.form.cats.fixed, 'has-error': !vm.form.cats.fixed && vm.hasErrorTouched(currentPets.$name, currentPetsForm.catsOwnedNotFixedReason)}">
                 <div class="col-md-2">
-                    <label for="catsOwnedNotFixedReason">If not, please explain why</label>
+                    <label for="catsOwnedNotFixedReason" ng-class="{'required-label': vm.form.cats.count > 0 && !vm.form.cats.fixed}">If not, please explain why</label>
                 </div>
                 <div class="col-md-10">
                     <textarea class="form-control" rows="5" id="catsOwnedNotFixedReason" name="catsOwnedNotFixedReason" ng-model="vm.form.cats.notFixedReason" ng-required="vm.form.cats.count > 0 && !vm.form.cats.fixed"></textarea>
@@ -555,9 +555,9 @@
                     <input type="number" class="form-control" id="hoursLeftAlone" name="hoursLeftAlone" ng-model="vm.form.hoursLeftAlone" min="0" max="24" />
                 </div>
             </div>
-            <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorTouched(questionnaireForm.letOutPlans) }">
+            <div class="form-group form-group-sm required" ng-class="{'has-error': vm.hasErrorTouched(questionnaireForm.$name, questionnaireForm.letOutPlans) }">
                 <div class="col-md-2">
-                    <label for="letOutPlans">Describe your plan for let-outs when you are not at home</label>
+                    <label for="letOutPlans" class="required-label">Describe your plan for let-outs when you are not at home</label>
                 </div>
                 <div class="col-md-10">
                     <textarea class="form-control" rows="5" id="letOutPlans" name="letOutPlans" ng-model="vm.form.letOutPlans" required></textarea>
@@ -574,9 +574,9 @@
                     <input type="checkbox" id="vacationPlans" name="vacationPlans" ng-model="vm.form.vacationPlans" />
                 </div>
             </div>
-            <div class="form-group form-group-sm" ng-class="{'hidden': !vm.form.vacationPlans, 'has-error': vm.form.vacationPlans && vm.hasErrorTouched(questionnaireForm.vacationPlansForFosters)}">
+            <div class="form-group form-group-sm required" ng-class="{'hidden': !vm.form.vacationPlans, 'has-error': vm.form.vacationPlans && vm.hasErrorTouched(questionnaireForm.$name, questionnaireForm.vacationPlansForFosters)}">
                 <div class="col-md-2">
-                    <label for="vacationPlansForFosters">What would you do with your foster dog during your vacation(s)?</label>
+                    <label for="vacationPlansForFosters" ng-class="{'required-label': vm.form.vacationPlans}">What would you do with your foster dog during your vacation(s)?</label>
                 </div>
                 <div class="col-md-10">
                     <textarea class="form-control" rows="5" id="vacationPlansForFosters" name="vacationPlansForFosters" ng-model="vm.form.vacationPlansForFosters" ng-required="vm.form.vacationPlans"></textarea>
@@ -585,9 +585,9 @@
                     </ng-messages>
                 </div>
             </div>
-            <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorTouched(questionnaireForm.dailyTimeCommitment) }">
+            <div class="form-group form-group-sm required" ng-class="{'has-error': vm.hasErrorTouched(questionnaireForm.$name, questionnaireForm.dailyTimeCommitment) }">
                 <div class="col-md-2">
-                    <label for="dailyTimeCommitment">How much time are you willing to commit to a foster dog daily?</label>
+                    <label for="dailyTimeCommitment" class="required-label">How much time are you willing to commit to a foster dog daily?</label>
                 </div>
                 <div class="col-md-10">
                     <input type="text" class="form-control" id="dailyTimeCommitment" name="dailyTimeCommitment" ng-model="vm.form.dailyTimeCommitment" required />
@@ -596,9 +596,9 @@
                     </ng-messages>
                 </div>
             </div>
-            <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorTouched(questionnaireForm.walkTimeDaily) }">
+            <div class="form-group form-group-sm required" ng-class="{'has-error': vm.hasErrorTouched(questionnaireForm.$name, questionnaireForm.walkTimeDaily) }">
                 <div class="col-md-2">
-                    <label for="walkTimeDaily">How much time will a foster dog spend out on a leash walk with your or another family member daily?</label>
+                    <label for="walkTimeDaily" class="required-label">How much time will a foster dog spend out on a leash walk with your or another family member daily?</label>
                 </div>
                 <div class="col-md-10">
                     <input type="text" class="form-control" id="walkTimeDaily" name="walkTimeDaily" ng-model="vm.form.walkTimeDaily" required />
@@ -607,9 +607,9 @@
                     </ng-messages>
                 </div>
             </div>
-            <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorTouched(questionnaireForm.socializePlans)}">
+            <div class="form-group form-group-sm required" ng-class="{'has-error': vm.hasErrorTouched(questionnaireForm.$name, questionnaireForm.socializePlans)}">
                 <div class="col-md-2">
-                    <label for="socializePlans">What is your plan to socialize your foster dog with other dogs and people?</label>
+                    <label for="socializePlans" class="required-label">What is your plan to socialize your foster dog with other dogs and people?</label>
                 </div>
                 <div class="col-md-10">
                     <textarea class="form-control" rows="5" id="socializePlans" name="socializePlans" ng-model="vm.form.socializePlans" required></textarea>
@@ -626,9 +626,9 @@
                     <input type="checkbox" id="previousCrateTraining" name="previousCrateTraining" ng-model="vm.form.previousCrateTraining" />
                 </div>
             </div>
-            <div class="form-group form-group-sm" ng-class="{'hidden': !vm.form.previousCrateTraining, 'has-error': vm.hasErrorTouched(questionnaireForm.previousCrateTrainingProcess)}">
+            <div class="form-group form-group-sm required" ng-class="{'hidden': !vm.form.previousCrateTraining, 'has-error': vm.hasErrorTouched(questionnaireForm.$name, questionnaireForm.previousCrateTrainingProcess)}">
                 <div class="col-md-2">
-                    <label for="previousCrateTrainingProcess">Please describe your crate training methods and process</label>
+                    <label for="previousCrateTrainingProcess" ng-class="{'required-label': vm.form.previousCrateTraining}">Please describe your crate training methods and process</label>
                 </div>
                 <div class="col-md-10">
                     <textarea class="form-control" rows="5" id="previousCrateTrainingProcess" name="previousCrateTrainingProcess" ng-model="vm.form.previousCrateTrainingProcess" ng-required="vm.form.previousCrateTraining"></textarea>
@@ -637,9 +637,9 @@
                     </ng-messages>
                 </div>
             </div>
-            <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorTouched(questionnaireForm.fosterWhiningPlans)}">
+            <div class="form-group form-group-sm required" ng-class="{'has-error': vm.hasErrorTouched(questionnaireForm.$name, questionnaireForm.fosterWhiningPlans)}">
                 <div class="col-md-2">
-                    <label for="fosterWhiningPlans">Describe what you would do if you put your foster dog in their crate for the night and it barked/whined/cried loudly</label>
+                    <label for="fosterWhiningPlans" class="required-label">Describe what you would do if you put your foster dog in their crate for the night and it barked/whined/cried loudly</label>
                 </div>
                 <div class="col-md-10">
                     <textarea class="form-control" rows="5" id="fosterWhiningPlans" name="fosterWhiningPlans" ng-model="vm.form.fosterWhiningPlans" required></textarea>
@@ -656,9 +656,9 @@
                     <input type="checkbox" id="previousHouseTraining" name="previousHouseTraining" ng-model="vm.form.previousHouseTraining" />
                 </div>
             </div>
-            <div class="form-group form-group-sm" ng-class="{'hidden': !vm.form.previousHouseTraining, 'has-error': vm.hasErrorTouched(questionnaireForm.previousHouseTrainingProcess)}">
+            <div class="form-group form-group-sm required" ng-class="{'hidden': !vm.form.previousHouseTraining, 'has-error': vm.hasErrorTouched(questionnaireForm.$name, questionnaireForm.previousHouseTrainingProcess)}">
                 <div class="col-md-2">
-                    <label for="previousHouseTrainingProcess">Please describe your house training methods and process</label>
+                    <label for="previousHouseTrainingProcess" ng-class="{'required-label': vm.form.previousHouseTraining}">Please describe your house training methods and process</label>
                 </div>
                 <div class="col-md-10">
                     <textarea class="form-control" rows="5" id="previousHouseTrainingProcess" name="previousHouseTrainingProcess" ng-model="vm.form.previousHouseTrainingProcess" ng-required="vm.form.previousHouseTraining"></textarea>
@@ -667,9 +667,9 @@
                     </ng-messages>
                 </div>
             </div>
-            <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorTouched(questionnaireForm.houseAccidentResponse)}">
+            <div class="form-group form-group-sm required" ng-class="{'has-error': vm.hasErrorTouched(questionnaireForm.$name, questionnaireForm.houseAccidentResponse)}">
                 <div class="col-md-2">
-                    <label for="houseAccidentResponse">Describe what you would do if your foster dog went to the bathroom in an inappropriate place</label>
+                    <label for="houseAccidentResponse" class="required-label">Describe what you would do if your foster dog went to the bathroom in an inappropriate place</label>
                 </div>
                 <div class="col-md-10">
                     <textarea class="form-control" rows="5" id="houseAccidentResponse" name="houseAccidentResponse" ng-model="vm.form.houseAccidentResponse" required></textarea>
@@ -678,9 +678,9 @@
                     </ng-messages>
                 </div>
             </div>
-            <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorTouched(questionnaireForm.preventChewingPlans)}">
+            <div class="form-group form-group-sm required" ng-class="{'has-error': vm.hasErrorTouched(questionnaireForm.$name, questionnaireForm.preventChewingPlans)}">
                 <div class="col-md-2">
-                    <label for="preventChewingPlans">How would you prevent your foster dog from chewing on things they should not have?</label>
+                    <label for="preventChewingPlans" class="required-label">How would you prevent your foster dog from chewing on things they should not have?</label>
                 </div>
                 <div class="col-md-10">
                     <textarea class="form-control" rows="5" id="preventChewingPlans" name="preventChewingPlans" ng-model="vm.form.preventChewingPlans" required></textarea>
@@ -689,9 +689,9 @@
                     </ng-messages>
                 </div>
             </div>
-            <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorTouched(questionnaireForm.dogPullingPlans)}">
+            <div class="form-group form-group-sm required" ng-class="{'has-error': vm.hasErrorTouched(questionnaireForm.$name, questionnaireForm.dogPullingPlans)}">
                 <div class="col-md-2">
-                    <label for="dogPullingPlans">If your foster dog was a puller during walks, what might you suggest to help correct this behavior?</label>
+                    <label for="dogPullingPlans" class="required-label">If your foster dog was a puller during walks, what might you suggest to help correct this behavior?</label>
                 </div>
                 <div class="col-md-10">
                     <textarea class="form-control" rows="5" id="dogPullingPlans" name="dogPullingPlans" ng-model="vm.form.dogPullingPlans" required></textarea>
@@ -700,9 +700,9 @@
                     </ng-messages>
                 </div>
             </div>
-            <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorTouched(questionnaireForm.positiveReinforcementDescription)}">
+            <div class="form-group form-group-sm required" ng-class="{'has-error': vm.hasErrorTouched(questionnaireForm.$name, questionnaireForm.positiveReinforcementDescription)}">
                 <div class="col-md-2">
-                    <label for="positiveReinforcementDescription">Please describe what you know about positive reinforcement training techniques</label>
+                    <label for="positiveReinforcementDescription" class="required-label">Please describe what you know about positive reinforcement training techniques</label>
                 </div>
                 <div class="col-md-10">
                     <textarea class="form-control" rows="5" id="positiveReinforcementDescription" name="positiveReinforcementDescription" ng-model="vm.form.positiveReinforcementDescription" required></textarea>
@@ -719,9 +719,9 @@
                     <input type="checkbox" id="previousTrainingClass" name="previousTrainingClass" ng-model="vm.form.previousTrainingClass" />
                 </div>
             </div>
-            <div class="form-group form-group-sm" ng-class="{'hidden': !vm.form.previousTrainingClass, 'has-error': vm.hasErrorTouched(questionnaireForm.previousTrainingClassDescription)}">
+            <div class="form-group form-group-sm required" ng-class="{'hidden': !vm.form.previousTrainingClass, 'has-error': vm.hasErrorTouched(questionnaireForm.$name, questionnaireForm.previousTrainingClassDescription)}">
                 <div class="col-md-2">
-                    <label for="previousTrainingClassDescription">Please describe your previous dog training class experiences</label>
+                    <label for="previousTrainingClassDescription" ng-class="{'required-label': vm.form.previousTrainingClass}">Please describe your previous dog training class experiences</label>
                 </div>
                 <div class="col-md-10">
                     <textarea class="form-control" rows="5" id="previousTrainingClassDescription" name="previousTrainingClassDescription" ng-model="vm.form.previousTrainingClassDescription" ng-required="vm.form.previousTrainingClass"></textarea>
@@ -780,9 +780,9 @@
                     </div>
                 </div>
             </div>
-            <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorTouched(preferencesForm.fosterPreferenceReason)}">
+            <div class="form-group form-group-sm required" ng-class="{'has-error': vm.hasErrorTouched(preferencesForm.$name, preferencesForm.fosterPreferenceReason)}">
                 <div class="col-md-2">
-                    <label for="fosterPreferenceReason">What are your reasons for the above choices?</label>
+                    <label for="fosterPreferenceReason" class="required-label">What are your reasons for the above choices?</label>
                 </div>
                 <div class="col-md-10">
                     <textarea class="form-control" rows="5" id="fosterPreferenceReason" name="fosterPreferenceReason" ng-model="vm.form.fosterPreferences.reason" required></textarea>
@@ -838,8 +838,8 @@
                     </div>
                 </div>
             </div>
-            <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorTouched(preferencesForm.termLength) }">
-                <label for="termLength" class="col-md-2">How long a term would you be willing to keep a dog in your foster care?</label>
+            <div class="form-group form-group-sm required" ng-class="{'has-error': vm.hasErrorTouched(preferencesForm.$name, preferencesForm.termLength) }">
+                <label for="termLength" class="col-md-2 required-label">How long a term would you be willing to keep a dog in your foster care?</label>
                 <div class="col-md-10">
                     <input type="text" class="form-control" id="termLength" name="termLength" ng-model="vm.form.termLength" required />
                     <ng-messages for="preferencesForm.termLength.$error" ng-if="preferencesForm.termLength.$touched" class="help-block">
@@ -847,9 +847,9 @@
                     </ng-messages>
                 </div>
             </div>
-            <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorTouched(preferencesForm.returnFosterCircumstances)}">
+            <div class="form-group form-group-sm required" ng-class="{'has-error': vm.hasErrorTouched(preferencesForm.$name, preferencesForm.returnFosterCircumstances)}">
                 <div class="col-md-2">
-                    <label for="returnFosterCircumstances">What circumstances would make you ask ARF to take back a foster dog?</label>
+                    <label for="returnFosterCircumstances" class="required-label">What circumstances would make you ask ARF to take back a foster dog?</label>
                 </div>
                 <div class="col-md-10">
                     <textarea class="form-control" rows="5" id="returnFosterCircumstances" name="returnFosterCircumstances" ng-model="vm.form.returnFosterCircumstances" required></textarea>
@@ -866,8 +866,8 @@
                     <textarea class="form-control" rows="5" id="previousFostering" name="previousFostering" ng-model="vm.form.previousFostering"></textarea>
                 </div>
             </div>
-            <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorTouched(preferencesForm.fosterIntentions)}">
-                <label for="fosterIntentions" class="col-md-2">Do you intend to foster only once or are you hoping to foster several times?</label>
+            <div class="form-group form-group-sm required" ng-class="{'has-error': vm.hasErrorTouched(preferencesForm.$name, preferencesForm.fosterIntentions)}">
+                <label for="fosterIntentions" class="col-md-2 required-label">Do you intend to foster only once or are you hoping to foster several times?</label>
                 <div class="col-md-10">
                     <input type="text" class="form-control" id="fosterIntentions" name="fosterIntentions" ng-model="vm.form.fosterIntentions" required />
                     <ng-messages for="preferencesForm.fosterIntentions.$error" ng-if="preferencesForm.fosterIntentions.$touched" class="help-block">
@@ -875,9 +875,9 @@
                     </ng-messages>
                 </div>
             </div>
-            <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorTouched(preferencesForm.expectedSupport)}">
+            <div class="form-group form-group-sm required" ng-class="{'has-error': vm.hasErrorTouched(preferencesForm.$name, preferencesForm.expectedSupport)}">
                 <div class="col-md-2">
-                    <label for="expectedSupport">What kind of support are you expecting to receive from ARF members during your fostering experience?</label>
+                    <label for="expectedSupport" class="required-label">What kind of support are you expecting to receive from ARF members during your fostering experience?</label>
                 </div>
                 <div class="col-md-10">
                     <textarea class="form-control" rows="5" id="expectedSupport" name="expectedSupport" ng-model="vm.form.expectedSupport" required></textarea>
@@ -886,9 +886,9 @@
                     </ng-messages>
                 </div>
             </div>
-            <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorTouched(preferencesForm.futureLearning)}">
+            <div class="form-group form-group-sm required" ng-class="{'has-error': vm.hasErrorTouched(preferencesForm.$name, preferencesForm.futureLearning)}">
                 <div class="col-md-2">
-                    <label for="futureLearning">What topics or areas of canine foster care/training are you interested in learning more about?</label>
+                    <label for="futureLearning" nclass="required-label">What topics or areas of canine foster care/training are you interested in learning more about?</label>
                 </div>
                 <div class="col-md-10">
                     <textarea class="form-control" rows="5" id="futureLearning" name="futureLearning" ng-model="vm.form.futureLearning" required></textarea>

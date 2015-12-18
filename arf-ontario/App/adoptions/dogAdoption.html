@@ -16,9 +16,9 @@
     <div ng-show="vm.isTabSelected('Personal Details')">
         <ng-form name="personalDetailsForm">
             <h5 class="text-center"><strong>Personal Details</strong></h5>
-            <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorTouched(personalDetailsForm.applicantName) }">
+            <div class="form-group form-group-sm required" ng-class="{'has-error': vm.hasErrorTouched(personalDetailsForm.$name, personalDetailsForm.applicantName) }">
                 <div class="col-md-2">
-                    <label for="applicantName">Applicant Name</label>
+                    <label for="applicantName" class="required-label">Applicant Name</label>
                 </div>
                 <div class="col-md-10">
                     <input type="text" class="form-control" id="applicantName" name="applicantName" ng-model="vm.dogAdoptionDetails.applicantName" required />
@@ -27,9 +27,9 @@
                     </ng-messages>
                 </div>
             </div>
-            <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorTouched(personalDetailsForm.address) }">
+            <div class="form-group form-group-sm required" ng-class="{'has-error': vm.hasErrorTouched(personalDetailsForm.$name, personalDetailsForm.address) }">
                 <div class="col-md-2">
-                    <label for="address">Address</label>
+                    <label for="address" class="required-label">Address</label>
                 </div>
                 <div class="col-md-10">
                     <input type="text" class="form-control" id="address" name="address" ng-model="vm.dogAdoptionDetails.address" required />
@@ -38,9 +38,9 @@
                     </ng-messages>
                 </div>
             </div>
-            <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorTouched(personalDetailsForm.address) }">
+            <div class="form-group form-group-sm required" ng-class="{'has-error': vm.hasErrorTouched(personalDetailsForm.$name, personalDetailsForm.city) }">
                 <div class="col-md-2">
-                    <label for="city">City</label>
+                    <label for="city" class="required-label">City</label>
                 </div>
                 <div class="col-md-10">
                     <input type="text" class="form-control" id="city" name="city" ng-model="vm.dogAdoptionDetails.city" required />
@@ -49,21 +49,394 @@
                     </ng-messages>
                 </div>
             </div>
+            <div class="form-group form-group-sm required" ng-class="{'has-error': vm.hasErrorDirty(personalDetailsForm.email) }">
+                <div class="col-md-2">
+                    <label for="email" class="required-label">E-mail</label>
+                </div>
+                <div class="col-md-10">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="your@email.com" ng-model="vm.dogAdoptionDetails.email" required />
+                    <ng-messages for="personalDetailsForm.email.$error" ng-if="personalDetailsForm.email.$dirty" class="help-block">
+                        <span ng-message="required">E-mail Required</span>
+                        <span ng-message="email">Valid e-mail Required</span>
+                    </ng-messages>
+                </div>
+            </div>
+            <div class="form-group form-group-sm required" ng-class="{'has-error': vm.hasErrorTouched(personalDetailsForm.$name, personalDetailsForm.phoneNumber) }">
+                <div class="col-md-2">
+                    <label for="phoneNumber" class="required-label">Phone Number</label>
+                </div>
+                <div class="col-md-10">
+                    <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="(xxx)-xxx-xxxx" ng-model="vm.dogAdoptionDetails.phoneNumber" required />
+                    <ng-messages for="personalDetailsForm.phoneNumber.$error" ng-if="personalDetailsForm.phoneNumber.$touched" class="help-block">
+                        <span ng-message="required">Phone Number Required</span>
+                    </ng-messages>
+                </div>
+            </div>
+            <div class="form-group form-group-sm">
+                <div class="col-md-2">
+                    <label for="numberOfAdults">Number of Adults in the home</label>
+                </div>
+                <div class="col-md-10">
+                    <input type="number" class="form-control" id="numberOfAdults" name="numberOfAdults" ng-model="vm.dogAdoptionDetails.numberOfAdults" min="1" max="10" />
+                </div>
+            </div>
+            <div class="form-group form-group-sm">
+                <div class="col-md-2">
+                    <label for="childrenDetails">Describe the number and age(s) of children in the home (if any)</label>
+                </div>
+                <div class="col-md-10">
+                    <textarea class="form-control" rows="5" id="childrenDetails" name="childrenDetails" ng-model="vm.dogAdoptionDetails.childrenDetails"></textarea>
+                </div>
+            </div>
+            <div class="form-group form-group-sm">
+                <div class="col-md-2">
+                    <label for="currentPetDetails">Describe any pets currently living in the home</label>
+                </div>
+                <div class="col-md-10">
+                    <textarea class="form-control" rows="5" id="currentPetDetails" name="currentPetDetails" placeholder="Type, number, age, etc" ng-model="vm.dogAdoptionDetails.currentPetDetails"></textarea>
+                </div>
+            </div>
+            <div class="form-group form-group-sm">
+                <div class="col-md-2">
+                    <label>What type of residence do you live in?</label>
+                </div>
+                <div class="col-md-10">
+                    <label class="radio-inline">
+                        <input type="radio" name="apartment" id="apartment" value="Apartment" ng-model="vm.dogAdoptionDetails.dwellingType" />Apartment
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="condo" id="condo" value="Condo" ng-model="vm.dogAdoptionDetails.dwellingType" />Condo
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="townhome" id="townhome" value="Townhome" ng-model="vm.dogAdoptionDetails.dwellingType" />Townhome
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="house" id="house" value="House" ng-model="vm.dogAdoptionDetails.dwellingType" />House
+                    </label>
+                </div>
+            </div>
+            <div class="form-group form-group-sm">
+                <div class="col-md-2">
+                    <label for="outdoorDimensions">What are the dimensions of your outdoor property?</label>
+                </div>
+                <div class="col-md-10">
+                    <input type="text" class="form-control" id="outdoorDimensions" name="outdoorDimensions" ng-model="vm.dogAdoptionDetails.outdoorDimensions" />
+                </div>
+            </div>
+            <div class="form-group form-group-sm">
+                <div class="col-md-2">
+                    <label for="fence">Do you have a fully fenced backyard?</label>
+                </div>
+                <div class="col-md-10">
+                    <input type="checkbox" id="fence" name="fence" ng-model="vm.dogAdoptionDetails.fence" />
+                </div>
+            </div>
+            <div class="form-group form-group-sm" ng-class="{true: '', false: 'hidden'}[vm.dogAdoptionDetails.fence]">
+                <div class="col-md-2">
+                    <label for="fenceDetails">How high is it and what material is it made of?</label>
+                </div>
+                <div class="col-md-10">
+                    <input type="text" class="form-control" id="fenceDetails" name="fenceDetails" ng-model="vm.dogAdoptionDetails.fenceDetails" />
+                </div>
+            </div>
+            <div class="text-center">
+                <button type="button" class="btn btn-default" ng-click="vm.switchTab('Family & Training')">Next</button>
+            </div>
         </ng-form>
     </div>
     <div ng-show="vm.isTabSelected('Family & Training')">
         <ng-form name="familyTrainingForm">
+            <h5 class="text-center"><strong>Family &amp; Training</strong></h5>
+            <div class="form-group form-group-sm required" ng-class="{'has-error': vm.hasErrorTouched(familyTrainingForm.$name, familyTrainingForm.workSchedule) }">
+                <div class="col-md-2">
+                    <label for="workSchedule" class="required-label">What is the work schedule of the family members and how long would the dog be left alone in the house?</label>
+                </div>
+                <div class="col-md-10">
+                    <textarea class="form-control" rows="5" id="workSchedule" name="workSchedule" ng-model="vm.dogAdoptionDetails.family.workSchedule" required></textarea>
+                    <ng-messages for="familyTrainingForm.workSchedule.$error" ng-if="familyTrainingForm.workSchedule.$touched" class="help-block">
+                        <span ng-message="required">Required</span>
+                    </ng-messages>
+                </div>
+            </div>
+            <div class="form-group form-group-sm required" ng-class="{'has-error': vm.hasErrorTouched(familyTrainingForm.$name, familyTrainingForm.desiredDogDetails) }">
+                <div class="col-md-2">
+                    <label for="desiredDogDetails" class="required-label">What size/sex/age of dog are you looking for?</label>
+                </div>
+                <div class="col-md-10">
+                    <textarea class="form-control" rows="5" id="desiredDogDetails" name="desiredDogDetails" ng-model="vm.dogAdoptionDetails.family.desiredDogDetails" required></textarea>
+                    <ng-messages for="familyTrainingForm.desiredDogDetails.$error" ng-if="familyTrainingForm.desiredDogDetails.$touched" class="help-block">
+                        <span ng-message="required">Required</span>
+                    </ng-messages>
+                </div>
+            </div>
+            <div class="form-group form-group-sm required" ng-class="{'has-error': vm.hasErrorTouched(familyTrainingForm.$name, familyTrainingForm.desiredDogReasoning) }">
+                <div class="col-md-2">
+                    <label for="desiredDogReasoning" class="required-label">Why that size/sex/age of dog?</label>
+                </div>
+                <div class="col-md-10">
+                    <textarea class="form-control" rows="5" id="desiredDogReasoning" name="desiredDogReasoning" ng-model="vm.dogAdoptionDetails.family.desiredDogReasoning" required></textarea>
+                    <ng-messages for="familyTrainingForm.desiredDogReasoning.$error" ng-if="familyTrainingForm.desiredDogReasoning.$touched" class="help-block">
+                        <span ng-message="required">Required</span>
+                    </ng-messages>
+                </div>
+            </div>
+            <div class="form-group form-group-sm required" ng-class="{'has-error': vm.hasErrorTouched(familyTrainingForm.$name, familyTrainingForm.activityLevel) }">
+                <div class="col-md-2">
+                    <label for="activityLevel" class="required-label">Describe your current daily activity level:</label>
+                </div>
+                <div class="col-md-10">
+                    <textarea class="form-control" rows="5" id="activityLevel" name="activityLevel" ng-model="vm.dogAdoptionDetails.family.activityLevel" required></textarea>
+                    <ng-messages for="familyTrainingForm.activityLevel.$error" ng-if="familyTrainingForm.activityLevel.$touched" class="help-block">
+                        <span ng-message="required">Required</span>
+                    </ng-messages>
+                </div>
+            </div>
+            <div class="form-group form-group-sm required" ng-class="{'has-error': vm.hasErrorTouched(familyTrainingForm.$name, familyTrainingForm.matchReasoning) }">
+                <div class="col-md-2">
+                    <label for="matchReasoning" class="required-label">Why would {{vm.dogAdoptionDetails.animalName}} be a match for your family?</label>
+                </div>
+                <div class="col-md-10">
+                    <textarea class="form-control" rows="5" id="matchReasoning" name="matchReasoning" ng-model="vm.dogAdoptionDetails.family.matchReasoning" required></textarea>
+                    <ng-messages for="familyTrainingForm.matchReasoning.$error" ng-if="familyTrainingForm.matchReasoning.$touched" class="help-block">
+                        <span ng-message="required">Required</span>
+                    </ng-messages>
+                </div>
+            </div>
+            <div class="form-group form-group-sm required" ng-class="{'has-error': vm.hasErrorTouched(familyTrainingForm.$name, familyTrainingForm.spayNeuterThoughts) }">
+                <div class="col-md-2">
+                    <label for="spayNeuterThoughts" class="required-label">What are your thoughts on spay and neutering of animals?</label>
+                </div>
+                <div class="col-md-10">
+                    <textarea class="form-control" rows="5" id="spayNeuterThoughts" name="spayNeuterThoughts" ng-model="vm.dogAdoptionDetails.family.spayNeuterThoughts" required></textarea>
+                    <ng-messages for="familyTrainingForm.spayNeuterThoughts.$error" ng-if="familyTrainingForm.spayNeuterThoughts.$touched" class="help-block">
+                        <span ng-message="required">Required</span>
+                    </ng-messages>
+                </div>
+            </div>
+            <div class="form-group form-group-sm required" ng-class="{'has-error': vm.hasErrorTouched(familyTrainingForm.$name, familyTrainingForm.crateTrainingThoughts) }">
+                <div class="col-md-2">
+                    <label for="crateTrainingThoughts" class="required-label">What are your thoughts on crate training?</label>
+                </div>
+                <div class="col-md-10">
+                    <textarea class="form-control" rows="5" id="crateTrainingThoughts" name="crateTrainingThoughts" ng-model="vm.dogAdoptionDetails.family.crateTrainingThoughts" required></textarea>
+                    <ng-messages for="familyTrainingForm.crateTrainingThoughts.$error" ng-if="familyTrainingForm.crateTrainingThoughts.$touched" class="help-block">
+                        <span ng-message="required">Required</span>
+                    </ng-messages>
+                </div>
+            </div>           
+            <div class="form-group form-group-sm required" ng-class="{'has-error': vm.hasErrorTouched(familyTrainingForm.$name, familyTrainingForm.damageReaction) }">
+                <div class="col-md-2">
+                    <label for="damageReaction" class="required-label">What would you do if you came home and found your dog eating your couch?</label>
+                </div>
+                <div class="col-md-10">
+                    <textarea class="form-control" rows="5" id="damageReaction" name="damageReaction" ng-model="vm.dogAdoptionDetails.family.damageReaction" required></textarea>
+                    <ng-messages for="familyTrainingForm.damageReaction.$error" ng-if="familyTrainingForm.damageReaction.$touched" class="help-block">
+                        <span ng-message="required">Required</span>
+                    </ng-messages>
+                </div>
+            </div>
+            <div class="form-group form-group-sm">
+                <div class="col-md-2">
+                    <label for="bitePreventionResearch">Have you researched bite prevention techniques to help help you, your family, and your dog safe?</label>
+                </div>
+                <div class="col-md-10">
+                    <input type="checkbox" id="bitePreventionResearch" name="bitePreventionResearch" ng-model="vm.dogAdoptionDetails.family.bitePreventionResearch" />
+                </div>
+            </div>
+            <div class="form-group form-group-sm required" ng-class="{'has-error': vm.hasErrorTouched(familyTrainingForm.$name, familyTrainingForm.familyTrainingAttendance) }">
+                <div class="col-md-2">
+                    <label for="familyTrainingAttendance" class="required-label">How many members of your household will attend training sessions?</label>
+                </div>
+                <div class="col-md-10">
+                    <input type="number" class="form-control" id="familyTrainingAttendance" name="familyTrainingAttendance" ng-model="vm.dogAdoptionDetails.family.familyTrainingAttendance" min="1" max="10" required />
+                </div>
+            </div>
+            <div class="form-group form-group-sm required" ng-class="{'has-error': vm.hasErrorTouched(familyTrainingForm.$name, familyTrainingForm.trainingExample) }">
+                <div class="col-md-2">
+                    <label for="trainingExample" class="required-label">How would you teach a dog to sit?</label>
+                </div>
+                <div class="col-md-10">
+                    <textarea class="form-control" rows="5" id="trainingExample" name="trainingExample" ng-model="vm.dogAdoptionDetails.family.trainingExample" required></textarea>
+                    <ng-messages for="familyTrainingForm.trainingExample.$error" ng-if="familyTrainingForm.trainingExample.$touched" class="help-block">
+                        <span ng-message="required">Required</span>
+                    </ng-messages>
+                </div>
+            </div>
+            <div class="form-group form-group-sm required" ng-class="{'has-error': vm.hasErrorTouched(familyTrainingForm.$name, familyTrainingForm.familySituationExample) }">
+                <div class="col-md-2">
+                    <label for="familySituationExample" class="required-label">Your dog is digging in the flower bed; you call him/her over and the dog obeys. What is your next step?</label>
+                </div>
+                <div class="col-md-10">
+                    <textarea class="form-control" rows="5" id="familySituationExample" name="familySituationExample" ng-model="vm.dogAdoptionDetails.family.situationExample" required></textarea>
+                    <ng-messages for="familyTrainingForm.familySituationExample.$error" ng-if="familyTrainingForm.familySituationExample.$touched" class="help-block">
+                        <span ng-message="required">Required</span>
+                    </ng-messages>
+                </div>
+            </div>
+            <div class="form-group form-group-sm">
+                <div class="col-md-2">
+                    <label for="familyOtherInformation">Is there any other information you can provide that will help the adoption coordinator match your family with an appropriate canine?</label>
+                </div>
+                <div class="col-md-10">
+                    <textarea class="form-control" rows="5" id="familyOtherInformation" name="familyOtherInformation" ng-model="vm.dogAdoptionDetails.family.otherInformation"></textarea>
+                </div>
+            </div>
+            <div class="form-group form-group-sm">
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-10">
+                    <h5><strong>Please complete the following questions if you live over an hour from London, Ontario</strong></h5>
+                </div>
+            </div>
+            <div class="form-group form-group-sm">
+                <div class="col-md-2">
+                    <label for="trainingFacility">What training facility do you plan to attend? What is the cost, what are the methods, and how long are the classes?</label>
+                </div>
+                <div class="col-md-10">
+                    <textarea class="form-control" rows="5" id="trainingFacility" name="trainingFacility" ng-model="vm.dogAdoptionDetails.family.trainingFacility"></textarea>
+                </div>
+            </div>
+            <div class="form-group form-group-sm">
+                <div class="col-md-2">
+                    <label for="obedienceTrainingLength">How much time do you believe obedience training will take? I.E. at what age do you believe your dog's training will be completed?</label>
+                </div>
+                <div class="col-md-10">
+                    <textarea class="form-control" rows="5" id="obedienceTrainingLength" name="obedienceTrainingLength" ng-model="vm.dogAdoptionDetails.family.obedienceTrainingLength"></textarea>
 
+                </div>
+            </div>
+            <div class="text-center">
+                <button type="button" class="btn btn-default" ng-click="vm.switchTab('Personal Details')">Previous</button>
+                <button type="button" class="btn btn-default" ng-click="vm.switchTab('Children')">Next</button>
+            </div>
         </ng-form>
     </div>
     <div ng-show="vm.isTabSelected('Children')">
         <ng-form name="childrenForm">
-
+            <div class="form-group form-group-sm">
+                <div class="col-md-2">
+                    <label for="trainingLength">How much obedience training will the dog require before the dog can be left alone with your child(ren)?</label>
+                </div>
+                <div class="col-md-10">
+                    <textarea class="form-control" rows="5" id="trainingLength" name="trainingLength" ng-model="vm.dogAdoptionDetails.children.trainingLength"></textarea>
+                </div>
+            </div>
+            <div class="form-group form-group-sm">
+                <div class="col-md-2">
+                    <label for="trainingFitLifestyle">Explain how you will be able to manage training of the dog in accordance with your current work/leisure schedule</label>
+                </div>
+                <div class="col-md-10">
+                    <textarea class="form-control" rows="5" id="trainingFitLifestyle" name="trainingFitLifestyle" ng-model="vm.dogAdoptionDetails.children.trainingFitLifestyle"></textarea>
+                </div>
+            </div>
+            <div class="form-group form-group-sm">
+                <div class="col-md-2">
+                    <label for="dogNipReaction">How will you handle a situation where the dog growls at your child or nips them?</label>
+                </div>
+                <div class="col-md-10">
+                    <textarea class="form-control" rows="5" id="dogNipReaction" name="dogNipReaction" ng-model="vm.dogAdoptionDetails.children.dogNipReaction"></textarea>
+                </div>
+            </div>
+            <div class="form-group form-group-sm">
+                <div class="col-md-2">
+                    <label for="dogRoughhouseReaction">How will you handle a situation where the dog knocks your child down while they are roughhousing?</label>
+                </div>
+                <div class="col-md-10">
+                    <textarea class="form-control" rows="5" id="dogRoughhouseReaction" name="dogRoughhouseReaction" ng-model="vm.dogAdoptionDetails.children.dogRoughhouseReaction"></textarea>
+                </div>
+            </div>
+            <div class="form-group form-group-sm">
+                <div class="col-md-2">
+                    <label for="unsupervisedLength">How long will the dog and child(ren) beft left unsupervised together?</label>
+                </div>
+                <div class="col-md-10">
+                    <textarea class="form-control" rows="5" id="unsupervisedLength" name="unsupervisedLength" ng-model="vm.dogAdoptionDetails.children.unsupervisedLength"></textarea>
+                </div>
+            </div>
+            <div class="form-group form-group-sm">
+                <div class="col-md-2">
+                    <label for="pastInteraction">How much interaction has your child had with dogs in the past?</label>
+                </div>
+                <div class="col-md-10">
+                    <textarea class="form-control" rows="5" id="pastInteraction" name="pastInteraction" ng-model="vm.dogAdoptionDetails.children.pastInteraction"></textarea>
+                </div>
+            </div>
+            <div class="form-group form-group-sm">
+                <div class="col-md-2">
+                    <label for="dogToleranceLevel">What tolerance level do you require a dog to have if a child were to pull the dog's ears, crawl over the dog, etc?</label>
+                </div>
+                <div class="col-md-10">
+                    <textarea class="form-control" rows="5" id="dogToleranceLevel" name="dogToleranceLevel" ng-model="vm.dogAdoptionDetails.children.dogToleranceLevel"></textarea>
+                </div>
+            </div>
+            <div class="form-group form-group-sm">
+                <div class="col-md-2">
+                    <label for="childSituationExample">Describe what you would do if your baby is crying, the dog needs to go outside, and you don't have a fenced yard</label>
+                </div>
+                <div class="col-md-10">
+                    <textarea class="form-control" rows="5" id="childSituationExample" name="childSituationExample" ng-model="vm.dogAdoptionDetails.children.situationExample"></textarea>
+                </div>
+            </div>
+            <div class="text-center">
+                <button type="button" class="btn btn-default" ng-click="vm.switchTab('Family & Training')">Previous</button>
+                <button type="button" class="btn btn-default" ng-click="vm.switchTab('Current Pets')">Next</button>
+            </div>
         </ng-form>
     </div>
     <div ng-show="vm.isTabSelected('Current Pets')">
         <ng-form name="currentPetsForm">
-
+            <div class="form-group form-group-sm">
+                <div class="col-md-2">
+                    <label for="exposureToDogs">What exposure has your current pet had to other dogs? Explain when, where, and how often the socialization has occured</label>
+                </div>
+                <div class="col-md-10">
+                    <textarea class="form-control" rows="5" id="exposureToDogs" name="exposureToDogs" ng-model="vm.dogAdoptionDetails.currentPets.exposureToDogs"></textarea>
+                </div>
+            </div>
+            <div class="form-group form-group-sm">
+                <div class="col-md-2">
+                    <label for="matchResearch">What research have you done in deciding if another canine would be a match for your resident canine(s)?</label>
+                </div>
+                <div class="col-md-10">
+                    <textarea class="form-control" rows="5" id="matchResearch" name="matchResearch" ng-model="vm.dogAdoptionDetails.currentPets.matchResearch"></textarea>
+                </div>
+            </div>
+            <div class="form-group form-group-sm">
+                <div class="col-md-2">
+                    <label for="trainingMethods">Describe the obedience and house-training methods you used for your resident canine(s)</label>
+                </div>
+                <div class="col-md-10">
+                    <textarea class="form-control" rows="5" id="trainingMethods" name="trainingMethods" ng-model="vm.dogAdoptionDetails.currentPets.trainingMethods"></textarea>
+                </div>
+            </div>
+            <div class="form-group form-group-sm">
+                <div class="col-md-2">
+                    <label for="trainingHistory">How long has it been since you attended a dog training class? Which classes did you attend?</label>
+                </div>
+                <div class="col-md-10">
+                    <textarea class="form-control" rows="5" id="trainingHistory" name="trainingHistory" ng-model="vm.dogAdoptionDetails.currentPets.trainingHistory"></textarea>
+                </div>
+            </div>
+            <div class="form-group form-group-sm">
+                <div class="col-md-2">
+                    <label for="motivation">What motivates your resident canine? How do you get him to do something that he doesn't want to do or to do something he hadn't thought of doing himself?</label>
+                </div>
+                <div class="col-md-10">
+                    <textarea class="form-control" rows="5" id="motivation" name="motivation" ng-model="vm.dogAdoptionDetails.currentPets.motivation"></textarea>
+                </div>
+            </div>
+            <div class="form-group form-group-sm">
+                <div class="col-md-2">
+                    <label for="petOtherInformation">Is there any other information you can provide that will help the adoption coordinator match your family with an appropriate canine?</label>
+                </div>
+                <div class="col-md-10">
+                    <textarea class="form-control" rows="5" id="petOtherInformation" name="petOtherInformation" ng-model="vm.dogAdoptionDetails.currentPets.petOtherInformation"></textarea>
+                </div>
+            </div>
+            <div class="text-center">
+                <button type="button" class="btn btn-default" ng-click="vm.switchTab('Children')">Previous</button>
+                <button type="button" class="btn btn-default" ng-class="{true: '', false:'disabled'}[vm.isFormValid()]" ng-click="">Submit</button>
+            </div>
         </ng-form>
     </div>
 </form>

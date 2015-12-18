@@ -12,6 +12,10 @@ a.error {
     color: #F90707 !important;
 }
 
+.form-group.required .required-label:before{
+     content:"* ";
+     color: #F90707;
+}
 hr{
     border-top: 1px solid #CAC5C5;
 }

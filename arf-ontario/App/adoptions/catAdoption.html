@@ -16,9 +16,9 @@
     <div ng-show="vm.isTabSelected('Personal Details')">
         <ng-form name="personalDetailsForm">
             <h5 class="text-center"><strong>Personal Details</strong></h5>
-            <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorTouched(personalDetailsForm.$name, personalDetailsForm.applicantName) }">
+            <div class="form-group form-group-sm required" ng-class="{'has-error': vm.hasErrorTouched(personalDetailsForm.$name, personalDetailsForm.applicantName) }">
                 <div class="col-md-2">
-                    <label for="applicantName">Applicant Name</label>
+                    <label for="applicantName" class="required-label">Applicant Name</label>
                 </div>
                 <div class="col-md-10">
                     <input type="text" class="form-control" id="applicantName" name="applicantName" ng-model="vm.catAdoptionDetails.applicantName" required />
@@ -27,9 +27,9 @@
                     </ng-messages>
                 </div>
             </div>
-            <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorDirty(personalDetailsForm.email) }">
+            <div class="form-group form-group-sm required" ng-class="{'has-error': vm.hasErrorDirty(personalDetailsForm.email) }">
                 <div class="col-md-2">
-                    <label for="email">E-mail</label>
+                    <label for="email" class="required-label">E-mail</label>
                 </div>
                 <div class="col-md-10">
                     <input type="email" class="form-control" id="email" name="email" placeholder="your@email.com" ng-model="vm.catAdoptionDetails.email" required />
@@ -39,9 +39,9 @@
                     </ng-messages>
                 </div>
             </div>
-            <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorTouched(personalDetailsForm.phoneNumber) }">
+            <div class="form-group form-group-sm required" ng-class="{'has-error': vm.hasErrorTouched(personalDetailsForm.phoneNumber) }">
                 <div class="col-md-2">
-                    <label for="phoneNumber">Phone Number</label>
+                    <label for="phoneNumber" class="required-label">Phone Number</label>
                 </div>
                 <div class="col-md-10">
                     <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="(xxx)-xxx-xxxx" ng-model="vm.catAdoptionDetails.phoneNumber" required />
@@ -50,9 +50,9 @@
                     </ng-messages>
                 </div>
             </div>
-            <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorTouched(personalDetailsForm.city) }">
+            <div class="form-group form-group-sm required" ng-class="{'has-error': vm.hasErrorTouched(personalDetailsForm.city) }">
                 <div class="col-md-2">
-                    <label for="city">City</label>
+                    <label for="city" class="required-label">City</label>
                 </div>
                 <div class="col-md-10">
                     <input type="text" class="form-control" id="city" name="city" ng-model="vm.catAdoptionDetails.city" required />
@@ -145,9 +145,9 @@
                     <textarea class="form-control" rows="5" id="spayNeuterThoughts" name="spayNeuterThoughts" ng-model="vm.catAdoptionDetails.spayNeuterThoughts"></textarea>
                 </div>
             </div>
-            <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorTouched(preferencesForm.scratchReaction) }">
+            <div class="form-group form-group-sm required" ng-class="{'has-error': vm.hasErrorTouched(preferencesForm.scratchReaction) }">
                 <div class="col-md-2">
-                    <label for="scratchReaction">If you came home and found your sofa scratched by kitty claws, how would you react?</label>
+                    <label for="scratchReaction" class="required-label">If you came home and found your sofa scratched by kitty claws, how would you react?</label>
                 </div>
                 <div class="col-md-10">
                     <textarea class="form-control" rows="5" id="scratchReaction" name="scratchReaction" ng-model="vm.catAdoptionDetails.scratchReaction" required></textarea>
@@ -156,9 +156,9 @@
                     </ng-messages>
                 </div>
             </div>
-            <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorTouched(preferencesForm.scratchDeterence) }">
+            <div class="form-group form-group-sm required" ng-class="{'has-error': vm.hasErrorTouched(preferencesForm.scratchDeterence) }">
                 <div class="col-md-2">
-                    <label for="scratchDeterence">How will you deter the cat from scratching further?</label>
+                    <label for="scratchDeterence" class="required-label">How will you deter the cat from scratching further?</label>
                 </div>
                 <div class="col-md-10">
                     <textarea class="form-control" rows="5" id="scratchDeterence" name="scratchDeterence" ng-model="vm.catAdoptionDetails.scratchDeterence" required></textarea>
@@ -167,9 +167,9 @@
                     </ng-messages>
                 </div>
             </div>
-            <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorTouched(preferencesForm.allowedOutdoors) }">
+            <div class="form-group form-group-sm required" ng-class="{'has-error': vm.hasErrorTouched(preferencesForm.allowedOutdoors) }">
                 <div class="col-md-2">
-                    <label for="allowedOutdoors">Please explain if the cat will be allowed outdoors and your reasoning</label>
+                    <label for="allowedOutdoors" class="required-label">Please explain if the cat will be allowed outdoors and your reasoning</label>
                 </div>
                 <div class="col-md-10">
                     <textarea class="form-control" rows="5" id="allowedOutdoors" name="allowedOutdoors" ng-model="vm.catAdoptionDetails.allowedOutdoors" required></textarea>
@@ -178,9 +178,9 @@
                     </ng-messages>
                 </div>
             </div>
-            <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorTouched(preferencesForm.hearAboutArf) }">
+            <div class="form-group form-group-sm required" ng-class="{'has-error': vm.hasErrorTouched(preferencesForm.hearAboutArf) }">
                 <div class="col-md-2">
-                    <label for="hearAboutArf">How did you hear about ARF?</label>
+                    <label for="hearAboutArf" class="required-label">How did you hear about ARF?</label>
                 </div>
                 <div class="col-md-10">
                     <textarea class="form-control" rows="5" id="hearAboutArf" name="hearAboutArf" ng-model="vm.catAdoptionDetails.hearAboutArf" required></textarea>
@@ -189,9 +189,9 @@
                     </ng-messages>
                 </div>
             </div>
-            <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorTouched(preferencesForm.applicationReasoning) }">
+            <div class="form-group form-group-sm required" ng-class="{'has-error': vm.hasErrorTouched(preferencesForm.applicationReasoning) }">
                 <div class="col-md-2">
-                    <label for="applicationReasoning">What made you decide to apply with ARF?</label>
+                    <label for="applicationReasoning" class="required-label">What made you decide to apply with ARF?</label>
                 </div>
                 <div class="col-md-10">
                     <textarea class="form-control" rows="5" id="applicationReasoning" name="applicationReasoning" ng-model="vm.catAdoptionDetails.applicationReasoning" required></textarea>

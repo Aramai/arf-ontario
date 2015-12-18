@@ -72,11 +72,19 @@
         }
 
         function isFormValid() {
-            return vm.applicationForm.$dirty && vm.applicationForm.$valid;
+            if(vm.applicationForm){
+                return vm.applicationForm.$dirty && vm.applicationForm.$valid;
+            }
+
+            return true;
         }
 
         function isChildFormValid(form) {
-            return vm.applicationForm[form].$pristine || vm.applicationForm[form].$valid;
+            if(vm.applicationForm && vm.applicationForm[form]){
+                return vm.applicationForm[form].$pristine || vm.applicationForm[form].$valid;
+            }
+
+            return true;
         }
 
         function isTabSelected(tab) {
@@ -86,12 +94,12 @@
         function switchTab(tab) {
             vm.selectedTab = tab;
         }
-
-        function hasErrorTouched(field) {            
-            return (field.$invalid && field.$touched);
-        }
-
+       
         function hasErrorTouched(form, field) {
+            if (field.$name == 'damageReaction') {
+                var x = 0;
+                x = x + 1;
+            }
             if (form && field) {
                 if (vm.applicationForm[form] && vm.applicationForm[form].$pristine && field.$touched) {
                     vm.applicationForm[form].$pristine = false;
@@ -137,7 +145,7 @@
                     crateTrainingThoughts: '',
                     damageReaction: '',
                     bitePreventionResearch: false,
-                    familyTrainingAttendance: '',
+                    familyTrainingAttendance: 1,
                     trainingExample: '',
                     situationExample: '',
                     otherInformation: '',
