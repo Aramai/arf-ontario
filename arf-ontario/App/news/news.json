@@ -1,0 +1,16 @@
+﻿{
+    "items": [
+        {
+            "heading": "Charity Golf Tournament a Great Success",
+            "image": "images/news/golftournamentthanks.jpg",
+            "brief": "ARF Recipient of Generous Donation",
+            "description": "A golf tournament is held annually in memory of Daniel Brand, who passed away a few years ago. He was a passionate dog lover. The golf tournament was July 9th at Echo Valley Golf Course. Many thanks to Daniel's mother Josie Brand, and to Daniel's friend Kevin Tomilnson, for choosing ARF as this year's recipient charity. The total amount donated to ARF was $3,155.00!!"
+        },
+        {
+            "heading": "Beauty Gala a Smash Hit",
+            "image": "images/news/shopperscollage.jpg",
+            "brief": "Cute Kitties Steal Hearts",
+            "description": "Thank you to the Huron/Highbury store for hosting the annual Beauty Gala this past weekend, with proceeds to ARF! Our adoptable kitties had a great time meeting new people and we even had a visit from adopted ARF dogs Marnie and Bella."
+        }          
+    ]
+}

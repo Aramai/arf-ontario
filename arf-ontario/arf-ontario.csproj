@@ -111,6 +111,8 @@
     <Content Include="App\volunteering\volunteering.route.js" />
     <Content Include="images\arflogo-large.gif" />
     <Content Include="images\Awesome-Dogs-logo.gif" />
+    <Content Include="images\news\golftournamentthanks.jpg" />
+    <Content Include="images\news\shopperscollage.jpg" />
     <Content Include="images\showings\Museum.jpg" />
     <Content Include="index.html" />
     <Content Include="Scripts\routerHelperProvider.js" />
@@ -129,6 +131,7 @@
     <Content Include="App\adoptions\adoptableDogs.json" />
     <Content Include="App\adoptions\adoptableCats.json" />
     <Content Include="App\adoptions\showings.json" />
+    <Content Include="App\news\news.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
