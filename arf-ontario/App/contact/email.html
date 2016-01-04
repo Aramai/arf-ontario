@@ -1,1 +1,61 @@
-﻿<h3>TODO: Implement features for contact</h3>
+﻿<form name="vm.contactForm" class="form-horizontal" ng-submit="vm.submitForm(contactForm.$valid)" novalidate>
+    <div class="form-group form-group-sm">
+        <label for="name" class="col-md-2">Name</label>
+        <div class="col-md-10">
+            <input type="text" class="form-control" id="name" name="name" placeholder="Name" ng-model="vm.contactDetails.name" />
+            
+        </div>
+    </div>
+    <div class="form-group form-group-sm">
+        <div class="col-md-2">
+            <label for="email">Email</label>
+        </div>
+        <div class="col-md-10">
+            <input type="email" class="form-control" id="email" name="email" placeholder="your@email.com" ng-model="vm.contactDetails.email" />           
+        </div>
+    </div>
+    <div class="form-group form-group-sm">
+        <label for="address" class="col-md-2">Address</label>
+        <div class="col-md-10">
+            <input type="text" class="form-control" id="address" name="address" placeholder="Address" ng-model="vm.contactDetails.address"/>           
+        </div>
+    </div>
+    <div class="form-group form-group-sm">
+        <div class="col-md-2">
+            <label for="phone">Telephone</label>
+        </div>
+        <div class="col-md-10">
+            <input type="tel" class="form-control" id="phone" name="phone" placeholder="(xxx) xxx-xxxx" ng-model="vm.contactDetails.phone" />
+        </div>
+    </div>
+    <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorTouched(vm.contactForm.subject) }">
+        <label for="subject" class="col-md-2">Subject</label>
+        <div class="col-md-10">
+            <input type="text" class="form-control" id="subject" name="subject" ng-model="vm.contactDetails.subject" required />
+            <ng-messages for="vm.contactForm.subject.$error" ng-if="vm.contactForm.subject.$touched" class="help-block">
+                <span ng-message="required">Required</span>
+            </ng-messages>
+        </div>
+    </div>
+    <div class="form-group form-group-sm" ng-class="{'has-error': vm.hasErrorTouched(vm.contactForm.comments) }">
+        <div class="col-md-2">
+            <label for="comments">Comments</label>
+        </div>
+        <div class="col-md-10">
+            <textarea class="form-control" rows="10" id="comments" name="comments" ng-model="vm.contactDetails.comments" required></textarea>
+            <ng-messages for="vm.contactForm.comments.$error" ng-if="vm.contactForm.comments.$touched" class="help-block">
+                <span ng-message="required">Required</span>
+            </ng-messages>
+        </div>
+    </div>
+    <div class="form-group form-group-sm">
+        <label for="hearAbout" class="col-md-2">How did you hear about us?</label>
+        <div class="col-md-10">
+            <input type="text" class="form-control" id="hearAbout" name="hearAbout" ng-model="vm.contactDetails.hearAbout"/>           
+        </div>
+    </div>
+    <div class="text-center">
+        <button class="btn btn-default" type="submit" ng-disabled="vm.contactForm.$invalid">Submit</button>
+        <button class="btn btn-default" type="reset">Reset</button>
+    </div>
+</form>

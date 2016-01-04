@@ -95,11 +95,7 @@
             vm.selectedTab = tab;
         }
        
-        function hasErrorTouched(form, field) {
-            if (field.$name == 'damageReaction') {
-                var x = 0;
-                x = x + 1;
-            }
+        function hasErrorTouched(form, field) {           
             if (form && field) {
                 if (vm.applicationForm[form] && vm.applicationForm[form].$pristine && field.$touched) {
                     vm.applicationForm[form].$pristine = false;
